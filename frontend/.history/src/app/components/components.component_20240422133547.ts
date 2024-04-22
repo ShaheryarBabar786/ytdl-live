@@ -132,7 +132,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
               this.truncateDescription();
   
               
-              this.isDownloadDisabled = false; // Enable download button
+              
             } else {
               console.error("Invalid data received:", data);
               this.errorMessage = "Invalid data received. Please try again.";
@@ -149,7 +149,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     } else {
       this.errorMessage = "Please enter a valid URL.";
       this.loading = false;
-      this.isDownloadDisabled = true; // Disable download button
+      
     }
   }
   

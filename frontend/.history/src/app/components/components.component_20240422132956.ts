@@ -162,7 +162,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   }
 
   linkDetail() {
-    this.ytService.downloadFullVideoDetails(this.videoURL).subscribe(
+    this.ytService.downloadVideoDetails(this.videoURL).subscribe(
       (data) => {
         this.thumbnailUrl = data.thumbnail;
         this.videoTitle = data.title;

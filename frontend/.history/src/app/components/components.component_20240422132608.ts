@@ -123,15 +123,16 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   
     if (this.videoURL && this.videoURL.trim() !== "") {
       setTimeout(() => {
-        this.ytService.downloadBasicVideoDetails(this.videoURL).subscribe(
+        this.ytService.downloadVideoDetails(this.videoURL).subscribe(
           (data) => {
             if (data) {
               this.thumbnailUrl = data.thumbnail;
               this.videoTitle = data.title;
-              this.loading = false; // Safely access description
+              this.videoDuration = data.duration; // Safely access duration
+              this.videoDescription = data.description; // Safely access description
               this.truncateDescription();
   
-              
+              this.loading = false;
               this.isDownloadDisabled = false; // Enable download button
             } else {
               console.error("Invalid data received:", data);
@@ -162,7 +163,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   }
 
   linkDetail() {
-    this.ytService.downloadFullVideoDetails(this.videoURL).subscribe(
+    this.ytService.downloadVideoDetails(this.videoURL).subscribe(
       (data) => {
         this.thumbnailUrl = data.thumbnail;
         this.videoTitle = data.title;

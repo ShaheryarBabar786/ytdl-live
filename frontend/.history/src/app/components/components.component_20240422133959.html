@@ -86,15 +86,15 @@
                     </option>
                   </select>
                 </div>
-                <!-- <div *ngIf="selectedFormat === 'mp3'">
+                <div *ngIf="selectedFormat === 'mp3'">
                   <label for="qualitySelect">Select Audio Quality:</label>
                   <select class="form-control mb-3 custom-border-select" id="qualitySelect"
                     [(ngModel)]="selectedQuality">
                     <option *ngFor="let quality of audioQualities" [value]="quality.value">{{ quality.label }}</option>
                   </select>
-                </div> -->
+                </div>
                 <button class="btn custom-btn" (click)="downloadVideo(selectedResolution)"
-                  [disabled]="!thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4') || ( selectedFormat === 'mp3')">
+                  [disabled]="!thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4') || (!selectedQuality && selectedFormat === 'mp3')">
                   Download
                 </button>
                 <div class="progress-container">

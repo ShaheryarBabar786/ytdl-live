@@ -40,22 +40,11 @@ export class YtServiceService {
   //     params: { videoURL, audioQuality },
   //   });
   // }
-  // downloadVideoDetails(videoURL: string): Observable<any> {
-  //   return this.http.get<any>(`${this.url}videoDetail/details`, {
-  //     params: { videoURL },
-  //   });
-  // }
-  downloadBasicVideoDetails(videoURL: string): Observable<any> {
+  downloadVideoDetails(videoURL: string): Observable<any> {
     return this.http.get<any>(`${this.url}videoDetail/details`, {
       params: { videoURL },
     });
   }
-  downloadFullVideoDetails(videoURL: string): Observable<any> {
-    return this.http.get<any>(`${this.url}videoDetail/fullDetails`, {
-      params: { videoURL },
-    });
-  }
-  
 
   getResolutions(videoURL: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.url}videoDetail/resolutions`, {

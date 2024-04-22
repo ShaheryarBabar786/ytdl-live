@@ -120,28 +120,25 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   onInputChanged() {
     this.loading = true;
     this.errorMessage = "";
-  
     if (this.videoURL && this.videoURL.trim() !== "") {
       setTimeout(() => {
-        this.ytService.downloadBasicVideoDetails(this.videoURL).subscribe(
+        this.ytService.downloadVideoDetails(this.videoURL).subscribe(
           (data) => {
-            if (data) {
-              this.thumbnailUrl = data.thumbnail;
-              this.videoTitle = data.title;
-              this.loading = false; // Safely access description
-              this.truncateDescription();
-  
-              
-              this.isDownloadDisabled = false; // Enable download button
-            } else {
-              console.error("Invalid data received:", data);
-              this.errorMessage = "Invalid data received. Please try again.";
-              this.loading = false;
-            }
+            this.thumbnailUrl = data.thumbnail;
+            this.videoTitle = data.title;
+            this.videoDuration = this.formatVideoDuration(data.duration);
+            this.videoDescription = data.description;
+            this.truncateDescription();
+
+            this.loading = false;
+
+            // Enable the download button as a valid URL is entered
+            this.isDownloadDisabled = false;
           },
           (error) => {
             console.error("Error fetching data:", error);
-            this.errorMessage = "Error fetching data. Please check the URL and try again.";
+            this.errorMessage =
+              "Invalid or incomplete URL. Please check and try again.";
             this.loading = false;
           }
         );
@@ -149,10 +146,11 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     } else {
       this.errorMessage = "Please enter a valid URL.";
       this.loading = false;
-      this.isDownloadDisabled = true; // Disable download button
+
+      // Disable the download button when no URL is entered
+      this.isDownloadDisabled = true;
     }
   }
-  
 
   onInput(event: Event) {
     const inputValue = (event.target as HTMLInputElement).value;
@@ -162,7 +160,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   }
 
   linkDetail() {
-    this.ytService.downloadFullVideoDetails(this.videoURL).subscribe(
+    this.ytService.downloadVideoDetails(this.videoURL).subscribe(
       (data) => {
         this.thumbnailUrl = data.thumbnail;
         this.videoTitle = data.title;
@@ -246,7 +244,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         .subscribe(
           (data) => {
             console.log(data);
-            
           },
           (error) => {
             console.error("Error downloading audio:", error);
@@ -276,5 +273,22 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
   }
-  
+  // private triggerFileDownload(
+  //   data: Blob,
+  //   contentType: string,
+  //   fileName: string
+  // ) {
+  //   try {
+  //     const blob = new Blob([data], { type: contentType });
+  //     const downloadLink = document.createElement("a");
+  //     downloadLink.href = window.URL.createObjectURL(blob);
+  //     downloadLink.download = fileName;
+  //     document.body.appendChild(downloadLink);
+  //     downloadLink.click();
+  //     document.body.removeChild(downloadLink);
+  //   } catch (error) {
+  //     console.error("Error triggering download:", error);
+  //     alert("An error occurred while starting the download. Please try again.");
+  //   }
+  // }
 }

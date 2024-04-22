@@ -9,6 +9,7 @@
             <h4 style="font-weight: bolder">
               Download Youtube and private video in mp4 and mp3
             </h4>
+
             <p class="text-center">Tool to download video and audio from Youtube in high quality</p>
           </div>
         </div>
@@ -76,16 +77,6 @@
                   <option value="mp4">MP4</option>
                   <option value="mp3">MP3</option>
                 </select>
-
-                <!-- <div *ngIf="selectedFormat === 'mp4'">
-                  <label for="resolutionSelect">Select Resolution:</label>
-                  <select class="form-control mb-3 custom-border-select" id="resolutionSelect"
-                    [(ngModel)]="selectedResolution">
-                    <option *ngFor="let option of resolutionOptions" [value]="option.itag">
-                      {{ option.resolution }}p
-                    </option>
-                  </select>
-                </div> -->
                 <div *ngIf="selectedFormat === 'mp4'">
                   <label for="resolutionSelect">Select Resolution:</label>
                   <select class="form-control mb-3 custom-border-select" id="resolutionSelect"
@@ -95,15 +86,6 @@
                     </option>
                   </select>
                 </div>
-
-
-
-
-
-
-
-
-
                 <div *ngIf="selectedFormat === 'mp3'">
                   <label for="qualitySelect">Select Audio Quality:</label>
                   <select class="form-control mb-3 custom-border-select" id="qualitySelect"
@@ -111,7 +93,6 @@
                     <option *ngFor="let quality of audioQualities" [value]="quality.value">{{ quality.label }}</option>
                   </select>
                 </div>
-
                 <button class="btn custom-btn" (click)="downloadVideo(selectedResolution)"
                   [disabled]="!thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4') || (!selectedQuality && selectedFormat === 'mp3')">
                   Download
@@ -119,10 +100,6 @@
                 <div class="progress-container">
                   <div class="progress-bar" id="download-progress"></div>
                 </div>
-
-
-
-
               </div>
             </div>
           </div>
