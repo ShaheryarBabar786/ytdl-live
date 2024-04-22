@@ -4,27 +4,6 @@ const ytdl = require('ytdl-core');
 
 const router = express.Router();
 
-
-// router.get('/details', async (req, res) => {
-//     const { videoURL } = req.query;
-  
-//     try {
-//       if (!ytdl.validateURL(videoURL)) {
-//         throw new Error('Invalid YouTube URL');
-//       }
-  
-//       const info = await ytdl.getInfo(videoURL);
-//       const title = info.videoDetails.title;
-//       const thumbnail = info.videoDetails.thumbnails[0].url;
-//       const duration = info.videoDetails.lengthSeconds;
-//       const description = info.videoDetails.description;
-  
-//       res.status(200).json({ title, thumbnail, duration, description });
-//     } catch (error) {
-//       console.error('Error fetching video details:', error.message);
-//       res.status(500).json({ error: 'Error fetching video details', message: error.message });
-//     }
-//   });
 router.get('/details', async (req, res) => {
   const { videoURL } = req.query;
 

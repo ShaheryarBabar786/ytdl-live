@@ -242,20 +242,24 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       this.ytService
         .downloadVideo(this.videoURL, this.selectedResolution)
         .subscribe(
-          (blob) => this.downloadBlob(blob, "video.mp4"),
-          (error) => console.error("Error downloading video:", error)
-        );
-    } else if (this.selectedFormat === "mp3") {
-      this.ytService
-        .downloadAudio(this.videoURL, this.selectedQuality)
-        .subscribe(
           (data) => {
             console.log(data);
           },
           (error) => {
             console.error("Error downloading audio:", error);
           }
+          // (blob) => this.downloadBlob(blob, "video.mp4"),
+          // (error) => console.error("Error downloading video:", error)
         );
+    } else if (this.selectedFormat === "mp3") {
+      this.ytService.downloadAudio(this.videoURL).subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (error) => {
+          console.error("Error downloading audio:", error);
+        }
+      );
     }
   }
 

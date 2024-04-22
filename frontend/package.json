@@ -26,6 +26,8 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "@ng-bootstrap/ng-bootstrap": "6.0.0",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
     "ajv": "7.0.0",
     "ajv-keywords": "4.0.0",
     "bootstrap": "4.5.3",

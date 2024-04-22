@@ -11,7 +11,10 @@ const app = express();
 
 app.use(express.json({ limit: '25mb' }));
 app.use(express.urlencoded({ limit: '25mb', extended: true }));
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:4200', // Allow requests from this origin
+    credentials: true, // Allow credentials like cookies, if needed
+}));
 app.use(morgan('dev'));
 
 const downloadRoutes = require('./routes/downloadRoutes');
@@ -20,7 +23,7 @@ const videoDetailsRoutes = require('./routes/Detailroute');
 
 
 app.use('/download', downloadRoutes);
-app.use('/downloadmp3', downloadMp3Routes);
+app.use('/mp3', downloadMp3Routes);
 app.use('/videoDetail', videoDetailsRoutes);
 
 
