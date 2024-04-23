@@ -25,7 +25,7 @@
                       height: 48px;
                       margin: 0 ;
                       margin: 0 !important;                      
-                      " [(ngModel)]="videoURL" (input)="onInputChanged()" (input)="onInput($event)" (paste)="loadResolutions()"/>
+                      " [(ngModel)]="videoURL" (input)="onInputChanged()" (input)="onInput($event)" />
                 <div class="input-group-append">
                   <button class="btn btn-lg btn-block btn-sm" type="submit" (click)="open(classic, 'md')"
                     style="border-radius: 0 20px 20px 0; height: 48px; margin: 0; background-color: #0181B0;"
@@ -81,14 +81,12 @@
                   <label for="resolutionSelect">Select Resolution:</label>
                   <select class="form-control mb-3 custom-border-select" id="resolutionSelect" [(ngModel)]="selectedResolution">
                     <ng-container *ngFor="let option of resolutionOptions">
-                      <option *ngIf="option.itag === 22 || option.itag === 18" [value]="option.itag">
+                      <option [value]="option.itag" [ngIf]="option.audioAvailable">
                         {{ option.resolution }}
                       </option>
                     </ng-container>
                   </select>
                 </div>
-                
-                
                 
                 
                 <!-- <div *ngIf="selectedFormat === 'mp3'">

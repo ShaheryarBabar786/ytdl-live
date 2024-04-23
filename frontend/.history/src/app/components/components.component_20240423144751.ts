@@ -67,7 +67,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     config.closeOthers = true;
     config.type = "info";
     this.selectedFormat = "mp4";
-    
   }
   isWeekend(date: NgbDateStruct) {
     const d = new Date(date.year, date.month - 1, date.day);
@@ -170,8 +169,8 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         this.videoDuration = this.formatVideoDuration(data.duration);
         this.videoDescription = data.description;
         this.truncateDescription();
-        this.loadResolutions(); 
-        // this.fetchAudioQualities();
+        this.loadResolutions(this.videoURL); // Fetch resolutions after getting video details
+        this.fetchAudioQualities(this.videoURL);
       },
       (error) => {
         console.error("Error fetching data:", error);
@@ -205,43 +204,43 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   resolutionChange(resolution: string) {
     this.selectedResolution = resolution;
   }
-  
 
-  loadResolutions() {
+  loadResolutions(videoURL) {
     this.ytService.getResolutions(this.videoURL).subscribe(
       (data) => {
-        this.resolutionOptions = data.filter(option => option.itag === 22 || option.itag === 18).map(option => ({
+        this.resolutionOptions = data.map((option) => ({
           ...option,
-          audioAvailable: option.audioBitrate !== null,
+          audioAvailable: option.audioBitrate !== null, // Check if audioBitrate is not null
         }));
-        console.log(this.resolutionOptions);
       },
       (error) => {
         console.error("Error fetching resolutions:", error);
       }
     );
   }
-  // fetchAudioQualities() {
-  //   this.ytService.getAudioQualities(this.videoURL).subscribe(
-  //     (data) => {
+  fetchAudioQualities(videoURL: string) {
+    this.ytService.getAudioQualities(videoURL).subscribe(
+      (data) => {
         
-  //       this.audioQualities = data
-  //         .filter((quality) => quality.audioQuality !== "undefinedkbps")
-  //         .map((quality) => ({
-  //           label: quality.audioQuality,
-  //           value: quality.itag,
-  //         }));
-  //     },
-  //     (error) => {
-  //       console.error("Error fetching audio qualities:", error);
-  //       // Handle the error, such as displaying a message to the user
-  //     }
-  //   );
-  // }
+        this.audioQualities = data
+          .filter((quality) => quality.audioQuality !== "undefinedkbps")
+          .map((quality) => ({
+            label: quality.audioQuality,
+            value: quality.itag,
+          }));
+      },
+      (error) => {
+        console.error("Error fetching audio qualities:", error);
+        // Handle the error, such as displaying a message to the user
+      }
+    );
+  }
 
-  downloadVideo() {
+  downloadVideo(resolution: string) {
     console.log("download button clicked");
     if (this.selectedFormat === "mp4") {
+      const itag = resolution; // Use the selected resolution as the itag
+
       this.ytService
         .downloadVideo(this.videoURL, this.selectedResolution)
         .subscribe(

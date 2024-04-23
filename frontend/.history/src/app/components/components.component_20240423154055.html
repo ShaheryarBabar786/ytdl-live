@@ -81,13 +81,12 @@
                   <label for="resolutionSelect">Select Resolution:</label>
                   <select class="form-control mb-3 custom-border-select" id="resolutionSelect" [(ngModel)]="selectedResolution">
                     <ng-container *ngFor="let option of resolutionOptions">
-                      <option *ngIf="option.itag === 22 || option.itag === 18" [value]="option.itag">
+                      <option *ngIf="option.audioAvailable" [value]="option.itag">
                         {{ option.resolution }}
                       </option>
                     </ng-container>
                   </select>
                 </div>
-                
                 
                 
                 

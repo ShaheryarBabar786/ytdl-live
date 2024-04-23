@@ -67,7 +67,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     config.closeOthers = true;
     config.type = "info";
     this.selectedFormat = "mp4";
-    
   }
   isWeekend(date: NgbDateStruct) {
     const d = new Date(date.year, date.month - 1, date.day);
@@ -205,16 +204,14 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   resolutionChange(resolution: string) {
     this.selectedResolution = resolution;
   }
-  
 
   loadResolutions() {
     this.ytService.getResolutions(this.videoURL).subscribe(
       (data) => {
-        this.resolutionOptions = data.filter(option => option.itag === 22 || option.itag === 18).map(option => ({
+        this.resolutionOptions = data.map((option) => ({
           ...option,
-          audioAvailable: option.audioBitrate !== null,
+          audioAvailable: option.audioBitrate !== null, // Check if audioBitrate is not null
         }));
-        console.log(this.resolutionOptions);
       },
       (error) => {
         console.error("Error fetching resolutions:", error);
@@ -239,9 +236,11 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   //   );
   // }
 
-  downloadVideo() {
+  downloadVideo(resolution: string) {
     console.log("download button clicked");
     if (this.selectedFormat === "mp4") {
+      const itag = resolution; // Use the selected resolution as the itag
+
       this.ytService
         .downloadVideo(this.videoURL, this.selectedResolution)
         .subscribe(

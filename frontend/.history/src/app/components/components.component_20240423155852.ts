@@ -12,7 +12,9 @@ import * as Rellax from "rellax";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { YtServiceService } from "app/services/yt-service.service";
 import { saveAs } from "file-saver";
-import { map } from "rxjs";
+import { Subject, map } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: "app-components",
@@ -57,17 +59,23 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   public isCollapsed2 = true;
   state_icon_primary = true;
   isDownloadDisabled: boolean = true;
+  private debouncer: Subject<string>;
 
   constructor(
     private renderer: Renderer2,
     config: NgbAccordionConfig,
     private modalService: NgbModal,
-    private ytService: YtServiceService
+    private ytService: YtServiceService,
+    private http: HttpClient,
+    
   ) {
     config.closeOthers = true;
     config.type = "info";
     this.selectedFormat = "mp4";
-    
+    this.debouncer = new Subject<string>();
+    this.debouncer.pipe(debounceTime(500)).subscribe(() => {
+    this.loadResolutions();
+  });
   }
   isWeekend(date: NgbDateStruct) {
     const d = new Date(date.year, date.month - 1, date.day);
@@ -119,6 +127,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   }
 
   onInputChanged() {
+    this.debouncer.next(this.videoURL);
     this.loading = true;
     this.errorMessage = "";
   
