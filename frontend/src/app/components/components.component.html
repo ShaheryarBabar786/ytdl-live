@@ -25,11 +25,11 @@
                       height: 48px;
                       margin: 0 ;
                       margin: 0 !important;                      
-                      " [(ngModel)]="videoURL" (input)="onInputChanged()" (input)="onInput($event)" (paste)="loadResolutions()"/>
+                      " [(ngModel)]="videoURL" (input)="onInputChanged()" (input)="onInput($event)" />
                 <div class="input-group-append">
                   <button class="btn btn-lg btn-block btn-sm" type="submit" (click)="open(classic, 'md')"
                     style="border-radius: 0 20px 20px 0; height: 48px; margin: 0; background-color: #0181B0;"
-                    (click)="linkDetail()" >
+                    (click)="linkDetail()">
                     Download
                   </button>
                 </div>
@@ -79,7 +79,8 @@
                 </select>
                 <div *ngIf="selectedFormat === 'mp4'">
                   <label for="resolutionSelect">Select Resolution:</label>
-                  <select class="form-control mb-3 custom-border-select" id="resolutionSelect" [(ngModel)]="selectedResolution">
+                  <select class="form-control mb-3 custom-border-select" id="resolutionSelect"
+                    [(ngModel)]="selectedResolution">
                     <ng-container *ngFor="let option of resolutionOptions">
                       <option *ngIf="option.itag === 22 || option.itag === 18" [value]="option.itag">
                         {{ option.resolution }}
@@ -87,28 +88,23 @@
                     </ng-container>
                   </select>
                 </div>
-                
-                
-                
-                
-                <!-- <div *ngIf="selectedFormat === 'mp3'">
-                  <label for="qualitySelect">Select Audio Quality:</label>
-                  <select class="form-control mb-3 custom-border-select" id="qualitySelect"
-                    [(ngModel)]="selectedQuality">
-                    <option *ngFor="let quality of audioQualities" [value]="quality.value">{{ quality.label }}</option>
-                  </select>
-                </div> -->
-                <button class="btn custom-btn" (click)="downloadVideo(selectedResolution)"
-                  [disabled]="!thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4')">
-                  Download
+                <button class="btn custom-btn" (click)="downloadVideo()"
+                  [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4')">
+                  <span *ngIf="downloading">Downloading... {{ downloadProgress }}%</span>
+                  <span *ngIf="!downloading">Download</span>
                 </button>
+
+                <div class="progress" *ngIf="downloading">
+                  <div class="progress-bar" role="progressbar" [style.width.%]="downloadProgress"
+                    aria-valuenow="{{ downloadProgress }}" aria-valuemin="0" aria-valuemax="100">{{ downloadProgress }}%
+                  </div>
+                </div>
                 <div class="progress-container">
                   <div class="progress-bar" id="download-progress"></div>
                 </div>
               </div>
             </div>
           </div>
-
         </ng-template>
         <div class="col-md-12 text-center" style="padding-bottom: 30px;padding-top: 30px;">
           <h5 style="font-weight: bolder">

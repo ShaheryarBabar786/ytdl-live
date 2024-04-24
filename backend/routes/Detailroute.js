@@ -6,6 +6,7 @@ const router = express.Router();
 
 
 router.get('/details', async (req, res) => {
+  console.log("detail router called")
   const { videoURL } = req.query;
 
   try {

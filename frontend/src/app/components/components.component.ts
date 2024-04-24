@@ -57,6 +57,8 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   public isCollapsed2 = true;
   state_icon_primary = true;
   isDownloadDisabled: boolean = true;
+  downloading: boolean = false;
+  downloadProgress: number = 0;
 
   constructor(
     private renderer: Renderer2,
@@ -67,7 +69,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     config.closeOthers = true;
     config.type = "info";
     this.selectedFormat = "mp4";
-    
   }
   isWeekend(date: NgbDateStruct) {
     const d = new Date(date.year, date.month - 1, date.day);
@@ -83,7 +84,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("index-page");
     this.selectedFormat = "mp4";
-    this.selectedResolution = "137";
+    this.selectedResolution = "22";
   }
   ngOnDestroy() {
     var navbar = document.getElementsByTagName("nav")[0];
@@ -112,16 +113,14 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   }
   formatChange() {
     if (this.selectedFormat === "mp4") {
-      this.selectedResolution = "1080";
-    } else if (this.selectedFormat === "mp3") {
-      this.selectedQuality = "320";
+      this.selectedResolution = "720";
     }
   }
 
   onInputChanged() {
     this.loading = true;
     this.errorMessage = "";
-  
+
     if (this.videoURL && this.videoURL.trim() !== "") {
       setTimeout(() => {
         this.ytService.downloadBasicVideoDetails(this.videoURL).subscribe(
@@ -131,8 +130,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
               this.videoTitle = data.title;
               this.loading = false; // Safely access description
               this.truncateDescription();
-  
-              
+
               this.isDownloadDisabled = false; // Enable download button
             } else {
               console.error("Invalid data received:", data);
@@ -142,7 +140,8 @@ export class ComponentsComponent implements OnInit, OnDestroy {
           },
           (error) => {
             console.error("Error fetching data:", error);
-            this.errorMessage = "Error fetching data. Please check the URL and try again.";
+            this.errorMessage =
+              "Error fetching data. Please check the URL and try again.";
             this.loading = false;
           }
         );
@@ -153,7 +152,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       this.isDownloadDisabled = true; // Disable download button
     }
   }
-  
 
   onInput(event: Event) {
     const inputValue = (event.target as HTMLInputElement).value;
@@ -170,7 +168,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         this.videoDuration = this.formatVideoDuration(data.duration);
         this.videoDescription = data.description;
         this.truncateDescription();
-        this.loadResolutions(); 
+        this.loadResolutions();
         // this.fetchAudioQualities();
       },
       (error) => {
@@ -205,15 +203,16 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   resolutionChange(resolution: string) {
     this.selectedResolution = resolution;
   }
-  
 
   loadResolutions() {
     this.ytService.getResolutions(this.videoURL).subscribe(
       (data) => {
-        this.resolutionOptions = data.filter(option => option.itag === 22 || option.itag === 18).map(option => ({
-          ...option,
-          audioAvailable: option.audioBitrate !== null,
-        }));
+        this.resolutionOptions = data
+          .filter((option) => option.itag === 22 || option.itag === 18)
+          .map((option) => ({
+            ...option,
+            audioAvailable: option.audioBitrate !== null,
+          }));
         console.log(this.resolutionOptions);
       },
       (error) => {
@@ -221,37 +220,65 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       }
     );
   }
-  // fetchAudioQualities() {
-  //   this.ytService.getAudioQualities(this.videoURL).subscribe(
-  //     (data) => {
-        
-  //       this.audioQualities = data
-  //         .filter((quality) => quality.audioQuality !== "undefinedkbps")
-  //         .map((quality) => ({
-  //           label: quality.audioQuality,
-  //           value: quality.itag,
-  //         }));
-  //     },
-  //     (error) => {
-  //       console.error("Error fetching audio qualities:", error);
-  //       // Handle the error, such as displaying a message to the user
-  //     }
-  //   );
+  // downloadVideo() {
+  //   console.log("download button clicked");
+  //   if (this.selectedFormat === "mp4") {
+  //     this.ytService
+  //       .downloadVideo(this.videoURL, this.selectedResolution)
+  //       .subscribe(
+  //         (blob) => this.downloadBlob(blob, "video.mp4"),
+  //         (error) => console.error("Error downloading video:", error)
+  //       );
+  //   } else if (this.selectedFormat === "mp3") {
+  //     this.ytService.downloadAudio(this.videoURL).subscribe(
+  //       (blob) => this.downloadBlob(blob, "audio.mp3"),
+  //       (error) => console.error("Error downloading video:", error)
+  //     );
+  //   }
   // }
-
   downloadVideo() {
     console.log("download button clicked");
     if (this.selectedFormat === "mp4") {
+      this.downloading = true;
+      this.downloadProgress = 0;
+
       this.ytService
         .downloadVideo(this.videoURL, this.selectedResolution)
         .subscribe(
-          (blob) => this.downloadBlob(blob, "video.mp4"),
-          (error) => console.error("Error downloading video:", error)
+          (event: any) => {
+            if (event.type === "downloadProgress") {
+              this.downloadProgress = Math.round(
+                (event.loaded / event.total) * 100
+              );
+            } else if (event instanceof Blob) {
+              this.downloadBlob(event, "video.mp4");
+              this.downloading = false;
+            }
+          },
+          (error) => {
+            console.error("Error downloading video:", error);
+            this.downloading = false;
+          }
         );
     } else if (this.selectedFormat === "mp3") {
+      this.downloading = true;
+      this.downloadProgress = 0;
+
       this.ytService.downloadAudio(this.videoURL).subscribe(
-        (blob) => this.downloadBlob(blob, "audio.mp3"),
-          (error) => console.error("Error downloading video:", error)
+        (event: any) => {
+          if (event.type === "downloadProgress") {
+            this.downloadProgress = Math.round(
+              (event.loaded / event.total) * 100
+            );
+          } else if (event instanceof Blob) {
+            this.downloadBlob(event, "audio.mp3");
+            this.downloading = false;
+          }
+        },
+        (error) => {
+          console.error("Error downloading audio:", error);
+          this.downloading = false;
+        }
       );
     }
   }
@@ -266,5 +293,4 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
   }
-  
 }

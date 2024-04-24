@@ -15,13 +15,10 @@ export class YtServiceService {
   url = environment.url;
 
   constructor(private http: HttpClient) {}
-  downloadAudio(audioURL: string): Observable<Blob> {
-    const params = { audioURL };
-    const headers = new HttpHeaders().set("Content-Type", "application/json");
-
+  downloadAudio(videoURL: string): Observable<Blob> {
+    const params = new HttpParams().set("videoURL", videoURL);
     return this.http.get(`${this.url}mp3/downloadAudio`, {
       params,
-      headers,
       responseType: "blob",
     });
   }
@@ -34,17 +31,6 @@ export class YtServiceService {
       responseType: "blob",
     });
   }
-
-  // downloadAudio(videoURL: string, audioQuality: string): Observable<any> {
-  //   return this.http.get<any>(`${this.url}downloadmp3`, {
-  //     params: { videoURL, audioQuality },
-  //   });
-  // }
-  // downloadVideoDetails(videoURL: string): Observable<any> {
-  //   return this.http.get<any>(`${this.url}videoDetail/details`, {
-  //     params: { videoURL },
-  //   });
-  // }
   downloadBasicVideoDetails(videoURL: string): Observable<any> {
     return this.http.get<any>(`${this.url}videoDetail/details`, {
       params: { videoURL },
@@ -55,16 +41,9 @@ export class YtServiceService {
       params: { videoURL },
     });
   }
-  
 
   getResolutions(videoURL: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.url}videoDetail/resolutions`, {
-      params: { videoURL },
-    });
-  }
-
-  getAudioQualities(videoURL: string): Observable<any> {
-    return this.http.get<any>(`${this.url}videoDetail/audio-qualities`, {
       params: { videoURL },
     });
   }
