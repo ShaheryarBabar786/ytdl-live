@@ -75,9 +75,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     this.selectedFormat = "mp4";
     this.selectedLanguage = 'en';
   }
-  changeLanguage() {
-    this.translateService.use(this.selectedLanguage);
-  }
   isWeekend(date: NgbDateStruct) {
     const d = new Date(date.year, date.month - 1, date.day);
     return d.getDay() === 0 || d.getDay() === 6;
@@ -120,7 +117,9 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     }
   }
 
-  
+  changeLanguage() {
+    this.translateService.use(this.selectedLanguage);
+  }
   formatChange() {
     if (this.selectedFormat === "mp4") {
       this.selectedResolution = "720";

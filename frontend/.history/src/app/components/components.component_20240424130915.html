@@ -1,6 +1,4 @@
 <div class="wrapper">
-  
-  
   <div class="clear-filter">
     <div class="page-header-image rellax-header" data-rellax-speed="-7"></div>
     <div class="container">
@@ -9,11 +7,10 @@
         <div class="row justify-content-center" style="padding-top: 25px;padding-bottom: 25px;">
           <div class="col-md-12 text-center">
             <h4 style="font-weight: bolder">
-              {{ 'main-heading' | translate }}
-              <!-- Download Youtube and private video in mp4 and mp3 -->
+              Download Youtube and private video in mp4 and mp3
             </h4>
 
-            <p class="text-center">{{ 'sub-heading' | translate }}</p>
+            <p class="text-center">Tool to download video and audio from Youtube in high quality</p>
           </div>
         </div>
         <div class=" row justify-content-center" style="padding-bottom: 40px;">
@@ -22,7 +19,7 @@
               style="display: flex; border-radius: 20px; overflow: hidden">
               <div class="input-group" style="flex-grow: 1">
                 <input class="form-control form-control-lg mr-sm-2 align-top" type="search"
-                  placeholder="{{ 'main-placeholder' | translate }}" aria-label="Search" style="
+                  placeholder="Paste your URL here" aria-label="Search" style="
                       border-radius: 20px 0 0 20px;
                       border: 1px solid #ccc;
                       height: 48px;
@@ -33,12 +30,12 @@
                   <button class="btn btn-lg btn-block btn-sm" type="submit" (click)="open(classic, 'md')"
                     style="border-radius: 0 20px 20px 0; height: 48px; margin: 0; background-color: #0181B0;"
                     (click)="linkDetail()">
-                    {{ 'main-download-button' | translate }}
+                    Download
                   </button>
                 </div>
               </div>
             </form>
-            <div *ngIf="errorMessage" class="text-danger">{{ 'error-binding' | translate }}</div>
+            <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
           </div>
         </div>
         <div class="row justify-content-center" style="padding-bottom: 20px;">
@@ -109,11 +106,6 @@
             </div>
           </div>
         </ng-template>
-        
-      
-        <div>
-          {{ 'content' | translate }}
-        </div>
         <div class="col-md-12 text-center" style="padding-bottom: 30px;padding-top: 30px;">
           <h5 style="font-weight: bolder">
             YT5s.io - The best online YouTube video downloader

@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef } from "@angular/core";
 import { Location } from "@angular/common";
-import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-navbar",
@@ -10,18 +9,14 @@ import { TranslateService } from "@ngx-translate/core";
 export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
-  selectedLanguage: string = "en";
 
-  constructor(public location: Location, private element: ElementRef,private translateService: TranslateService) {
+  constructor(public location: Location, private element: ElementRef) {
     this.sidebarVisible = false;
   }
 
   ngOnInit() {
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName("navbar-toggler")[0];
-  }
-  changeLanguage() {
-    this.translateService.use(this.selectedLanguage);
   }
   sidebarOpen() {
     const toggleButton = this.toggleButton;

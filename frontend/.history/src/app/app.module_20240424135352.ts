@@ -12,7 +12,7 @@ import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { YtServiceService } from "./services/yt-service.service";
 import { CommonModule } from "@angular/common";
 import { TranslateLoader, TranslateModule, TranslateService } from "@ngx-translate/core";
-
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpLoaderFactory } from './translation-loader';
 
 @NgModule({

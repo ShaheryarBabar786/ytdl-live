@@ -13,7 +13,6 @@ import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { YtServiceService } from "app/services/yt-service.service";
 import { saveAs } from "file-saver";
 import { map } from "rxjs";
-import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-components",
@@ -60,23 +59,16 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   isDownloadDisabled: boolean = true;
   downloading: boolean = false;
   downloadProgress: number = 0;
-  selectedLanguage: string = "en";
-  
 
   constructor(
     private renderer: Renderer2,
     config: NgbAccordionConfig,
     private modalService: NgbModal,
-    private ytService: YtServiceService,
-    private translateService: TranslateService
+    private ytService: YtServiceService
   ) {
     config.closeOthers = true;
     config.type = "info";
     this.selectedFormat = "mp4";
-    this.selectedLanguage = 'en';
-  }
-  changeLanguage() {
-    this.translateService.use(this.selectedLanguage);
   }
   isWeekend(date: NgbDateStruct) {
     const d = new Date(date.year, date.month - 1, date.day);
@@ -119,8 +111,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       return `with: ${reason}`;
     }
   }
-
-  
   formatChange() {
     if (this.selectedFormat === "mp4") {
       this.selectedResolution = "720";
