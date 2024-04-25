@@ -1,6 +1,6 @@
 <div class="wrapper">
-  
-  
+
+
   <div class="clear-filter">
     <div class="page-header-image rellax-header" data-rellax-speed="-7"></div>
     <div class="container">
@@ -38,7 +38,7 @@
                 </div>
               </div>
             </form>
-            <div *ngIf="errorMessage" class="text-danger">{{ 'error-binding' | translate }}</div>
+            <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
           </div>
         </div>
         <div class="row justify-content-center" style="padding-bottom: 20px;">
@@ -54,7 +54,7 @@
         </div>
         <ng-template #classic let-c="close" let-d="dismiss">
           <div class="modal-header">
-            <h5 class="modal-title text-center" style="font-weight: bold;">Detail of the URL pasted</h5>
+            <h5 class="modal-title text-center" style="font-weight: bold;">{{ 'modal-heading' | translate }}</h5>
             <button type="button" style="color: #0181B0;" class="close" (click)="d('Cross click')">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -66,22 +66,22 @@
                   <img [src]="thumbnailUrl" alt="Thumbnail" class="img-fluid mb-3 rounded" style="width: 300px;">
                 </div>
                 <h6>{{ videoTitle }}</h6>
-                <h6>Duration: {{ videoDuration }}</h6>
-                <p><strong>Description:</strong> {{ showFullDescription ? videoDescription : truncatedVideoDescription
-                  }}
+                <h6>{{ 'model-videoDuration' | translate }}: {{ videoDuration }}</h6>
+                <p><strong>{{ 'model-videoDescription' | translate }}:</strong> {{ showFullDescription ?
+                  videoDescription : truncatedVideoDescription}}
                   <button class="btn btn-link p-0 m-0 btn-sm" (click)="toggleDescription()">
                     {{ showFullDescription ? 'See less' : 'See more' }}
                   </button>
                 </p>
                 <hr>
-                <label for="formatSelect">Select Format:</label>
+                <label for="formatSelect">{{ 'modal-formatselect' | translate }}:</label>
                 <select class="form-control mb-3 custom-border-select" id="formatSelect" [(ngModel)]="selectedFormat"
                   (change)="formatChange()">
-                  <option value="mp4">MP4</option>
-                  <option value="mp3">MP3</option>
+                  <option value="mp4">{{ 'formatselectop1' | translate }}</option>
+                  <option value="mp3">{{ 'formatselectop2' | translate }}</option>
                 </select>
                 <div *ngIf="selectedFormat === 'mp4'">
-                  <label for="resolutionSelect">Select Resolution:</label>
+                  <label for="resolutionSelect">{{ 'modal-selectresolution' | translate }}:</label>
                   <select class="form-control mb-3 custom-border-select" id="resolutionSelect"
                     [(ngModel)]="selectedResolution">
                     <ng-container *ngFor="let option of resolutionOptions">
@@ -93,8 +93,9 @@
                 </div>
                 <button class="btn custom-btn" (click)="downloadVideo()"
                   [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4')">
-                  <span *ngIf="downloading">Downloading... {{ downloadProgress }}%</span>
-                  <span *ngIf="!downloading">Download</span>
+                  <span *ngIf="downloading">{{ 'model-downloadprogressbutton' | translate }}... {{ downloadProgress
+                    }}%</span>
+                  <span *ngIf="!downloading">{{ 'modal-downloadbutton' | translate }}</span>
                 </button>
 
                 <div class="progress" *ngIf="downloading">
@@ -109,50 +110,38 @@
             </div>
           </div>
         </ng-template>
-        
-      
-        <div>
-          {{ 'content' | translate }}
-        </div>
+
         <div class="col-md-12 text-center" style="padding-bottom: 30px;padding-top: 30px;">
           <h5 style="font-weight: bolder">
-            YT5s.io - The best online YouTube video downloader
+            YT5s.io - {{ 'section2-m-heading' | translate }}
           </h5>
-          <p class="text-center">Yt5s.io is a tool to help you download video from Youtube to your computer for free. In
-            addition, Yt5s
-            also
-            supports converting to many different formats and qualities for download.</p>
+          <p class="text-center">Yt5s.io {{ 'section2-m-p' | translate }}</p>
         </div>
         <div class="row costum-elements">
           <div class="col-md-4 cstm-">
-            <h6><i class="fas fa-bolt"></i>QUICK AND EASY</h6>
-            <p>Our Youtube video downloader helps you quickly download any Youtube video to formats like: MP4, MP3,
-              WEBM, M4A ...</p>
+            <h6><i class="fas fa-bolt"></i>{{ 'section2-s-heading1' | translate }}</h6>
+            <p>{{ 'section2-s-p1' | translate }} ...</p>
           </div>
           <div class="col-md-4 cstm-">
-            <h6><i class="fas fa-redo"></i>Unlimited YouTube downloads</h6>
-            <p>Support downloading and converting unlimited Youtube videos with the best transfer speed up to 1GB/s.
+            <h6><i class="fas fa-redo"></i>{{ 'section2-s-heading2' | translate }}</h6>
+            <p>{{ 'section2-s-p2' | translate }}
             </p>
           </div>
           <div class="col-md-4 cstm-">
-            <h6><i class="fas fa-lock"></i>Safety and Security</h6>
-            <p>The converted and downloaded files are kept the same quality and content as YouTube's.</p>
+            <h6><i class="fas fa-lock"></i>{{ 'section2-s-heading3' | translate }}</h6>
+            <p>{{ 'section2-s-p3' | translate }}</p>
           </div>
           <div class="col-md-4 cstm-">
-            <h6><i class="fas fa-mobile-alt"></i>Support all devices</h6>
-            <p>Yt5s is a website-based Youtube video downloader that works well on all platforms such as Windows, Mac
-              or
-              Linux, Android, iPhone ... without downloading or installing any software.</p>
+            <h6><i class="fas fa-mobile-alt"></i>{{ 'section2-s-heading4' | translate }}</h6>
+            <p>{{ 'section2-s-p4' | translate }}</p>
           </div>
           <div class="col-md-4 cstm-">
-            <h6><i class="fas fa-hdd"></i>Supports many formats</h6>
-            <p>Our Yt5s.io supports converting many video and audio formats. You can easily convert YouTube videos to
-              MP3, 3GP, MP4, WMA, M4A, FLV, WEBM and MO formats, etc.</p>
+            <h6><i class="fas fa-hdd"></i>{{ 'section2-s-heading5' | translate }}</h6>
+            <p>{{ 'section2-s-p5' | translate }}</p>
           </div>
           <div class="col-md-4 cstm-">
-            <h6><i class="fas fa-dollar-sign"></i>Free forever</h6>
-            <p>The tool is 100% free and always will be. You can support us by sending and sharing this tool with your
-              friends. Thank you!</p>
+            <h6><i class="fas fa-dollar-sign"></i>{{ 'section2-s-heading6' | translate }}</h6>
+            <p>{{ 'section2-s-p6' | translate }}</p>
           </div>
         </div>
       </div>
@@ -160,10 +149,8 @@
       <div class="section bg-light mb-3"
         style="padding-left: 20px;padding-right: 20px; background-color: #F2F3F6; border-radius: 18px; padding-top: 15px; margin-top: 15px; padding-bottom: 15px;">
         <div class="text-center " style="margin-bottom: 70px; margin-top: 50px;">
-          <h4 style="font-weight: bold;">This is one of the most popular downloading tools on the internet</h4>
-          <p class="text-center">Converting and downloading high-quality audio and video through the URL from YouTube
-            easily and
-            efficiently.</p>
+          <h4 style="font-weight: bold;">{{ 'section3-m-heading' | translate }}</h4>
+          <p class="text-center">{{ 'section3-m-p' | translate }}</p>
         </div>
         <div class="row mt-4 align-items-start">
           <div class="col-md-4 col-sm-12 d-flex flex-column align-items-center">
@@ -174,38 +161,26 @@
             <div class="row">
               <div class="col-md-6 mb-1">
                 <div class="card bg-white p-3" style="border-radius: 25px;">
-                  <h6 class="text-center">What is this tool?</h6>
-                  <p style="padding: 10px;">With this tool, you can download and convert videos from almost anywhere on
-                    the internet,
-                    including
-                    YouTube.</p>
+                  <h6 class="text-center">{{ 'section3-s-heading1' | translate }}</h6>
+                  <p style="padding: 10px;">{{ 'section3-s-p1' | translate }}</p>
                 </div>
               </div>
               <div class="col-md-6 mb-1">
                 <div class="card bg-white p-3" style="border-radius: 25px;">
-                  <h6 class="text-center">What is this tool?</h6>
-                  <p style="padding: 10px;">With this tool, you can download and convert videos from almost anywhere on
-                    the internet,
-                    including
-                    YouTube.</p>
+                  <h6 class="text-center">{{ 'section3-s-heading2' | translate }}</h6>
+                  <p style="padding: 10px;">{{ 'section3-s-p2' | translate }}</p>
                 </div>
               </div>
               <div class="col-md-6 mb-1">
                 <div class="card bg-white p-3" style="border-radius: 25px;">
-                  <h6 class="text-center">What is this tool?</h6>
-                  <p style="padding: 10px;">With this tool, you can download and convert videos from almost anywhere on
-                    the internet,
-                    including
-                    YouTube.</p>
+                  <h6 class="text-center">{{ 'section3-s-heading3' | translate }}</h6>
+                  <p style="padding: 10px;">{{ 'section3-s-p3' | translate }}</p>
                 </div>
               </div>
               <div class="col-md-6 mb-1">
                 <div class="card bg-white p-3" style="border-radius: 25px;">
-                  <h6 class="text-center">What is this tool?</h6>
-                  <p style="padding: 10px;">With this tool, you can download and convert videos from almost anywhere on
-                    the internet,
-                    including
-                    YouTube.</p>
+                  <h6 class="text-center">{{ 'section3-s-heading4' | translate }}</h6>
+                  <p style="padding: 10px;">{{ 'section3-s-p4' | translate }}</p>
                 </div>
               </div>
             </div>
@@ -214,61 +189,58 @@
       </div>
       <div class="section" style="padding-top: 15px; margin-top: 15px; padding-bottom: 15px;">
         <div class="text-center" style="margin-bottom: 40px; margin-top: 30px;">
-          <h4 style="font-weight: bold;">How does it work?</h4>
-          <p class="text-center">It is easy and safe to use and is one of the best YouTube video downloaders. You can
-            easily download
-            videos
-            in just a few simple steps.</p>
+          <h4 style="font-weight: bold;">{{ 'section4-m-heading' | translate }}</h4>
+          <p class="text-center">{{ 'section3-m-p' | translate }}</p>
         </div>
         <div class="row">
           <div class="col-md-6 mb-4">
             <div class="p-4 rounded border shadow-sm">
-              <h6 class="text-center mb-3">Step 1</h6>
+              <h6 class="text-center mb-3">{{ 'section4-s-heading1' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
                   <img src="../../assets/img/bg1.jpg" alt="" class="img-fluid rounded">
                 </div>
                 <div class="col-md-7 col-sm-7 mt-3 mt-sm-0">
-                  <p class="mb-0">Paste the link of your favorite YouTube video in the URL field.</p>
+                  <p class="mb-0">{{ 'section4-s-p1' | translate }}</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-6 mb-4">
             <div class="p-4 rounded border shadow-sm">
-              <h6 class="text-center mb-3">Step 2</h6>
+              <h6 class="text-center mb-3">{{ 'section4-s-heading2' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
                   <img src="../../assets/img/bg1.jpg" alt="" class="img-fluid rounded">
                 </div>
                 <div class="col-md-7 col-sm-7 mt-3 mt-sm-0">
-                  <p class="mb-0">Paste the link of your favorite YouTube video in the URL field.</p>
+                  <p class="mb-0">{{ 'section4-s-p2' | translate }}</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-6 mb-4">
             <div class="p-4 rounded border shadow-sm">
-              <h6 class="text-center mb-3">Step 3</h6>
+              <h6 class="text-center mb-3">{{ 'section4-s-heading3' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
                   <img src="../../assets/img/bg1.jpg" alt="" class="img-fluid rounded">
                 </div>
                 <div class="col-md-7 col-sm-7 mt-3 mt-sm-0">
-                  <p class="mb-0">Paste the link of your favorite YouTube video in the URL field.</p>
+                  <p class="mb-0">{{ 'section4-s-p3' | translate }}</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-md-6 mb-4">
             <div class="p-4 rounded border shadow-sm">
-              <h6 class="text-center mb-3">Step 4</h6>
+              <h6 class="text-center mb-3">{{ 'section4-s-heading4' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
                   <img src="../../assets/img/bg1.jpg" alt="" class="img-fluid rounded">
                 </div>
                 <div class="col-md-7 col-sm-7 mt-3 mt-sm-0">
-                  <p class="mb-0">Paste the link of your favorite YouTube video in the URL</p>
+                  <p class="mb-0">{{ 'section4-s-p4' | translate }}</p>
                 </div>
               </div>
             </div>
@@ -279,10 +251,9 @@
         style="padding-left: 20px;padding-right: 20px; padding-top: 15px; margin-top: 15px; padding-bottom: 15px; background-color: #F2F3F6; border-radius: 18px;">
 
         <div class="text-center " style="margin-bottom: 50px; margin-top: 50px;">
-          <h4 style="font-weight: bold;">FAQ's</h4>
-          <h5>Your burning questions regarding , YOUTUBE Video Downloader , Answered</h5>
-          <p class="text-center">If you have any questionthta is'nt answeredin our FAQ's , please get in touch and let
-            us know</p>
+          <h4 style="font-weight: bold;">{{ 'section5-m-heading' | translate }}</h4>
+          <h5>{{ 'section5-m-p' | translate }}</h5>
+          <p class="text-center">{{ 'section5-m-p1' | translate }}</p>
         </div>
         <div class="col-md-12 main-acc">
           <div class="accordion" id="accordionExample">
@@ -290,14 +261,13 @@
               <h2 class="accordion-header text-sm" id="headingOne">
                 <button class="accordion-button collapsed acc-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  How to Use the YouTube Downloader?
+                  {{ 'section5-s-heading1' | translate }}
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Provide step-by-step instructions on how users can input a YouTube video URL and choose between MP3
-                  and MP4 formats for downloading.
+                  {{ 'section5-s-p1' | translate }}
                 </div>
               </div>
             </div>
@@ -305,14 +275,13 @@
               <h2 class="accordion-header text-sm" id="headingTwo">
                 <button class="accordion-button collapsed acc-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Do I Need to Install Any Additional Software?
+                  {{ 'section5-s-heading2' | translate }}
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Inform users if they need to install any additional software (such as codecs) to use your downloader
-                  effectively.
+                  {{ 'section5-s-p2' | translate }}
                 </div>
               </div>
             </div>
@@ -320,13 +289,13 @@
               <h2 class="accordion-header text-sm" id="headingThree">
                 <button class="accordion-button collapsed  acc-button" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  What Should I Do if I Encounter an Error During Download?
+                  {{ 'section5-s-heading3' | translate }}
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  Provide troubleshooting tips for common errors that users may encounter during the download process.
+                  {{ 'section5-s-p3' | translate }}
                 </div>
               </div>
             </div>
@@ -341,22 +310,22 @@
         <nav>
           <ul>
             <li>
-              <a href="#"> Shaheryar </a>
+              <a href="#"> {{ 'footer-developer' | translate }} </a>
             </li>
             <li>
-              <a href="#"> About Us </a>
+              <a href="#"> {{ 'footer-aboutUs' | translate }} </a>
             </li>
             <li>
-              <a href="#"> Blog </a>
+              <a href="#"> {{ 'footer-blog' | translate }} </a>
             </li>
             <li>
-              <a href="#"> MIT License </a>
+              <a href="#">{{ 'footer-license' | translate }} </a>
             </li>
           </ul>
         </nav>
         <div class="copyright">
           &copy;
-          {{ data | date : "yyyy" }}, Developed by <strong>Sherry</strong>
+          {{ data | date : "yyyy" }}, {{ 'footer-content' | translate }} <strong>Sherry</strong>
         </div>
       </div>
     </footer>

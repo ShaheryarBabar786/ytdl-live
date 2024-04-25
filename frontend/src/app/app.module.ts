@@ -11,9 +11,13 @@ import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { YtServiceService } from "./services/yt-service.service";
 import { CommonModule } from "@angular/common";
-import { TranslateLoader, TranslateModule, TranslateService } from "@ngx-translate/core";
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from "@ngx-translate/core";
 
-import { HttpLoaderFactory } from './translation-loader';
+import { HttpLoaderFactory } from "./translation-loader";
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -30,12 +34,13 @@ import { HttpLoaderFactory } from './translation-loader';
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+      defaultLanguage: "en",
+    }),
   ],
-  providers: [YtServiceService,TranslateService],
+  providers: [YtServiceService, TranslateService],
   bootstrap: [AppComponent],
-  exports: [TranslateModule]
+  exports: [TranslateModule],
 })
 export class AppModule {}
