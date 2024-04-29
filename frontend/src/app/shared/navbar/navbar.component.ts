@@ -10,9 +10,13 @@ import { TranslateService } from "@ngx-translate/core";
 export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
-  selectedLanguage: string = "en";
+  selectedLanguage: string = "English";
 
-  constructor(public location: Location, private element: ElementRef,private translateService: TranslateService) {
+  constructor(
+    public location: Location,
+    private element: ElementRef,
+    private translateService: TranslateService
+  ) {
     this.sidebarVisible = false;
   }
 

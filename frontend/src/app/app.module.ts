@@ -36,7 +36,7 @@ import { HttpLoaderFactory } from "./translation-loader";
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
-      defaultLanguage: "en",
+      defaultLanguage: "English",
     }),
   ],
   providers: [YtServiceService, TranslateService],
