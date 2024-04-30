@@ -57,11 +57,9 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   public isCollapsed1 = true;
   public isCollapsed2 = true;
   state_icon_primary = true;
-  isDownloadDisabled: boolean = true;
   downloading: boolean = false;
   downloadProgress: number = 0;
   selectedLanguage: string = "en";
-  
 
   constructor(
     private renderer: Renderer2,
@@ -73,7 +71,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     config.closeOthers = true;
     config.type = "info";
     this.selectedFormat = "mp4";
-    this.selectedLanguage = 'en';
+    this.selectedLanguage = "en";
   }
   changeLanguage() {
     this.translateService.use(this.selectedLanguage);
@@ -100,48 +98,19 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("index-page");
   }
-  open(content, type) {
-    this.modalService.open(content, { size: "md" }).result.then(
-      (result) => {
-        this.closeResult = `Closed with: ${result}`;
-      },
-      (reason) => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      }
-    );
-  }
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return "by pressing ESC";
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return "by clicking on a backdrop";
-    } else {
-      return `with: ${reason}`;
-    }
-  }
-
-  
-  formatChange() {
-    if (this.selectedFormat === "mp4") {
-      this.selectedResolution = "720";
-    }
-  }
 
   onInputChanged() {
     this.loading = true;
     this.errorMessage = "";
-
     if (this.videoURL && this.videoURL.trim() !== "") {
       setTimeout(() => {
-        this.ytService.downloadBasicVideoDetails(this.videoURL).subscribe(
+        this.ytService.downloadFullVideoDetails(this.videoURL).subscribe(
           (data) => {
             if (data) {
               this.thumbnailUrl = data.thumbnail;
               this.videoTitle = data.title;
               this.loading = false; // Safely access description
               this.truncateDescription();
-
-              this.isDownloadDisabled = false; // Enable download button
             } else {
               console.error("Invalid data received:", data);
               this.errorMessage = "Invalid data received. Please try again.";
@@ -159,7 +128,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     } else {
       this.errorMessage = "Please enter a valid URL.";
       this.loading = false;
-      this.isDownloadDisabled = true; // Disable download button
     }
   }
 
@@ -188,6 +156,33 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       }
     );
   }
+
+  open(content, type) {
+    this.modalService.open(content, { size: "md" }).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return "by pressing ESC";
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return "by clicking on a backdrop";
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
+  formatChange() {
+    if (this.selectedFormat === "mp4") {
+      this.selectedResolution = "720";
+    }
+  }
+
   truncateDescription() {
     const maxLength = 100;
     if (this.videoDescription.length > maxLength) {

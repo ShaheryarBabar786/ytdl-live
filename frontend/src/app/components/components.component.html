@@ -31,10 +31,11 @@
                       " [(ngModel)]="videoURL" (input)="onInputChanged()" (input)="onInput($event)" />
                 <div class="input-group-append">
                   <button class="btn btn-lg btn-block btn-sm" type="submit" (click)="open(classic, 'md')"
-                    style="border-radius: 0 20px 20px 0; height: 48px; margin: 0; background-color: #0181B0;"
-                    (click)="linkDetail()">
+                    [disabled]="loading || !thumbnailUrl || !videoTitle"
+                    style="border-radius: 0 20px 20px 0; height: 48px; margin: 0; background-color: #0181B0;">
                     {{ 'main-download-button' | translate }}
                   </button>
+
                 </div>
               </div>
             </form>
