@@ -14,6 +14,7 @@ import { YtServiceService } from "app/services/yt-service.service";
 import { saveAs } from "file-saver";
 import { map } from "rxjs";
 import { TranslateService } from "@ngx-translate/core";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-components",
@@ -60,13 +61,17 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   downloading: boolean = false;
   downloadProgress: number = 0;
   selectedLanguage: string = "en";
+  isDownloadDisabled: boolean = true;
+  showResolutionSelect: boolean = true;
+  isShortsVideo: boolean;
 
   constructor(
     private renderer: Renderer2,
     config: NgbAccordionConfig,
     private modalService: NgbModal,
     private ytService: YtServiceService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private route: ActivatedRoute
   ) {
     config.closeOthers = true;
     config.type = "info";
@@ -98,19 +103,71 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("index-page");
   }
+  checkDownloadDisabled() {
+    this.isDownloadDisabled = !(!this.loading && this.thumbnailUrl);
+  }
 
+  // onInputChanged() {
+  //   this.loading = true;
+  //   this.errorMessage = "";
+  //   if (this.videoURL && this.videoURL.trim() !== "") {
+  //     setTimeout(() => {
+  //       this.ytService.downloadBasicVideoDetails(this.videoURL).subscribe(
+  //         (data) => {
+  //           if (data) {
+  //             this.thumbnailUrl = data.thumbnail;
+  //             this.videoTitle = data.title;
+  //             this.loading = false;
+  //             this.truncateDescription();
+
+  //             this.linkDetail();
+  //           } else {
+  //             console.error("Invalid data received:", data);
+  //             this.errorMessage = "Invalid data received. Please try again.";
+  //             this.loading = false;
+  //           }
+  //         },
+  //         (error) => {
+  //           console.error("Error fetching data:", error);
+  //           this.errorMessage =
+  //             "Error fetching data. Please check the URL and try again.";
+  //           this.loading = false;
+  //         }
+  //       );
+  //     }, 2000);
+  //   } else {
+  //     this.errorMessage = "Please enter a valid URL.";
+  //     this.loading = false;
+  //   }
+  // }
   onInputChanged() {
     this.loading = true;
     this.errorMessage = "";
     if (this.videoURL && this.videoURL.trim() !== "") {
+      console.log(this.videoURL);
+      // Check if the URL contains the word 'shorts'
+      const isShortsVideo = this.videoURL.includes("/shorts/");
+      console.log(isShortsVideo);
+      if (isShortsVideo) {
+        // If it's a shorts video, hide the resolution select
+        this.showResolutionSelect = false;
+        this.isShortsVideo = true;
+      } else {
+        // Otherwise, show the resolution select
+        this.showResolutionSelect = true;
+        this.isShortsVideo = false;
+      }
+
       setTimeout(() => {
-        this.ytService.downloadFullVideoDetails(this.videoURL).subscribe(
+        this.ytService.downloadBasicVideoDetails(this.videoURL).subscribe(
           (data) => {
             if (data) {
               this.thumbnailUrl = data.thumbnail;
               this.videoTitle = data.title;
-              this.loading = false; // Safely access description
+              this.loading = false;
               this.truncateDescription();
+
+              this.linkDetail();
             } else {
               console.error("Invalid data received:", data);
               this.errorMessage = "Invalid data received. Please try again.";
@@ -143,11 +200,10 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       (data) => {
         this.thumbnailUrl = data.thumbnail;
         this.videoTitle = data.title;
-        this.videoDuration = this.formatVideoDuration(data.duration);
+        this.videoDuration = this.formatVideoDuration(data.duration); // Ensure formatVideoDuration is defined
         this.videoDescription = data.description;
         this.truncateDescription();
         this.loadResolutions();
-        // this.fetchAudioQualities();
       },
       (error) => {
         console.error("Error fetching data:", error);
@@ -176,10 +232,18 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       return `with: ${reason}`;
     }
   }
-
+  containsShorts(url: string): boolean {
+    return url.includes("/shorts/");
+  }
   formatChange() {
     if (this.selectedFormat === "mp4") {
-      this.selectedResolution = "720";
+      this.showResolutionSelect = true;
+      if (this.containsShorts(this.videoURL)) {
+        console.log(this.videoURL);
+        this.showResolutionSelect = false; // Hide resolution select for 'shorts' URLs
+      }
+    } else {
+      this.showResolutionSelect = false;
     }
   }
 
@@ -218,31 +282,16 @@ export class ComponentsComponent implements OnInit, OnDestroy {
             ...option,
             audioAvailable: option.audioBitrate !== null,
           }));
-        console.log(this.resolutionOptions);
+        console.log(data);
       },
+
       (error) => {
         console.error("Error fetching resolutions:", error);
       }
     );
   }
-  // downloadVideo() {
-  //   console.log("download button clicked");
-  //   if (this.selectedFormat === "mp4") {
-  //     this.ytService
-  //       .downloadVideo(this.videoURL, this.selectedResolution)
-  //       .subscribe(
-  //         (blob) => this.downloadBlob(blob, "video.mp4"),
-  //         (error) => console.error("Error downloading video:", error)
-  //       );
-  //   } else if (this.selectedFormat === "mp3") {
-  //     this.ytService.downloadAudio(this.videoURL).subscribe(
-  //       (blob) => this.downloadBlob(blob, "audio.mp3"),
-  //       (error) => console.error("Error downloading video:", error)
-  //     );
-  //   }
-  // }
+
   downloadVideo() {
-    console.log("download button clicked");
     if (this.selectedFormat === "mp4") {
       this.downloading = true;
       this.downloadProgress = 0;
@@ -277,6 +326,53 @@ export class ComponentsComponent implements OnInit, OnDestroy {
             );
           } else if (event instanceof Blob) {
             this.downloadBlob(event, "audio.mp3");
+            this.downloading = false;
+          }
+        },
+        (error) => {
+          console.error("Error downloading audio:", error);
+          this.downloading = false;
+        }
+      );
+    }
+  }
+
+  downloadShortsVideo() {
+    console.log("short start");
+    if (this.selectedFormat === "mp4") {
+      this.downloading = true;
+      this.downloadProgress = 0;
+
+      this.ytService.downloadShortMp4(this.videoURL).subscribe(
+        (event: any) => {
+          if (event.type === "downloadProgress") {
+            this.downloadProgress = Math.round(
+              (event.loaded / event.total) * 100
+            );
+          } else if (event instanceof Blob) {
+            this.downloadBlob(event, "short_video.mp4");
+            this.downloading = false;
+            console.log("video download");
+          }
+        },
+        (error) => {
+          console.error("Error downloading shorts video:", error);
+          this.downloading = false;
+        }
+      );
+    } else if (this.selectedFormat === "mp3") {
+      this.downloading = true;
+      this.downloadProgress = 0;
+      console.log("shorts for mp3");
+
+      this.ytService.downloadAudio(this.videoURL).subscribe(
+        (event: any) => {
+          if (event.type === "downloadProgress") {
+            this.downloadProgress = Math.round(
+              (event.loaded / event.total) * 100
+            );
+          } else if (event instanceof Blob) {
+            this.downloadBlob(event, "shorts_audio.mp3");
             this.downloading = false;
           }
         },

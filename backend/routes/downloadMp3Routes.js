@@ -1,6 +1,13 @@
+
+
 const express = require('express');
 const router = express.Router();
 const ytdl = require('ytdl-core');
+
+// Function to sanitize the video title
+function sanitizeTitle(title) {
+    return title.replace(/[^\w\s]/gi, ''); // Removes non-alphanumeric characters
+}
 
 router.get('/downloadAudio', async (req, res) => {
     const { videoURL } = req.query;
@@ -17,9 +24,12 @@ router.get('/downloadAudio', async (req, res) => {
             throw new Error('Invalid video URL or video not available.');
         }
 
+        // Sanitize the video title for use in Content-Disposition header
+        const sanitizedTitle = sanitizeTitle(videoInfo.videoDetails.title);
+
         // Set headers for download
         res.set({
-            'Content-Disposition': `attachment; filename="${videoInfo.videoDetails.title}.mp3"`,
+            'Content-Disposition': `attachment; filename="${sanitizedTitle}.mp3"`,
             'Content-Type': 'audio/mpeg'
         });
 
@@ -35,5 +45,6 @@ router.get('/downloadAudio', async (req, res) => {
 });
 
 module.exports = router;
+
 
 

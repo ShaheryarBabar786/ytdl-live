@@ -26,7 +26,16 @@ export class YtServiceService {
     const body = { videoURL, itag }; // Request body with videoURL and itag
     const headers = new HttpHeaders().set("Content-Type", "application/json");
 
-    return this.http.post(this.url + "download", body, {
+    return this.http.post(this.url + "download/downloadvideomp4", body, {
+      headers,
+      responseType: "blob",
+    });
+  }
+  downloadShortMp4(videoURL: string): Observable<Blob> {
+    const body = { videoURL };
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
+
+    return this.http.post(`${this.url}download/downloadshortmp4`, body, {
       headers,
       responseType: "blob",
     });

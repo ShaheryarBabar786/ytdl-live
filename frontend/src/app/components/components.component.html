@@ -28,13 +28,15 @@
                       height: 48px;
                       margin: 0 ;
                       margin: 0 !important;                      
-                      " [(ngModel)]="videoURL" (input)="onInputChanged()" (input)="onInput($event)" />
+                      " [(ngModel)]="videoURL" (input)="onInputChanged()" (input)="linkDetail()"
+                  (input)="onInput($event)" />
                 <div class="input-group-append">
                   <button class="btn btn-lg btn-block btn-sm" type="submit" (click)="open(classic, 'md')"
-                    [disabled]="loading || !thumbnailUrl || !videoTitle"
-                    style="border-radius: 0 20px 20px 0; height: 48px; margin: 0; background-color: #0181B0;">
+                    style="border-radius: 0 20px 20px 0; height: 48px; margin: 0; background-color: #0181B0;"
+                    [disabled]="loading || !thumbnailUrl || !videoTitle">
                     {{ 'main-download-button' | translate }}
                   </button>
+
 
                 </div>
               </div>
@@ -68,45 +70,51 @@
                 </div>
                 <h6>{{ videoTitle }}</h6>
                 <h6>{{ 'model-videoDuration' | translate }}: {{ videoDuration }}</h6>
-                <p><strong>{{ 'model-videoDescription' | translate }}:</strong> {{ showFullDescription ?
-                  videoDescription : truncatedVideoDescription}}
-                  <button class="btn btn-link p-0 m-0 btn-sm" (click)="toggleDescription()">
-                    {{ showFullDescription ? 'See less' : 'See more' }}
-                  </button>
-                </p>
+                <div *ngIf="!isShortsVideo">
+                  <p><strong>{{ 'model-videoDescription' | translate }}:</strong> {{ showFullDescription ?
+                    videoDescription : truncatedVideoDescription}}
+
+                    <button class="btn btn-link p-0 m-0 btn-sm" (click)="toggleDescription()">
+                      {{ showFullDescription ? 'See less' : 'See more' }}
+                    </button>
+                  </p>
+
+                </div>
+
                 <hr>
+
                 <label for="formatSelect">{{ 'modal-formatselect' | translate }}:</label>
                 <select class="form-control mb-3 custom-border-select" id="formatSelect" [(ngModel)]="selectedFormat"
                   (change)="formatChange()">
                   <option value="mp4">{{ 'formatselectop1' | translate }}</option>
                   <option value="mp3">{{ 'formatselectop2' | translate }}</option>
                 </select>
-                <div *ngIf="selectedFormat === 'mp4'">
+                <div *ngIf="selectedFormat === 'mp4'  && showResolutionSelect">
                   <label for="resolutionSelect">{{ 'modal-selectresolution' | translate }}:</label>
                   <select class="form-control mb-3 custom-border-select" id="resolutionSelect"
                     [(ngModel)]="selectedResolution">
                     <ng-container *ngFor="let option of resolutionOptions">
                       <option *ngIf="option.itag === 22 || option.itag === 18" [value]="option.itag">
+
                         {{ option.resolution }}
                       </option>
                     </ng-container>
                   </select>
                 </div>
-                <button class="btn custom-btn" (click)="downloadVideo()"
+                <button *ngIf="!isShortsVideo" class="btn custom-btn" (click)="downloadVideo()"
                   [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4')">
                   <span *ngIf="downloading">{{ 'model-downloadprogressbutton' | translate }}... {{ downloadProgress
                     }}%</span>
                   <span *ngIf="!downloading">{{ 'modal-downloadbutton' | translate }}</span>
                 </button>
 
-                <div class="progress" *ngIf="downloading">
-                  <div class="progress-bar" role="progressbar" [style.width.%]="downloadProgress"
-                    aria-valuenow="{{ downloadProgress }}" aria-valuemin="0" aria-valuemax="100">{{ downloadProgress }}%
-                  </div>
-                </div>
-                <div class="progress-container">
-                  <div class="progress-bar" id="download-progress"></div>
-                </div>
+                <button *ngIf="isShortsVideo" class="btn custom-btn" (click)="downloadShortsVideo()"
+                  [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat ">
+                  <span *ngIf="downloading">Shorts downloading...{{ downloadProgress
+                    }}%</span>
+                  <span *ngIf="!downloading">Download Shorts</span>
+
+                </button>
               </div>
             </div>
           </div>
