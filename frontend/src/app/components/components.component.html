@@ -1,6 +1,4 @@
 <div class="wrapper">
-
-
   <div class="clear-filter">
     <div class="page-header-image rellax-header" data-rellax-speed="-7"></div>
     <div class="container">
@@ -10,9 +8,7 @@
           <div class="col-md-12 text-center">
             <h4 style="font-weight: bolder">
               {{ 'main-heading' | translate }}
-              <!-- Download Youtube and private video in mp4 and mp3 -->
             </h4>
-
             <p class="text-center">{{ 'sub-heading' | translate }}</p>
           </div>
         </div>
@@ -28,16 +24,14 @@
                       height: 48px;
                       margin: 0 ;
                       margin: 0 !important;                      
-                      " [(ngModel)]="videoURL" (input)="onInputChanged()" (input)="linkDetail()"
+                      " [(ngModel)]="videoURL" (input)="onInputChanged()" (input)="linkDetail()" 
                   (input)="onInput($event)" />
                 <div class="input-group-append">
                   <button class="btn btn-lg btn-block btn-sm" type="submit" (click)="open(classic, 'md')"
                     style="border-radius: 0 20px 20px 0; height: 48px; margin: 0; background-color: #0181B0;"
                     [disabled]="loading || !thumbnailUrl || !videoTitle">
-                    {{ 'main-download-button' | translate }}
+                    Convert
                   </button>
-
-
                 </div>
               </div>
             </form>
@@ -70,19 +64,15 @@
                 </div>
                 <h6>{{ videoTitle }}</h6>
                 <h6>{{ 'model-videoDuration' | translate }}: {{ videoDuration }}</h6>
-                <div *ngIf="!isShortsVideo">
+                <div *ngIf="!isShortsVideo && hasDescription">
                   <p><strong>{{ 'model-videoDescription' | translate }}:</strong> {{ showFullDescription ?
                     videoDescription : truncatedVideoDescription}}
-
                     <button class="btn btn-link p-0 m-0 btn-sm" (click)="toggleDescription()">
                       {{ showFullDescription ? 'See less' : 'See more' }}
                     </button>
                   </p>
-
                 </div>
-
                 <hr>
-
                 <label for="formatSelect">{{ 'modal-formatselect' | translate }}:</label>
                 <select class="form-control mb-3 custom-border-select" id="formatSelect" [(ngModel)]="selectedFormat"
                   (change)="formatChange()">
@@ -91,15 +81,11 @@
                 </select>
                 <div *ngIf="selectedFormat === 'mp4'  && showResolutionSelect">
                   <label for="resolutionSelect">{{ 'modal-selectresolution' | translate }}:</label>
-                  <select class="form-control mb-3 custom-border-select" id="resolutionSelect"
-                    [(ngModel)]="selectedResolution">
-                    <ng-container *ngFor="let option of resolutionOptions">
-                      <option *ngIf="option.itag === 22 || option.itag === 18" [value]="option.itag">
-
-                        {{ option.resolution }}
-                      </option>
-                    </ng-container>
-                  </select>
+                    <select [(ngModel)]="selectedResolution" (change)="resolutionChange($event.target.value)" class="form-control">
+                      <ng-container *ngFor="let option of resolutionOptions">
+                        <option [value]="option.itag">{{ option.resolution }}</option>
+                      </ng-container>
+                    </select>                  
                 </div>
                 <button *ngIf="!isShortsVideo" class="btn custom-btn" (click)="downloadVideo()"
                   [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4')">
@@ -107,19 +93,16 @@
                     }}%</span>
                   <span *ngIf="!downloading">{{ 'modal-downloadbutton' | translate }}</span>
                 </button>
-
                 <button *ngIf="isShortsVideo" class="btn custom-btn" (click)="downloadShortsVideo()"
                   [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat ">
                   <span *ngIf="downloading">Shorts downloading...{{ downloadProgress
                     }}%</span>
                   <span *ngIf="!downloading">Download Shorts</span>
-
                 </button>
               </div>
             </div>
           </div>
         </ng-template>
-
         <div class="col-md-12 text-center" style="padding-bottom: 30px;padding-top: 30px;">
           <h5 style="font-weight: bolder">
             YT5s.io - {{ 'section2-m-heading' | translate }}
@@ -154,7 +137,6 @@
           </div>
         </div>
       </div>
-
       <div class="section bg-light mb-3"
         style="padding-left: 20px;padding-right: 20px; background-color: #F2F3F6; border-radius: 18px; padding-top: 15px; margin-top: 15px; padding-bottom: 15px;">
         <div class="text-center " style="margin-bottom: 70px; margin-top: 50px;">
@@ -258,7 +240,6 @@
       </div>
       <div class="section bg-light mb-3 FAQS"
         style="padding-left: 20px;padding-right: 20px; padding-top: 15px; margin-top: 15px; padding-bottom: 15px; background-color: #F2F3F6; border-radius: 18px;">
-
         <div class="text-center " style="margin-bottom: 50px; margin-top: 50px;">
           <h4 style="font-weight: bold;">{{ 'section5-m-heading' | translate }}</h4>
           <h5>{{ 'section5-m-p' | translate }}</h5>
