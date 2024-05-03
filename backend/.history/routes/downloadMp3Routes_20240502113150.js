@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const router = express.Router();
 const ytdl = require('ytdl-core');
@@ -31,8 +33,8 @@ router.get('/downloadAudio', async (req, res) => {
             'Content-Type': 'audio/mpeg'
         });
 
-        // Download MP3 audio stream with MP3 format explicitly set
-        const audioStream = ytdl(videoURL, { filter: 'audioonly', format: 'mp3' });
+        // Download MP3 audio stream
+        const audioStream = ytdl(videoURL, { filter: 'audioonly', quality: 'highestaudio' });
 
         // Pipe the audio stream directly to the response
         audioStream.pipe(res);

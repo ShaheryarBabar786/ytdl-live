@@ -87,7 +87,25 @@
                       </ng-container>
                     </select>                  
                 </div>
-                <hr>
+                <!-- <button *ngIf="!isShortsVideo" class="btn custom-btn" (click)="downloadVideo()"
+                  [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4')">
+                  
+                    <span *ngIf="downloading">
+                      <div class="custom-loader">
+                        
+                        <div class="spinner"></div>
+                        
+                      </div>
+                      
+                    </span>
+                    
+                  <span *ngIf="!downloading">{{ 'modal-downloadbutton' | translate }}</span>
+                </button>
+                <span>
+                  <div *ngIf="downloading">
+                  <p>Downloading....</p>
+                </div>
+                </span> -->
                 <div class="button-container">
                   <button *ngIf="!isShortsVideo" class="btn custom-btn" (click)="downloadVideo()"
                     [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4')">
@@ -95,31 +113,20 @@
                       <div class="custom-loader">
                         <div class="spinner"></div>
                       </div>
+                      <span class="loader-text">Downloading...</span>
                     </span>
                     <span *ngIf="!downloading">{{ 'modal-downloadbutton' | translate }}</span>
                   </button>
-                  <span *ngIf="downloading" style="padding-left: 10x;">Downloading...</span>
+                  <span *ngIf="downloading">Downloading...</span>
                 </div>
-                <div class="button-container">
-                  <button *ngIf="isShortsVideo" class="btn custom-btn" (click)="downloadShortsVideo()"
+                
+                
+                <button *ngIf="isShortsVideo" class="btn custom-btn" (click)="downloadShortsVideo()"
                   [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat ">
-                    <span *ngIf="downloading" class="loader-container">
-                      <div class="custom-loader">
-                        <div class="spinner"></div>
-                      </div>
-                    </span>
-                    <span *ngIf="!downloading">Download Shorts</span>
-                  </button>
-                  
-                </div>
-
-
-                
-                
-                
-                  
-                  
-                
+                  <span *ngIf="downloading">Shorts downloading...{{ downloadProgress
+                    }}%</span>
+                  <span *ngIf="!downloading">Download Shorts</span>
+                </button>
               </div>
             </div>
           </div>

@@ -148,21 +148,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    height: 100px; /* Adjust height as needed */
   }
   
   .spinner {
     border: 3px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    border-top: 3px solid #f2f4f5; /* Loader color */
-    width: 20px;
-    height: 20px;
+    border-top: 3px solid #007bff; /* Loader color */
+    width: 30px;
+    height: 30px;
     animation: spin 1s linear infinite;
-    
-  }
-  .button-container {
-    display: flex; /* Ensure contents are in a flex container */
-    align-items: center; /* Center items vertically */
   }
 
   @keyframes spin {

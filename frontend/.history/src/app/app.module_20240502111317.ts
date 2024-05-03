@@ -18,12 +18,10 @@ import {
 } from "@ngx-translate/core";
 
 import { HttpLoaderFactory } from "./translation-loader";
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
   imports: [
-    MatProgressSpinnerModule,
     BrowserAnimationsModule,
     NgbModule,
     FormsModule,
@@ -40,7 +38,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
       },
       defaultLanguage: "English",
     }),
-    
   ],
   providers: [YtServiceService, TranslateService],
   bootstrap: [AppComponent],

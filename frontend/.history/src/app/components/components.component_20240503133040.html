@@ -87,7 +87,25 @@
                       </ng-container>
                     </select>                  
                 </div>
-                <hr>
+                <!-- <button *ngIf="!isShortsVideo" class="btn custom-btn" (click)="downloadVideo()"
+                  [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4')">
+                  
+                    <span *ngIf="downloading">
+                      <div class="custom-loader">
+                        
+                        <div class="spinner"></div>
+                        
+                      </div>
+                      
+                    </span>
+                    
+                  <span *ngIf="!downloading">{{ 'modal-downloadbutton' | translate }}</span>
+                </button>
+                <span>
+                  <div *ngIf="downloading">
+                  <p>Downloading....</p>
+                </div>
+                </span> -->
                 <div class="button-container">
                   <button *ngIf="!isShortsVideo" class="btn custom-btn" (click)="downloadVideo()"
                     [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4')">
@@ -110,7 +128,7 @@
                     </span>
                     <span *ngIf="!downloading">Download Shorts</span>
                   </button>
-                  
+                  <span *ngIf="downloading" style="padding-left: 10x;">Downloading...</span>
                 </div>
 
 
