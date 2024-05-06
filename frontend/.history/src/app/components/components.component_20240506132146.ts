@@ -106,14 +106,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   resolutionChange(resolution: string) {
     this.selectedResolution = resolution;
     console.log('Selected Resolution:', this.selectedResolution);
-  
-    // Simulate an error condition (you would replace this with your actual error handling logic)
-    const errorCondition = false; // Change this condition based on your error scenario
-  
-    if (errorCondition) {
-      // Show error message
-      console.log('Error: Please try with the other resolution');
-    }
   }
   changeLanguage() {
     this.translateService.use(this.selectedLanguage);
@@ -283,7 +275,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
           },
           (error) => {
             console.error("Error downloading video:", error);
-            this.errorMessage =this.translateService.instant('error.downloadmp4fun');
             this.downloading = false;
           }
         );

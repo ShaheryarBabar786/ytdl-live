@@ -78,7 +78,7 @@
         "oninputchangedfun2": "Eroare la preluarea datelor. Vă rugăm să verificați URL-ul și să încercați din nou.",
         "oninputchangedfun3": "Vă rugăm să introduceți un URL valid.",
         "linkdetailfun": "Nu s-au găsit date. Vă rugăm să verificați URL-ul și să încercați din nou.",
-         "downloadmp4fun": "Rezoluția nu a fost găsită, vă rugăm să încercați cu o altă rezoluție"
+        "downloadmp4fun": "Rezoluția nu a fost găsită, vă rugăm să încercați cu o altă rezoluție"
     },
     "navbar": {
         "howItWorks": "Cum funcționează?",

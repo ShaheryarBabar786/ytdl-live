@@ -64,6 +64,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   hasDescription: boolean;
   isImageFullScreen: boolean = false;
   fullscreenImageSrc: string = '';
+  downloadError: boolean = false;
   constructor(
     config: NgbAccordionConfig,
     private modalService: NgbModal,
@@ -282,8 +283,12 @@ export class ComponentsComponent implements OnInit, OnDestroy {
             }
           },
           (error) => {
-            console.error("Error downloading video:", error);
-            this.errorMessage =this.translateService.instant('error.downloadmp4fun');
+            console.error('Error downloading video:', error);
+            if (error.status === 404 && error.error.message === 'Resolution not found') {
+              this.downloadError = true;
+            } else {
+              this.errorMessage = this.translateService.instant('error.downloadmp4fun');
+            }
             this.downloading = false;
           }
         );

@@ -283,7 +283,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
           },
           (error) => {
             console.error("Error downloading video:", error);
-            this.errorMessage =this.translateService.instant('error.downloadmp4fun');
             this.downloading = false;
           }
         );
