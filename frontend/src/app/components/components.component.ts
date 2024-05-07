@@ -3,7 +3,8 @@ import {
   OnInit,
   OnDestroy,
   ElementRef,
-  ViewChild,  AfterViewInit
+  ViewChild,
+  AfterViewInit,
 } from "@angular/core";
 import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import { NgbAccordionConfig } from "@ng-bootstrap/ng-bootstrap";
@@ -24,10 +25,11 @@ import { TranslateService } from "@ngx-translate/core";
   ],
 })
 export class ComponentsComponent implements OnInit, OnDestroy {
-  @ViewChild('section1') section1: ElementRef;
-  @ViewChild('section2') section2: ElementRef;
+  @ViewChild("section1") section1: ElementRef;
+  @ViewChild("section2") section2: ElementRef;
+
   sectionToScroll: ElementRef;
-  
+
   audioQualities: { label: string; value: string }[] = [];
   thumbnailUrl: string;
   videoTitle: string;
@@ -63,7 +65,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   isShortsVideo: boolean;
   hasDescription: boolean;
   isImageFullScreen: boolean = false;
-  fullscreenImageSrc: string = '';
+  fullscreenImageSrc: string = "";
   constructor(
     config: NgbAccordionConfig,
     private modalService: NgbModal,
@@ -79,7 +81,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   ngAfterViewInit() {
     // Check if sectionToScroll is defined before accessing nativeElement
     if (this.sectionToScroll) {
-      this.sectionToScroll.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      this.sectionToScroll.nativeElement.scrollIntoView({ behavior: "smooth" });
     }
   }
   openImageFullScreen(imageSrc: string) {
@@ -89,31 +91,22 @@ export class ComponentsComponent implements OnInit, OnDestroy {
 
   closeImageFullScreen() {
     this.isImageFullScreen = false;
-    this.fullscreenImageSrc = '';
+    this.fullscreenImageSrc = "";
   }
 
   scrollToSection(sectionName: string) {
     const sectionElement = document.querySelector(`#${sectionName}`);
     if (sectionElement) {
-      sectionElement.scrollIntoView({ behavior: 'smooth' });
+      sectionElement.scrollIntoView({ behavior: "smooth" });
     }
   }
 
   resolutionOptions: { resolution: string; itag: string }[] = [
-    { resolution: '720p', itag: '22' },
-    { resolution: '360p', itag: '18' }
+    { resolution: "720p", itag: "22" },
+    { resolution: "360p", itag: "18" },
   ];
   resolutionChange(resolution: string) {
     this.selectedResolution = resolution;
-    console.log('Selected Resolution:', this.selectedResolution);
-  
-    // Simulate an error condition (you would replace this with your actual error handling logic)
-    const errorCondition = false; // Change this condition based on your error scenario
-  
-    if (errorCondition) {
-      // Show error message
-      console.log('Error: Please try with the other resolution');
-    }
   }
   changeLanguage() {
     this.translateService.use(this.selectedLanguage);
@@ -126,14 +119,12 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     return date.month !== current.month;
   }
   ngOnInit() {
-    
     var navbar = document.getElementsByTagName("nav")[0];
     navbar.classList.add("navbar-transparent");
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("index-page");
     this.selectedFormat = "mp4";
     this.selectedResolution = "22";
-    
   }
   ngOnDestroy() {
     var navbar = document.getElementsByTagName("nav")[0];
@@ -168,21 +159,26 @@ export class ComponentsComponent implements OnInit, OnDestroy {
               this.linkDetail();
             } else {
               console.error("Invalid data received:", data);
-              this.errorMessage =this.translateService.instant('error.oninputchangedfun');
+              this.errorMessage = this.translateService.instant(
+                "error.oninputchangedfun"
+              );
               // "Invalid data received. Please try again.";
               this.loading = false;
             }
           },
           (error) => {
-            
-            this.errorMessage =this.translateService.instant('error.oninputchangedfun2');
-              // "Error fetching data. Please check the URL and try again.";
+            this.errorMessage = this.translateService.instant(
+              "error.oninputchangedfun2"
+            );
+            // "Error fetching data. Please check the URL and try again.";
             this.loading = false;
           }
         );
       }, 2000);
     } else {
-      this.errorMessage =this.translateService.instant('error.oninputchangedfun3');
+      this.errorMessage = this.translateService.instant(
+        "error.oninputchangedfun3"
+      );
       //  "Please enter a valid URL.";
       this.loading = false;
     }
@@ -200,13 +196,15 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         this.videoTitle = data.title;
         this.videoDuration = this.formatVideoDuration(data.duration);
         this.videoDescription = data.description;
-        this.truncateDescription();    
-        this.hasDescription = !!data.description;    
+        this.truncateDescription();
+        this.hasDescription = !!data.description;
       },
       (error) => {
         console.error("Error fetching data:", error);
-        this.errorMessage =this.translateService.instant('error.linkdetailfun');
-          // "No data found. Please check the URL and try again.";
+        this.errorMessage = this.translateService.instant(
+          "error.linkdetailfun"
+        );
+        // "No data found. Please check the URL and try again.";
       }
     );
   }
@@ -237,7 +235,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       this.showResolutionSelect = true;
       if (this.containsShorts(this.videoURL)) {
         console.log(this.videoURL);
-        this.showResolutionSelect = false; 
+        this.showResolutionSelect = false;
       }
     } else {
       this.showResolutionSelect = false;
@@ -283,7 +281,9 @@ export class ComponentsComponent implements OnInit, OnDestroy {
           },
           (error) => {
             console.error("Error downloading video:", error);
-            this.errorMessage =this.translateService.instant('error.downloadmp4fun');
+            this.errorMessage = this.translateService.instant(
+              "error.downloadmp4fun"
+            );
             this.downloading = false;
           }
         );
@@ -308,6 +308,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       );
     }
   }
+
   downloadShortsVideo() {
     console.log("short start");
     if (this.selectedFormat === "mp4") {
@@ -321,7 +322,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
             );
           } else if (event instanceof Blob) {
             this.downloadBlob(event, "short_video.mp4");
-            this.downloading = false;            
+            this.downloading = false;
           }
         },
         (error) => {
@@ -331,7 +332,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       );
     } else if (this.selectedFormat === "mp3") {
       this.downloading = true;
-      this.downloadProgress = 0;      
+      this.downloadProgress = 0;
       this.ytService.downloadAudio(this.videoURL).subscribe(
         (event: any) => {
           if (event.type === "downloadProgress") {

@@ -40,7 +40,7 @@
 //       },
 //       defaultLanguage: "English",
 //     }),
-    
+
 //   ],
 //   providers: [YtServiceService, TranslateService],
 //   bootstrap: [AppComponent],
@@ -60,15 +60,17 @@ import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { YtServiceService } from "./services/yt-service.service";
 import { CommonModule } from "@angular/common";
-import { TranslateLoader, TranslateModule, TranslateService } from "@ngx-translate/core";
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from "@ngx-translate/core";
 
 import { HttpLoaderFactory } from "./translation-loader";
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
   imports: [
-    MatProgressSpinnerModule,
     NgbModule,
     FormsModule,
     RouterModule,
@@ -82,7 +84,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
-      defaultLanguage: localStorage.getItem('selectedLanguage') || "English", // Get from local storage or default to English
+      defaultLanguage: localStorage.getItem("selectedLanguage") || "English", // Get from local storage or default to English
     }),
   ],
   providers: [YtServiceService, TranslateService],
@@ -90,4 +92,3 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   exports: [TranslateModule],
 })
 export class AppModule {}
-

@@ -6,8 +6,8 @@ import { Routes, RouterModule } from "@angular/router";
 import { ComponentsComponent } from "./components/components.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "index", pathMatch: "full" },
-  { path: "index", component: ComponentsComponent },
+  { path: "", redirectTo: "localhost:4200/", pathMatch: "full" },
+  { path: "", component: ComponentsComponent },
 ];
 
 @NgModule({

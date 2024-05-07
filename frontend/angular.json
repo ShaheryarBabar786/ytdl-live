@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "now-ui-kit-angular": {
+    "yt-fetch": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -47,24 +47,36 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ]
+            },
+            "development": { 
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "now-ui-kit-angular:build"
+            "browserTarget": "yt-fetch:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "now-ui-kit-angular:build:production"
-            }
-          }
+              "browserTarget": "yt-fetch:build:production"
+            },
+            "development": { 
+                  "browserTarget": "yt-fetch:build:development"
+                }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "now-ui-kit-angular:build"
+            "browserTarget": "yt-fetch:build"
           }
         },
         "test": {
@@ -100,7 +112,7 @@
         }
       }
     },
-    "now-ui-kit-angular-e2e": {
+    "yt-fetch-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -109,7 +121,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "now-ui-kit-angular:serve"
+            "devServerTarget": "yt-fetch:serve"
           }
         },
         "lint": {
@@ -124,7 +136,7 @@
       }
     }
   },
-  "defaultProject": "now-ui-kit-angular",
+  "defaultProject": "yt-fetch",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

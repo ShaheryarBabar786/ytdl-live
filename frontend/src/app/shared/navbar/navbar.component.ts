@@ -8,10 +8,9 @@ import { TranslateService } from "@ngx-translate/core";
   styleUrls: ["./navbar.component.scss"],
 })
 export class NavbarComponent implements OnInit {
-  
   private toggleButton: any;
   private sidebarVisible: boolean;
-  selectedLanguage: string ;
+  selectedLanguage: string;
 
   constructor(
     public location: Location,
@@ -24,19 +23,19 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName("navbar-toggler")[0];
-    this.selectedLanguage = localStorage.getItem("selectedLanguage") || "English"; // Get from local storage or default to English
+    this.selectedLanguage =
+      localStorage.getItem("selectedLanguage") || "English"; // Get from local storage or default to English
     this.translateService.setDefaultLang(this.selectedLanguage);
   }
   scrollToSection(sectionId: string) {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
   // changeLanguage() {
   //   this.translateService.use(this.selectedLanguage);
   // }
-  
 
   changeLanguage() {
     localStorage.setItem("selectedLanguage", this.selectedLanguage); // Save selected language to local storage
