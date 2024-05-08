@@ -141,6 +141,30 @@ router.post('/downloadvideomp4', async (req, res) => {
     }
 });
 
+router.post('/getByte', async (req, res) => {
+    const videoURL = req.body.videoURL;
+    const itag = req.body.itag;
+    try {
+        if (!ytdl.validateURL(videoURL)) {
+            throw new Error('Invalid YouTube URL');
+        }
+        const info = await ytdl.getInfo(videoURL);
+        const format = info.formats.find(f => f.itag == itag);
+        if (!format) {
+            throw new Error('Requested format not available.');
+        }
+        const videoStream = ytdl(videoURL ,{format});
+        let totalBytes = 0;
+        videoStream.on('response', (response) => {
+            totalBytes = parseInt(response.headers['content-length'], 10);
+            res.json(totalBytes)
+        });
+    } catch (error) {
+        console.error('Error while processing the request:', error.message);
+        res.status(500).send({ error: error.message });
+    }
+});
+
 
 module.exports = router;
 

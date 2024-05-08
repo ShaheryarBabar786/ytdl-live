@@ -12,6 +12,7 @@ import { NgbAccordionConfig } from "@ng-bootstrap/ng-bootstrap";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { YtServiceService } from "app/services/yt-service.service";
 import { TranslateService } from "@ngx-translate/core";
+import { HttpEventType } from "@angular/common/http";
 @Component({
   selector: "app-components",
   templateUrl: "./components.component.html",
@@ -66,6 +67,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   hasDescription: boolean;
   isImageFullScreen: boolean = false;
   fullscreenImageSrc: string = "";
+  totalByte: any;
   constructor(
     config: NgbAccordionConfig,
     private modalService: NgbModal,
@@ -262,7 +264,62 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
     return formattedDuration;
   }
+  // downloadVideo() {
+  //   if (this.selectedFormat === "mp4") {
+  //     this.downloading = true;
+  //     this.downloadProgress = 0;
+  //     this.ytService
+  //       .downloadVideo(this.videoURL, this.selectedResolution)
+  //       .subscribe(
+  //         (event: any) => {
+  //           if (event.type === "downloadProgress") {
+  //             this.downloadProgress = Math.round(
+  //               (event.loaded / event.total) * 100
+  //             );
+  //           } else if (event instanceof Blob) {
+  //             this.downloadBlob(event, "video.mp4");
+  //             this.downloading = false;
+  //           }
+  //         },
+  //         (error) => {
+  //           console.error("Error downloading video:", error);
+  //           this.errorMessage = this.translateService.instant(
+  //             "error.downloadmp4fun"
+  //           );
+  //           this.downloading = false;
+  //         }
+  //       );
+  //   } else if (this.selectedFormat === "mp3") {
+  //     this.downloading = true;
+  //     this.downloadProgress = 0;
+  //     this.ytService.downloadAudio(this.videoURL).subscribe(
+  //       (event: any) => {
+  //         if (event.type === "downloadProgress") {
+  //           this.downloadProgress = Math.round(
+  //             (event.loaded / event.total) * 100
+  //           );
+  //         } else if (event instanceof Blob) {
+  //           this.downloadBlob(event, "audio.mp3");
+  //           this.downloading = false;
+  //         }
+  //       },
+  //       (error) => {
+  //         console.error("Error downloading audio:", error);
+  //         this.downloading = false;
+  //       }
+  //     );
+  //   }
+  // }
+  getByte() {
+    this.ytService
+      .getByte(this.videoURL, this.selectedResolution)
+      .subscribe((res: any) => {
+        this.totalByte = res;
+      });
+  }
+
   downloadVideo() {
+    this.getByte();
     if (this.selectedFormat === "mp4") {
       this.downloading = true;
       this.downloadProgress = 0;
@@ -270,21 +327,21 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         .downloadVideo(this.videoURL, this.selectedResolution)
         .subscribe(
           (event: any) => {
-            if (event.type === "downloadProgress") {
+            if (event.type === HttpEventType.DownloadProgress) {
               this.downloadProgress = Math.round(
-                (event.loaded / event.total) * 100
+                (event.loaded / this.totalByte) * 100
               );
-            } else if (event instanceof Blob) {
-              this.downloadBlob(event, "video.mp4");
+            } else if (event.type === HttpEventType.Response) {
               this.downloading = false;
+              this.downloadBlob(event.body, "video.mp4");
             }
           },
           (error) => {
             console.error("Error downloading video:", error);
+            this.downloading = false;
             this.errorMessage = this.translateService.instant(
               "error.downloadmp4fun"
             );
-            this.downloading = false;
           }
         );
     } else if (this.selectedFormat === "mp3") {

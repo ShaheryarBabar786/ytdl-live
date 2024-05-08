@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import {
   HttpClient,
+  HttpEvent,
   HttpHeaders,
   HttpParams,
   HttpResponse,
@@ -22,14 +23,29 @@ export class YtServiceService {
       responseType: "blob",
     });
   }
-  downloadVideo(videoURL: string, itag: string): Observable<Blob> {
-    const body = { videoURL, itag }; // Request body with videoURL and itag
-    const headers = new HttpHeaders().set("Content-Type", "application/json");
+  // downloadVideo(videoURL: string, itag: string): Observable<Blob> {
+  //   const body = { videoURL, itag }; // Request body with videoURL and itag
+  //   const headers = new HttpHeaders().set("Content-Type", "application/json");
 
+  //   return this.http.post(this.url + "download/downloadvideomp4", body, {
+  //     headers,
+  //     responseType: "blob",
+  //   });
+  // }
+  downloadVideo(videoURL: string, itag: string): Observable<HttpEvent<Blob>> {
+    const body = { videoURL, itag };
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
     return this.http.post(this.url + "download/downloadvideomp4", body, {
       headers,
+      reportProgress: true,
       responseType: "blob",
+      observe: "events",
     });
+  }
+
+  getByte(videoURL: string, itag: any) {
+    const body = { videoURL, itag };
+    return this.http.post(this.url + "download/getByte", body);
   }
   downloadShortMp4(videoURL: string): Observable<Blob> {
     const body = { videoURL };
