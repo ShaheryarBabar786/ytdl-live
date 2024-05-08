@@ -101,6 +101,7 @@
                   </button>
                   <span *ngIf="downloading" style="padding-left: 15x;">{{ 'modal-downloadingprogressbutton' | translate
                     }}</span>
+                    <span *ngIf="downloading">{{ downloadProgress }}%</span>
 
                 </div>
                 <div class="button-container">

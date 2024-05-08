@@ -365,7 +365,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       );
     }
   }
-
   downloadShortsVideo() {
     console.log("short start");
     if (this.selectedFormat === "mp4") {

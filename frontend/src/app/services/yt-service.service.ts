@@ -6,7 +6,7 @@ import {
   HttpParams,
   HttpResponse,
 } from "@angular/common/http";
-import { Observable, map } from "rxjs";
+import { Observable, map, tap } from "rxjs";
 import { environment } from "../../environments/environment";
 
 @Injectable({
@@ -66,7 +66,6 @@ export class YtServiceService {
       params: { videoURL },
     });
   }
-
   getResolutions(videoURL: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.url}videoDetail/resolutions`, {
       params: { videoURL },
