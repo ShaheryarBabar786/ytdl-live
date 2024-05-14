@@ -70,8 +70,7 @@ router.post('/downloadvideomp4', async (req, res) => {
             let downloadedBytes = 0;
             response.on('data', (chunk) => {
                 downloadedBytes += chunk.length;
-                // const progress = Math.round((downloadedBytes / totalBytes) * 100);
-                // console.log(`Download Progress: ${progress}%`);
+              
             });
             videoStream.pipe(res);
         });

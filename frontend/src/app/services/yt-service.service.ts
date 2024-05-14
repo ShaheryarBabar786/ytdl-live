@@ -4,26 +4,15 @@ import {
   HttpEvent,
   HttpHeaders,
   HttpParams,
-  HttpResponse,
 } from "@angular/common/http";
 import { Observable, map, tap } from "rxjs";
-import { environment } from "../../environments/environment";
-
+import { environment } from "environments/environment";
 @Injectable({
   providedIn: "root",
 })
 export class YtServiceService {
   url = environment.url;
-
   constructor(private http: HttpClient) {}
-  // downloadAudio(videoURL: string): Observable<Blob> {
-  //   const params = new HttpParams().set("videoURL", videoURL);
-  //   return this.http.get(`${this.url}mp3/downloadAudio`, {
-  //     params,
-  //     responseType: "blob",
-  //   });
-  // }
-
   downloadAudio(videoURL: string): Observable<HttpEvent<Blob>> {
     const params = new HttpParams().set("videoURL", videoURL);
     const headers = new HttpHeaders().set("Content-Type", "application/json");
@@ -41,7 +30,7 @@ export class YtServiceService {
     return this.http.get(`${this.url}mp3/getByteForMP3`, { params });
   }
 
-  downloadShortMp4(videoURL: string,): Observable<HttpEvent<Blob>> {
+  downloadShortMp4(videoURL: string): Observable<HttpEvent<Blob>> {
     const body = { videoURL };
     const headers = new HttpHeaders().set("Content-Type", "application/json");
     return this.http.post(this.url + "download/downloadshortmp4", body, {
@@ -61,9 +50,6 @@ export class YtServiceService {
       observe: "events",
     });
   }
-  
-
- 
 
   getByte(videoURL: string, itag: any) {
     const body = { videoURL, itag };
@@ -84,8 +70,8 @@ export class YtServiceService {
       params: { videoURL },
     });
   }
-  getResolutions(videoURL: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.url}videoDetail/resolutions`, {
+  resolutions(videoURL: string): Observable<any> {
+    return this.http.get<any>(`${this.url}videoDetail/resolutions`, {
       params: { videoURL },
     });
   }

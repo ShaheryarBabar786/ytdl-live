@@ -12,9 +12,14 @@ const app = express();
 
 app.use(express.json({ limit: '25mb' }));
 app.use(express.urlencoded({ limit: '25mb', extended: true }));
+// app.use(cors({
+//     origin: ['http://localhost:4200'],
+//     credentials: true, 
+// }));
+
 app.use(cors({
-    origin: 'http://localhost:4200', // Allow requests from this origin
-    credentials: true, // Allow credentials like cookies, if needed
+    origin: ['https://www.ytfetch.com', 'https://ytfetch.com', 'ytfetch.com'],    
+    credentials: true, 
 }));
 app.use(morgan('dev'));
 

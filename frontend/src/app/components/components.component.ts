@@ -4,7 +4,6 @@ import {
   OnDestroy,
   ElementRef,
   ViewChild,
-  AfterViewInit,
 } from "@angular/core";
 import { NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
 import { NgbAccordionConfig } from "@ng-bootstrap/ng-bootstrap";
@@ -68,7 +67,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   isImageFullScreen: boolean = false;
   fullscreenImageSrc: string = "";
   totalByte: any;
-  totalBytesforshorts:any;
+  totalBytesforshorts: any;
   totalBytesForMP3: any;
   constructor(
     config: NgbAccordionConfig,
@@ -83,11 +82,17 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    // Check if sectionToScroll is defined before accessing nativeElement
     if (this.sectionToScroll) {
       this.sectionToScroll.nativeElement.scrollIntoView({ behavior: "smooth" });
     }
   }
+
+  clearErrorMessageAfterDelay() {
+    setTimeout(() => {
+      this.errorMessage = "";
+    }, 5000);
+  }
+
   openImageFullScreen(imageSrc: string) {
     this.isImageFullScreen = true;
     this.fullscreenImageSrc = imageSrc;
@@ -106,8 +111,8 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   }
 
   resolutionOptions: { resolution: string; itag: string }[] = [
-    { resolution: "720p", itag: "22" },
-    { resolution: "360p", itag: "18" },
+    // { resolution: "720p", itag: "22" },
+    // { resolution: "360p", itag: "18" },
   ];
   resolutionChange(resolution: string) {
     this.selectedResolution = resolution;
@@ -128,7 +133,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("index-page");
     this.selectedFormat = "mp4";
-    this.selectedResolution = "22";
+    // this.selectedResolution = "22";
   }
   ngOnDestroy() {
     var navbar = document.getElementsByTagName("nav")[0];
@@ -166,16 +171,18 @@ export class ComponentsComponent implements OnInit, OnDestroy {
               this.errorMessage = this.translateService.instant(
                 "error.oninputchangedfun"
               );
-              // "Invalid data received. Please try again.";
+
               this.loading = false;
+              this.clearErrorMessageAfterDelay();
             }
           },
           (error) => {
             this.errorMessage = this.translateService.instant(
               "error.oninputchangedfun2"
             );
-            // "Error fetching data. Please check the URL and try again.";
+
             this.loading = false;
+            this.clearErrorMessageAfterDelay();
           }
         );
       }, 2000);
@@ -183,8 +190,9 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       this.errorMessage = this.translateService.instant(
         "error.oninputchangedfun3"
       );
-      //  "Please enter a valid URL.";
+
       this.loading = false;
+      this.clearErrorMessageAfterDelay();
     }
   }
   onInput(event: Event) {
@@ -208,10 +216,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         this.errorMessage = this.translateService.instant(
           "error.linkdetailfun"
         );
-        setTimeout(() => {
-          this.errorMessage = null;
-        }, 5000);
-        // "No data found. Please check the URL and try again.";
+        this.clearErrorMessageAfterDelay();
       }
     );
   }
@@ -241,7 +246,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     if (this.selectedFormat === "mp4") {
       this.showResolutionSelect = true;
       if (this.containsShorts(this.videoURL)) {
-        console.log(this.videoURL);
         this.showResolutionSelect = false;
       }
     } else {
@@ -269,7 +273,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
       .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
     return formattedDuration;
   }
-  
+
   getByte() {
     this.ytService
       .getByte(this.videoURL, this.selectedResolution)
@@ -279,24 +283,27 @@ export class ComponentsComponent implements OnInit, OnDestroy {
   }
 
   getByteforshorts() {
-    this.ytService
-      .getByteforshorts(this.videoURL)
-      .subscribe((res: any) => {
-        this.totalBytesforshorts = res;
-      });
+    this.ytService.getByteforshorts(this.videoURL).subscribe((res: any) => {
+      this.totalBytesforshorts = res;
+    });
   }
-
-  // getByteForMP3() {
-  //   this.ytService
-  //     .getByteForMP3(this.videoURL)
-  //     .subscribe((res: any) => {
-  //       this.totalBytesForMP3 = res;
-  //     });
-  // }
   getByteForMP3() {
     this.ytService.getByteForMP3(this.videoURL).subscribe((res: any) => {
       this.totalBytesForMP3 = res.totalBytesForMP3;
-      console.log("total bytes for mp3", this.totalBytesForMP3)
+    });
+  }
+
+  getresolutions() {
+    this.ytService.resolutions(this.videoURL).subscribe((res: any) => {
+      this.resolutionOptions = res.resolutionsWithAudioAndVideo;
+      const resolution = this.resolutionOptions.find(
+        (resolution) => resolution.itag === "22"
+      );
+      if (resolution) {
+        this.selectedResolution = "22";
+      } else {
+        this.selectedResolution = "18";
+      }
     });
   }
 
@@ -324,10 +331,11 @@ export class ComponentsComponent implements OnInit, OnDestroy {
             this.errorMessage = this.translateService.instant(
               "error.downloadmp4fun"
             );
+            this.clearErrorMessageAfterDelay();
           }
         );
     } else if (this.selectedFormat === "mp3") {
-      this.getByteForMP3()
+      this.getByteForMP3();
       this.downloading = true;
       this.downloadProgress = 0;
       this.ytService.downloadAudio(this.videoURL).subscribe(
@@ -335,9 +343,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
           if (event.type === HttpEventType.DownloadProgress) {
             this.downloadProgress = Math.round(
               (event.loaded / this.totalBytesForMP3) * 100
-              
             );
-            console.log("download mp3 progress",this.downloadProgress)
           } else if (event.type === HttpEventType.Response) {
             this.downloadBlob(event.body, "audio.mp3");
             this.downloading = false;
@@ -351,7 +357,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     }
   }
   downloadShortsVideo() {
-    this.getByteforshorts()
+    this.getByteforshorts();
     if (this.selectedFormat === "mp4") {
       this.downloading = true;
       this.downloadProgress = 0;
@@ -364,7 +370,6 @@ export class ComponentsComponent implements OnInit, OnDestroy {
           } else if (event.type === HttpEventType.Response) {
             this.downloading = false;
             this.downloadBlob(event.body, "short_video.mp4");
-            
           }
         },
         (error) => {
@@ -373,7 +378,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
         }
       );
     } else if (this.selectedFormat === "mp3") {
-      this.getByteForMP3()
+      this.getByteForMP3();
       this.downloading = true;
       this.downloadProgress = 0;
       this.ytService.downloadAudio(this.videoURL).subscribe(
@@ -404,8 +409,4 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
   }
-
- 
-  
-  
 }

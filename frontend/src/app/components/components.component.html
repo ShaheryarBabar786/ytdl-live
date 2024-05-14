@@ -6,9 +6,10 @@
         <h1 class="h1-seo">.</h1>
         <div class="row justify-content-center" style="padding-top: 25px;padding-bottom: 25px;">
           <div class="col-md-12 text-center">
-            <h4 style="font-weight: bolder">
+            <h5
+              style="font-weight: bolder;font-size: 20px;line-height: 1.5;margin-top: 1em;margin-bottom: 0.5em; margin-top: 35px;">
               {{ 'main-heading' | translate }}
-            </h4>
+            </h5>
             <p class="text-center">{{ 'sub-heading' | translate }}</p>
           </div>
         </div>
@@ -24,14 +25,15 @@
                       height: 48px;
                       margin: 0 ;
                       margin: 0 !important;                      
-                      " [(ngModel)]="videoURL" (input)="onInputChanged()" (input)="linkDetail()"
-                  (input)="onInput($event)" />
+                      " [(ngModel)]="videoURL" (input)="onInputChanged()" (input)="getresolutions()"
+                  (input)="linkDetail()" (input)="onInput($event)" />
                 <div class="input-group-append">
                   <button class="btn btn-lg btn-block btn-sm" type="submit" (click)="open(classic, 'md')"
                     style="border-radius: 0 20px 20px 0; height: 48px; margin: 0; background-color: #0181B0;"
                     [disabled]="loading || !thumbnailUrl || !videoTitle">
                     {{ 'main-convert-button' | translate }}
                   </button>
+
                 </div>
               </div>
             </form>
@@ -79,29 +81,30 @@
                   <option value="mp4">{{ 'formatselectop1' | translate }}</option>
                   <option value="mp3">{{ 'formatselectop2' | translate }}</option>
                 </select>
-                <div *ngIf="selectedFormat === 'mp4'  && showResolutionSelect">
+
+                <div *ngIf="selectedFormat === 'mp4' && showResolutionSelect">
                   <label for="resolutionSelect">{{ 'modal-selectresolution' | translate }}:</label>
                   <select [(ngModel)]="selectedResolution" (change)="resolutionChange($event.target.value)"
                     class="form-control" [disabled]="downloading">
-                    <ng-container *ngFor="let option of resolutionOptions">
-                      <option [value]="option.itag">{{ option.resolution }}</option>
-                    </ng-container>
+                    <option *ngFor="let resolution of resolutionOptions" [value]="resolution.itag">
+                      {{ resolution.resolution }}
+                    </option>
                   </select>
                 </div>
                 <hr>
-                
-              <div class="button-container">
-                <button *ngIf="!isShortsVideo" class="btn custom-btn" (click)="downloadVideo()"
-                  [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4')">
-                  <span *ngIf="downloading" class="loader-container">
-                    <div class="custom-loader">
-                      <div class="spinner"></div>
-                    </div>
-                  </span>
-                  <span *ngIf="!downloading">{{ 'modal-downloadbutton' | translate }}</span>                  
-                </button>
-              </div>
-              <div class="button-container">
+
+                <div class="button-container">
+                  <button *ngIf="!isShortsVideo" class="btn custom-btn" (click)="downloadVideo()"
+                    [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat || (!selectedResolution && selectedFormat === 'mp4')">
+                    <span *ngIf="downloading" class="loader-container">
+                      <div class="custom-loader">
+                        <div class="spinner"></div>
+                      </div>
+                    </span>
+                    <span *ngIf="!downloading">{{ 'modal-downloadbutton' | translate }}</span>
+                  </button>
+                </div>
+                <div class="button-container">
                   <button *ngIf="isShortsVideo" class="btn custom-btn" (click)="downloadShortsVideo()"
                     [disabled]="downloading || !thumbnailUrl || !videoTitle || !selectedFormat ">
                     <span *ngIf="downloading" class="loader-container">
@@ -113,34 +116,25 @@
                   </button>
                 </div>
                 <div *ngIf="downloading  && downloadProgress === 0">{{ 'modal-downloadfewsec' | translate }}</div>
-              <div *ngIf="downloading && downloadProgress !== 0">
-                {{ 'modal-downloadstart' | translate }}
+                <div *ngIf="downloading && downloadProgress !== 0">
+                  {{ 'modal-downloadstart' | translate }}
                 </div>
-              <div *ngIf="downloading">
-                
-                <div class="progress" style="max-width: 447px;">
-                  <div class="progress-bar" role="progressbar" [style.width]="downloadProgress + '%'"
-                    aria-valuenow="{{downloadProgress}}" aria-valuemin="0" aria-valuemax="100">
-                    {{downloadProgress}}%
+                <div *ngIf="downloading">
+
+                  <div class="progress" style="max-width: 447px;">
+                    <div class="progress-bar" role="progressbar" [style.width]="downloadProgress + '%'"
+                      aria-valuenow="{{downloadProgress}}" aria-valuemin="0" aria-valuemax="100">
+                      {{downloadProgress}}%
+                    </div>
                   </div>
                 </div>
-              </div>
-                
-
-
-
-
-
-
-
-
               </div>
               <span *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</span>
             </div>
           </div>
         </ng-template>
         <div class="col-md-12 text-center" id="section2" style="padding-bottom: 30px;padding-top: 30px;">
-          <h5 style="font-weight: bolder">
+          <h5 style="font-weight: bold;font-size: 20px;line-height: 1.5;margin-top: 1em;margin-bottom: 0.5em;">
             {{ 'section2-m-heading' | translate }}
           </h5>
           <p class="text-center">{{ 'section2-m-p' | translate }}</p>
@@ -176,13 +170,14 @@
       <div class="section bg-light mb-3"
         style="padding-left: 20px;padding-right: 20px; background-color: #F2F3F6; border-radius: 18px; padding-top: 15px; margin-top: 15px; padding-bottom: 15px;">
         <div class="text-center " style="margin-bottom: 70px; margin-top: 50px;">
-          <h4 style="font-weight: bold;">{{ 'section3-m-heading' | translate }}</h4>
+          <h5 style="font-weight: bolder;font-size: 20px;line-height: 1.5;margin-top: 1em;margin-bottom: 0.5em;">{{
+            'section3-m-heading' | translate }}</h5>
           <p class="text-center">{{ 'section3-m-p' | translate }}</p>
         </div>
         <div class="row mt-4 align-items-start">
           <div class="col-md-4 col-sm-12 d-flex flex-column align-items-center">
-            <img src="../../assets/img/fotor-ai-20240506134357.jpg" alt="" width="300px" class="mb-5"
-              style="border-radius: 25px;">
+            <img src="../../assets/img/fotor-ai-20240506134357.webp" alt="Could not load due to slow internet"
+              width="300" class="mb-5" style="border-radius: 25px;">
           </div>
           <div class="col-md-8 col-sm-12">
             <div class="row">
@@ -216,7 +211,8 @@
       </div>
       <div class="section" id="section4" style="padding-top: 15px; margin-top: 15px; padding-bottom: 15px;">
         <div class="text-center" style="margin-bottom: 40px; margin-top: 30px;">
-          <h4 style="font-weight: bold;">{{ 'section4-m-heading' | translate }}</h4>
+          <h5 style="font-weight: bolder;font-size: 20px;line-height: 1.5;margin-top: 1em;margin-bottom: 0.5em;">{{
+            'section4-m-heading' | translate }}</h5>
           <p class="text-center">{{ 'section3-m-p' | translate }}</p>
         </div>
         <div class="row">
@@ -225,8 +221,9 @@
               <h6 class="text-center mb-3">{{ 'section4-s-heading1' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
-                  <img src="../../assets/img/Step_1.png" alt="" class="img-fluid rounded"
-                    (click)="openImageFullScreen('../../assets/img/Step_1.png')">
+                  <img src="../../assets/img/Step_1.webp" alt="Could not load due to slow internet"
+                    class="img-fluid rounded lazyload" data-src="../../assets/img/Step_1.webp"
+                    (click)="openImageFullScreen('../../assets/img/Step_1.webp')">
                 </div>
                 <div *ngIf="isImageFullScreen" class="fullscreen-image">
                   <span class="close-btn" (click)="closeImageFullScreen()">×</span>
@@ -243,8 +240,9 @@
               <h6 class="text-center mb-3">{{ 'section4-s-heading2' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
-                  <img src="../../assets/img/Step_2.png" alt="" class="img-fluid rounded"
-                    (click)="openImageFullScreen('../../assets/img/Step_2.png')">
+                  <img src="../../assets/img/Step_2.webp" alt="Could not load due to slow internet"
+                    class="img-fluid rounded lazyload" data-src="../../assets/img/Step_2.webp"
+                    (click)="openImageFullScreen('../../assets/img/Step_2.webp')">
                 </div>
                 <div class="col-md-7 col-sm-7 mt-3 mt-sm-0">
                   <p class="mb-0">{{ 'section4-s-p2' | translate }}</p>
@@ -257,8 +255,9 @@
               <h6 class="text-center mb-3">{{ 'section4-s-heading3' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
-                  <img src="../../assets/img/Step_3.png" alt="" class="img-fluid rounded"
-                    (click)="openImageFullScreen('../../assets/img/Step_3.png')">
+                  <img src="../../assets/img/Step_3.webp" alt="Could not load due to slow internet"
+                    class="img-fluid rounded lazyload" data-src="../../assets/img/Step_3.webp"
+                    (click)="openImageFullScreen('../../assets/img/Step_3.webp')">
                 </div>
                 <div class="col-md-7 col-sm-7 mt-3 mt-sm-0">
                   <p class="mb-0">{{ 'section4-s-p3' | translate }}</p>
@@ -271,8 +270,9 @@
               <h6 class="text-center mb-3">{{ 'section4-s-heading4' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
-                  <img src="../../assets/img/Step_4.png" alt="" class="img-fluid rounded"
-                    (click)="openImageFullScreen('../../assets/img/Step_4.png')">
+                  <img src="../../assets/img/Step_4.webp" alt="Could not load due to slow internet"
+                    class="img-fluid rounded lazyload" data-src="../../assets/img/Step_4.webp"
+                    (click)="openImageFullScreen('../../assets/img/Step_4.webp')">
                 </div>
                 <div class="col-md-7 col-sm-7 mt-3 mt-sm-0">
                   <p class="mb-0">{{ 'section4-s-p4' | translate }}</p>
@@ -285,8 +285,9 @@
       <div class="section bg-light  mb-3 FAQS" id="section5"
         style="padding-left: 20px;padding-right: 20px; padding-top: 15px; margin-top: 15px; padding-bottom: 15px; background-color: #F2F3F6; border-radius: 18px;">
         <div class="text-center " style="margin-bottom: 50px; margin-top: 50px;">
-          <h4 style="font-weight: bold;">{{ 'section5-m-heading' | translate }}</h4>
-          <h5>{{ 'section5-m-p' | translate }}</h5>
+          <h5 style="font-weight: bolder;font-size: 20px;line-height: 1.5;margin-top: 1em;margin-bottom: 0.5em;">{{
+            'section5-m-heading' | translate }}</h5>
+          <h6>{{ 'section5-m-p' | translate }}</h6>
 
         </div>
         <div class="col-md-12 main-acc">
@@ -442,15 +443,13 @@
         <nav>
           <ul>
             <li>
-              <a href="javascript:void(0);" (click)="scrollToSection('section1')"> {{ 'footer-developer' | translate }}
+              <a href="#section1"> {{ 'footer-developer' | translate }}
               </a>
             </li>
             <li>
-              <a href="javascript:void(0);" (click)="scrollToSection('section2')"> {{ 'footer-aboutUs' | translate }}
+              <a href="#section2"> {{ 'footer-aboutUs' | translate }}
               </a>
             </li>
-
-
           </ul>
         </nav>
         <div class="copyright">

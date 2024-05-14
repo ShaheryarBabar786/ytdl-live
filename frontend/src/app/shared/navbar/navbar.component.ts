@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName("navbar-toggler")[0];
     this.selectedLanguage =
-      localStorage.getItem("selectedLanguage") || "English"; // Get from local storage or default to English
+      localStorage.getItem("selectedLanguage") || "English";
     this.translateService.setDefaultLang(this.selectedLanguage);
   }
   scrollToSection(sectionId: string) {
@@ -33,12 +33,8 @@ export class NavbarComponent implements OnInit {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
-  // changeLanguage() {
-  //   this.translateService.use(this.selectedLanguage);
-  // }
-
   changeLanguage() {
-    localStorage.setItem("selectedLanguage", this.selectedLanguage); // Save selected language to local storage
+    localStorage.setItem("selectedLanguage", this.selectedLanguage);
     this.translateService.use(this.selectedLanguage);
   }
   sidebarOpen() {
@@ -53,14 +49,12 @@ export class NavbarComponent implements OnInit {
   }
   sidebarClose() {
     const html = document.getElementsByTagName("html")[0];
-    // console.log(html);
+
     this.toggleButton.classList.remove("toggled");
     this.sidebarVisible = false;
     html.classList.remove("nav-open");
   }
   sidebarToggle() {
-    // const toggleButton = this.toggleButton;
-    // const body = document.getElementsByTagName('body')[0];
     if (this.sidebarVisible === false) {
       this.sidebarOpen();
     } else {
