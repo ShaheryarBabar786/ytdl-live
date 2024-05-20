@@ -17,10 +17,12 @@ import {
 } from "@ngx-translate/core";
 
 import { HttpLoaderFactory } from "./translation-loader";
+import { ExamplesModule } from "./examples/examples.module";
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
   imports: [
+    ExamplesModule,
     NgbModule,
     FormsModule,
     RouterModule,

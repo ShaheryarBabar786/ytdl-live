@@ -7,6 +7,7 @@ import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
 import { RouterModule } from "@angular/router";
 import { ComponentsComponent } from "./components.component";
 import { TranslateModule } from "@ngx-translate/core";
+import { ExamplesModule } from "app/examples/examples.module";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { TranslateModule } from "@ngx-translate/core";
     RouterModule,
     JwBootstrapSwitchNg2Module,
     TranslateModule,
+    ExamplesModule,
   ],
   declarations: [ComponentsComponent],
   exports: [ComponentsComponent],
