@@ -5,16 +5,24 @@ import { Routes, RouterModule } from "@angular/router";
 
 import { ComponentsComponent } from "./components/components.component";
 
-import { LoginComponent } from "./examples/login/login.component";
-import { ProfileComponent } from "./examples/profile/profile.component";
+import { DisclaimerComponent } from "./examples/Disclaimer/Disclaimer.component";
+import { ContactComponent } from "./examples/contact-us/contact-us.component";
 import { PrivicyComponent } from "./examples/privicy/privicy.component";
 
+// const routes: Routes = [
+//   { path: "", redirectTo: "localhost:4200/", pathMatch: "full" },
+//   { path: "", component: ComponentsComponent },
+//   { path: "exapmles/privicy", component: PrivicyComponent },
+//   { path: "examples/login", component: LoginComponent },
+//   { path: "examples/profile", component: ProfileComponent },
+// ];
+
 const routes: Routes = [
-  { path: "", redirectTo: "localhost:4200/", pathMatch: "full" },
+  { path: "", redirectTo: "components", pathMatch: "full" },
   { path: "", component: ComponentsComponent },
-  { path: "examples/privicy", component: PrivicyComponent },
-  { path: "examples/login", component: LoginComponent },
-  { path: "examples/profile", component: ProfileComponent },
+  { path: "privicy-policies", component: PrivicyComponent },
+  { path: "disclaimer", component: DisclaimerComponent },
+  { path: "contact-us", component: ContactComponent },
 ];
 
 @NgModule({

@@ -6,8 +6,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { JwBootstrapSwitchNg2Module } from "jw-bootstrap-switch-ng2";
 import { AgmCoreModule } from "@agm/core";
 
-import { LoginComponent } from "./login/login.component";
-import { ProfileComponent } from "./profile/profile.component";
+import { DisclaimerComponent } from "./Disclaimer/Disclaimer.component";
+import { ContactComponent } from "./contact-us/contact-us.component";
 import { ExamplesComponent } from "./examples.component";
 import { PrivicyComponent } from "./privicy/privicy.component";
 
@@ -24,9 +24,9 @@ import { PrivicyComponent } from "./privicy/privicy.component";
   ],
   declarations: [
     PrivicyComponent,
-    LoginComponent,
+    DisclaimerComponent,
     ExamplesComponent,
-    ProfileComponent,
+    ContactComponent,
   ],
 })
 export class ExamplesModule {}
