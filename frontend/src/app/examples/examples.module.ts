@@ -10,6 +10,7 @@ import { DisclaimerComponent } from "./Disclaimer/Disclaimer.component";
 import { ContactComponent } from "./contact-us/contact-us.component";
 import { ExamplesComponent } from "./examples.component";
 import { PrivicyComponent } from "./privicy/privicy.component";
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { PrivicyComponent } from "./privicy/privicy.component";
     AgmCoreModule.forRoot({
       apiKey: "YOUR_KEY_HERE",
     }),
+    TranslateModule.forChild(),
   ],
   declarations: [
     PrivicyComponent,

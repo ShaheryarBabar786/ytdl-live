@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import * as Rellax from "rellax";
+
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-Privicy",
@@ -10,8 +11,11 @@ export class PrivicyComponent implements OnInit {
   data: Date = new Date();
   focus;
   focus1;
+  selectedLanguage: string = "en";
 
-  constructor() {}
+  constructor(private translateService: TranslateService) {
+    this.selectedLanguage = "en";
+  }
 
   ngOnInit() {
     var navbar = document.getElementsByTagName("nav")[0];
@@ -20,5 +24,9 @@ export class PrivicyComponent implements OnInit {
   ngOnDestroy() {
     var navbar = document.getElementsByTagName("nav")[0];
     navbar.classList.remove("navbar-transparent");
+  }
+
+  changeLanguage() {
+    this.translateService.use(this.selectedLanguage);
   }
 }

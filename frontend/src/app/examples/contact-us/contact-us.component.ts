@@ -33,7 +33,7 @@ export class ContactComponent implements OnInit {
             text: "Email sent successfully!",
             icon: "success",
           }).then(() => {
-            form.reset(); // Reset the form after the SweetAlert is closed
+            form.reset();
           });
         },
         (error) => {
