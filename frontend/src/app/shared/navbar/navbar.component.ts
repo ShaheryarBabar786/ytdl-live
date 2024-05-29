@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from "@angular/core";
+import { Component, OnInit, ElementRef, HostListener } from "@angular/core";
 import { Location } from "@angular/common";
 import { TranslateService } from "@ngx-translate/core";
 
@@ -33,6 +33,17 @@ export class NavbarComponent implements OnInit {
       section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
+  @HostListener("window:scroll", ["$event"])
+  onWindowScroll() {
+    const navbarContainer =
+      this.element.nativeElement.querySelector(".navbar-container");
+    if (window.scrollY > 50) {
+      navbarContainer.classList.add("scrolled");
+    } else {
+      navbarContainer.classList.remove("scrolled");
+    }
+  }
+
   changeLanguage() {
     localStorage.setItem("selectedLanguage", this.selectedLanguage);
     this.translateService.use(this.selectedLanguage);

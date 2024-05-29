@@ -12,6 +12,7 @@ import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { YtServiceService } from "app/services/yt-service.service";
 import { TranslateService } from "@ngx-translate/core";
 import { HttpEventType } from "@angular/common/http";
+import Swal from "sweetalert2";
 @Component({
   selector: "app-components",
   templateUrl: "./components.component.html",
@@ -307,6 +308,10 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     });
   }
 
+  private sanitizeTitle(title: string): string {
+    return title.replace(/[<>:"\/\\|?*\x00-\x1F]/g, "_");
+  }
+
   downloadVideo() {
     this.getByte();
     if (this.selectedFormat === "mp4") {
@@ -322,7 +327,14 @@ export class ComponentsComponent implements OnInit, OnDestroy {
               );
             } else if (event.type === HttpEventType.Response) {
               this.downloading = false;
-              this.downloadBlob(event.body, "video.mp4");
+              // this.downloadBlob(event.body, "video.mp4");
+              const sanitizedTitle = this.sanitizeTitle(this.videoTitle);
+              this.downloadBlob(event.body, `${sanitizedTitle}.mp4`);
+              Swal.fire({
+                title: "Downloaded!",
+                text: "Video download successfully!",
+                icon: "success",
+              });
             }
           },
           (error) => {
@@ -345,8 +357,14 @@ export class ComponentsComponent implements OnInit, OnDestroy {
               (event.loaded / this.totalBytesForMP3) * 100
             );
           } else if (event.type === HttpEventType.Response) {
-            this.downloadBlob(event.body, "audio.mp3");
+            const sanitizedTitle = this.sanitizeTitle(this.videoTitle);
+            this.downloadBlob(event.body, `${sanitizedTitle}.mp3`);
             this.downloading = false;
+            Swal.fire({
+              title: "Downloaded!",
+              text: "Audio download successfully!",
+              icon: "success",
+            });
           }
         },
         (error) => {
@@ -369,7 +387,13 @@ export class ComponentsComponent implements OnInit, OnDestroy {
             );
           } else if (event.type === HttpEventType.Response) {
             this.downloading = false;
-            this.downloadBlob(event.body, "short_video.mp4");
+            const sanitizedTitle = this.sanitizeTitle(this.videoTitle);
+            this.downloadBlob(event.body, `${sanitizedTitle}.mp4`);
+            Swal.fire({
+              title: "Downloaded!",
+              text: "Short-video download successfully!",
+              icon: "success",
+            });
           }
         },
         (error) => {
@@ -388,8 +412,14 @@ export class ComponentsComponent implements OnInit, OnDestroy {
               (event.loaded / this.totalBytesForMP3) * 100
             );
           } else if (event.type === HttpEventType.Response) {
-            this.downloadBlob(event.body, "shorts_audio.mp3");
+            const sanitizedTitle = this.sanitizeTitle(this.videoTitle);
+            this.downloadBlob(event.body, `${sanitizedTitle}.mp3`);
             this.downloading = false;
+            Swal.fire({
+              title: "Downloaded!",
+              text: "Short-audio download successfully!",
+              icon: "success",
+            });
           }
         },
         (error) => {

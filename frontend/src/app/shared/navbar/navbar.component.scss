@@ -16,3 +16,15 @@
     color: #ffcc00;
 
   }
+
+  .navbar-container {
+    position: relative;
+    bottom: 5px;
+
+
+  }
+  
+  .navbar-container.scrolled {
+    padding-top: 8px;
+    
+  }
