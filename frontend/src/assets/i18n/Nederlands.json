@@ -84,7 +84,11 @@
     },
     "navbar": {
       "howItWorks": "Hoe werkt het?",
-      "faqs": "FAQ's"
+      "faqs": "FAQ's",
+      "home": "Thuis",
+    "privacy": "Privacy en beleid",
+    "disclaimer": "Disclaimer",
+    "contact": "Neem contact met ons op"
     },
 
     "privicy-heading": "Privacybeleid",
@@ -221,7 +225,26 @@
   "privicy-h21": "Neem contact met ons op",
   "privicy-p84": "Als u vragen heeft over dit Privacybeleid, kunt u contact met ons opnemen:",
   "privicy-p85": "Per e-mail:",
-  "privicy-p86": "Door deze pagina op onze website te bezoeken:"
+  "privicy-p86": "Door deze pagina op onze website te bezoeken:",
+
+
+  "disclaimer-h1": "Disclaimer voor YTFetch",
+    "disclaimer-p1": "Als u meer informatie nodig heeft of vragen heeft over onze disclaimer, neem dan gerust contact met ons op via e-mail op",
+    "disclaimer-h2": "Disclaimers voor YTFetch",
+    "disclaimer-p2": "Alle informatie op deze website - ",
+    "disclaimer-p3": " - wordt te goeder trouw gepubliceerd en uitsluitend voor algemene informatieve doeleinden. YTFetch geeft geen garanties over de volledigheid, betrouwbaarheid en nauwkeurigheid van deze informatie. Elke actie die u onderneemt op basis van de informatie die u op deze website (YTFetch) vindt, is strikt op eigen risico. YTFetch is niet aansprakelijk voor enige verliezen en/of schade in verband met het gebruik van onze website.",
+    "disclaimer-p4": " - wordt te goeder trouw gepubliceerd en uitsluitend voor algemene informatieve doeleinden. YTFetch geeft geen garanties over de volledigheid, betrouwbaarheid en nauwkeurigheid van deze informatie. Elke actie die u onderneemt op basis van de informatie die u op deze website (YTFetch) vindt, is strikt op eigen risico. YTFetch is niet aansprakelijk voor enige verliezen en/of schade in verband met het gebruik van onze website. Vanaf onze website kunt u andere websites bezoeken door hyperlinks te volgen naar dergelijke externe sites. Hoewel we streven naar het verstrekken van alleen kwaliteitslinks naar nuttige en ethische websites, hebben we geen controle over de inhoud en aard van deze sites. Deze links naar andere websites impliceren geen aanbeveling voor al het gevonden materiaal op deze sites. De eigenaars van de site en de inhoud kunnen zonder voorafgaande kennisgeving wijzigen en kunnen optreden voordat we de kans hebben om een ​​link te verwijderen die mogelijk 'slecht' is geworden.",
+    "disclaimer-p5": " Wees ook bewust dat wanneer u onze website verlaat, andere sites mogelijk verschillende privacyverklaringen en voorwaarden hebben die buiten onze controle vallen. Zorg ervoor dat u de Privacyverklaringen van deze sites controleert, evenals hun 'Servicevoorwaarden', voordat u deelneemt aan enige vorm van zakelijke transactie of informatie uploadt.",
+    "disclaimer-h3": "Toestemming",
+    "disclaimer-p6": "Door onze website te gebruiken, stemt u hierbij in met onze disclaimer en gaat u akkoord met de voorwaarden.",
+    "disclaimer-p7": "Indien we dit document bijwerken, wijzigen of aanpassen, zullen die wijzigingen prominent hier worden gepubliceerd.",
+    "disclaimer-h4": "Bijwerken",
+
+    "contactus-name":"Naam",
+    "contactus-h1":"Neem contact op",
+    "contactus-email":"E-mail",
+    "contactus-message":"Bericht",
+    "contactus-send":"Bericht versturen"
 
 
   }

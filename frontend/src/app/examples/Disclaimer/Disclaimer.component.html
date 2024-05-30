@@ -4,39 +4,21 @@
     <div class="wrapper">
         <h1>.</h1>
         <div class="container costum-css">
-            <h3 style="margin-top: 30px;">Disclaimer for YTFetch</h3>
-            <p>If you require any more information or have any questions about our site's disclaimer, please feel free
-                to
-                contact us by email at <a
+            <h3 style="margin-top: 30px;">{{ 'disclaimer-h1' | translate }}</h3>
+            <p><span>{{ 'disclaimer-p1' | translate }}</span> <a
                     href="https://mail.google.com/mail/u/0/#inbox?compose=VpCqJPsNqcHHVLZBfdbzqWbrhdJdbXfVfBFlchjjNkdpGcCcCwFMMrJQhllFPxjHpxTQMFL"
                     target="_blank">
                     ytfetch2@gmail.com.</a></p>
-            <h4>Disclaimers for YTFetch</h4>
-            <p>All the information on this website - <a href="https://ytfetch.com/"
-                    target="_blank">https://ytfetch.com/</a> - is
-                published in good faith and for general
-                information purpose only. YTFetch does not make any warranties about the completeness, reliability and
-                accuracy of this information. Any action you take upon the information you find on this website
-                (YTFetch),
-                is strictly at your own risk. YTFetch will not be liable for any losses and/or damages in connection
-                with
-                the use of our website.</p>
-            <p>From our website, you can visit other websites by following hyperlinks to such external sites. While we
-                strive to provide only quality links to useful and ethical websites, we have no control over the content
-                and
-                nature of these sites. These links to other websites do not imply a recommendation for all the content
-                found
-                on these sites. Site owners and content may change without notice and may occur before we have the
-                opportunity to remove a link which may have gone 'bad'.</p>
-            <p>Please be also aware that when you leave our website, other sites may have different privacy policies and
-                terms which are beyond our control. Please be sure to check the Privacy Policies of these sites as well
-                as
-                their "Terms of Service" before engaging in any business or uploading any information.</p>
-            <h4>Consent</h4>
-            <p>By using our website, you hereby consent to our disclaimer and agree to its terms.</p>
-            <h4>Update</h4>
-            <p>Should we update, amend or make any changes to this document, those changes will be prominently posted
-                here.
+            <h4>{{ 'disclaimer-h2' | translate }}</h4>
+            <p><span>{{ 'disclaimer-p2' | translate }}</span><a href="https://ytfetch.com/"
+                    target="_blank">https://ytfetch.com/</a><span>{{ 'disclaimer-p3' |
+                    translate }}</span></p>
+            <p>{{ 'disclaimer-p4' | translate }}</p>
+            <p>{{ 'disclaimer-p5' | translate }}</p>
+            <h4>{{ 'disclaimer-h3' | translate }}</h4>
+            <p>{{ 'disclaimer-p6' | translate }}</p>
+            <h4>{{ 'disclaimer-h4' | translate }}</h4>
+            <p>{{ 'disclaimer-p7' | translate }}
             </p>
         </div>
     </div>
@@ -45,11 +27,19 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#section1"> YTFetch
+                        <a href="#section1"> {{ 'footer-developer' | translate }}
                         </a>
                     </li>
                     <li>
-                        <a href="#section2"> About us
+                        <a href="#section2"> {{ 'footer-aboutUs' | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section4"> {{ 'navbar.howItWorks' | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section5"> {{ 'navbar.faqs' | translate }}
                         </a>
                     </li>
                     <li>
@@ -60,7 +50,7 @@
             </nav>
             <div class="copyright">
                 &copy;
-                2024, All Rights Reserved
+                {{ data | date : "yyyy" }}, {{ 'footer-content' | translate }}
             </div>
         </div>
 

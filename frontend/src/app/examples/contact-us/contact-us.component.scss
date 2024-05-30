@@ -65,7 +65,7 @@ form {
 	min-width: 25rem;
 	
 	.title {
-		font-family: 'Pacifico', cursive;
+		
 		color: #212529;
 		font-size: 2rem;
 	}
@@ -189,5 +189,12 @@ form {
 
   .cstm-cont {
     height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+ 
+  footer ul li a{
+    padding: 6px;
   }
 }

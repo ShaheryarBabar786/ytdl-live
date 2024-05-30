@@ -84,7 +84,11 @@
     },
     "navbar": {
         "howItWorks": "Bagaimana Cara Kerjanya?",
-        "faqs": "FAQ's"
+        "faqs": "FAQ's",
+        "home": "Rumah",
+        "privacy": "Privasi dan kebijakan",
+        "disclaimer": "Penafian",
+        "contact": "Hubungi kami"
     },
         "privicy-heading": "Kebijakan Privasi",
         "privicy-updated-date": "Terakhir diperbarui: 21 Mei 2024",
@@ -220,5 +224,25 @@
             "privicy-h21": "Hubungi Kami",
             "privicy-p84": "Jika Anda memiliki pertanyaan tentang Kebijakan Privasi ini, Anda dapat menghubungi kami:",
             "privicy-p85": "Melalui email:",
-            "privicy-p86": "Dengan mengunjungi halaman ini di situs web kami: "
+            "privicy-p86": "Dengan mengunjungi halaman ini di situs web kami: ",
+
+
+            "disclaimer-h1": "Penafian untuk YTFetch",
+    "disclaimer-p1": "Jika Anda memerlukan informasi lebih lanjut atau memiliki pertanyaan tentang penafian situs kami, silakan hubungi kami melalui email di",
+    "disclaimer-h2": "Penafian untuk YTFetch",
+    "disclaimer-p2": "Semua informasi di situs web ini - ",
+    "disclaimer-p3": " - diterbitkan dengan itikad baik dan hanya untuk tujuan informasi umum. YTFetch tidak membuat jaminan tentang kelengkapan, keandalan, dan keakuratan informasi ini. Tindakan apa pun yang Anda lakukan berdasarkan informasi yang Anda temukan di situs web ini (YTFetch), sepenuhnya merupakan risiko Anda sendiri. YTFetch tidak akan bertanggung jawab atas kerugian dan/atau kerusakan sehubungan dengan penggunaan situs web kami.",
+    "disclaimer-p4": " - diterbitkan dengan itikad baik dan hanya untuk tujuan informasi umum. YTFetch tidak membuat jaminan tentang kelengkapan, keandalan, dan keakuratan informasi ini. Tindakan apa pun yang Anda lakukan berdasarkan informasi yang Anda temukan di situs web ini (YTFetch), sepenuhnya merupakan risiko Anda sendiri. YTFetch tidak akan bertanggung jawab atas kerugian dan/atau kerusakan sehubungan dengan penggunaan situs web kami. Dari situs web kami, Anda dapat mengunjungi situs web lain dengan mengikuti hyperlink ke situs eksternal tersebut. Meskipun kami berusaha untuk hanya menyediakan tautan berkualitas ke situs web yang berguna dan etis, kami tidak memiliki kontrol atas konten dan sifat situs-situs tersebut. Tautan ke situs web lain ini tidak menyiratkan rekomendasi untuk semua konten yang ditemukan di situs-situs tersebut. Pemilik situs dan konten dapat berubah tanpa pemberitahuan dan dapat terjadi sebelum kami memiliki kesempatan untuk menghapus tautan yang mungkin telah menjadi 'buruk'.",
+    "disclaimer-p5": " Harap juga disadari bahwa ketika Anda meninggalkan situs web kami, situs lain mungkin memiliki kebijakan privasi dan persyaratan yang berbeda yang berada di luar kendali kami. Pastikan untuk memeriksa Kebijakan Privasi situs-situs tersebut serta 'Ketentuan Layanan' mereka sebelum terlibat dalam bisnis apa pun atau mengunggah informasi apa pun.",
+    "disclaimer-h3": "Persetujuan",
+    "disclaimer-p6": "Dengan menggunakan situs web kami, Anda dengan ini menyetujui penafian kami dan menyetujui ketentuannya.",
+    "disclaimer-p7": "Jika kami memperbarui, mengubah, atau membuat perubahan pada dokumen ini, perubahan tersebut akan diposting secara mencolok di sini.",
+    "disclaimer-h4": "Pembaruan",
+
+    "contactus-name":"Nama",
+    "contactus-h1":"Hubungi Kami",
+    "contactus-email":"Email",
+    "contactus-message":"Pesan",
+    "contactus-send":"Kirim pesan"
+    
 }

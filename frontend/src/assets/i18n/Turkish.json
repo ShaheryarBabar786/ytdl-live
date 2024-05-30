@@ -85,7 +85,11 @@
     },
     "navbar": {
       "howItWorks": "Nasıl çalışır?",
-      "faqs": "Sık Sorulan Sorular"
+      "faqs": "Sık Sorulan Sorular",
+      "home": "Ana Sayfa",
+    "privacy": "Gizlilik ve politikalar",
+    "disclaimer": "Reddiyeler",
+    "contact": "Bize ulaşın"
     },
 
     "privicy-heading": "Gizlilik Politikası",
@@ -223,6 +227,24 @@
     "privicy-h21": "Bize Ulaşın",
     "privicy-p84": "Bu Gizlilik Politikası hakkında herhangi bir sorunuz varsa, bize şu şekilde ulaşabilirsiniz:",
     "privicy-p85": "E-posta ile:",
-    "privicy-p86": "Web sitemizdeki bu sayfayı ziyaret ederek: "
+    "privicy-p86": "Web sitemizdeki bu sayfayı ziyaret ederek: ",
+
+    "disclaimer-h1": "YTFetch için Feragatname",
+"disclaimer-p1": "Sitemizin feragatnamesi hakkında daha fazla bilgiye ihtiyacınız varsa veya herhangi bir sorunuz varsa, lütfen e-posta yoluyla bizimle iletişime geçmekten çekinmeyin",
+"disclaimer-h2": "YTFetch için Feragatnameler",
+"disclaimer-p2": "Bu web sitesindeki tüm bilgiler",
+"disclaimer-p3": "iyi niyetle ve yalnızca genel bilgi amaçlı olarak yayınlanmıştır. YTFetch, bu bilgilerin tamamlığı, güvenilirliği ve doğruluğu konusunda herhangi bir garanti vermez. Bu web sitesinde bulduğunuz bilgilere dayanarak yapacağınız herhangi bir eylem tamamen kendi riskinizdedir. YTFetch, web sitemizin kullanımıyla ilgili olarak ortaya çıkan herhangi bir kayıp ve/veya hasardan sorumlu tutulamaz.",
+"disclaimer-p4": "iyi niyetle ve yalnızca genel bilgi amaçlı olarak yayınlanmıştır. YTFetch, bu bilgilerin tamamlığı, güvenilirliği ve doğruluğu konusunda herhangi bir garanti vermez. Bu web sitesinde bulduğunuz bilgilere dayanarak yapacağınız herhangi bir eylem tamamen kendi riskinizdedir. YTFetch, web sitemizin kullanımıyla ilgili olarak ortaya çıkan herhangi bir kayıp ve/veya hasardan sorumlu tutulamaz. Web sitemizden, bu harici sitelere yönlendiren bağlantıları takip ederek diğer web sitelerini ziyaret edebilirsiniz. Sadece yararlı ve etik web sitelerine kaliteli bağlantılar sağlamaya çalışsak da, bu sitelerin içeriği ve doğası üzerinde hiçbir kontrolümüz yoktur. Bu diğer web sitelerinde bulunan tüm içerikler için bir öneri anlamına gelmez. Site sahipleri ve içerikler, bir bağlantının 'bozulmuş' olabileceği bir durumu kaldırmadan önce değişebilir ve önceden haber vermeden meydana gelebilir.",
+"disclaimer-p5": "Ayrıca, web sitemizi terk ettiğinizde, diğer sitelerin farklı gizlilik politikaları ve koşulları olabileceğini ve bu koşulların kontrolümüz dışında olduğunu unutmayın. Lütfen herhangi bir işlemde bulunmadan önce bu sitelerin Gizlilik Politikalarını ve 'Hizmet Şartları'nı kontrol ettiğinizden emin olun.",
+"disclaimer-h3": "Rıza",
+"disclaimer-p6": "Web sitemizi kullanarak, feragatnamemize burada yer alan şartlarla uymayı kabul etmiş olursunuz.",
+"disclaimer-p7": "Bu belgeyi günceller, değiştirir veya herhangi bir değişiklik yaparsak, bu değişiklikler burada belirgin bir şekilde yayınlanacaktır.",
+"disclaimer-h4": "Güncelleme",
+
+"contactus-name":"Ad",
+    "contactus-h1":"Bize Ulaşın",
+    "contactus-email":"E-posta",
+    "contactus-message":"Mesaj",
+    "contactus-send":"Mesaj gönder"
   }
   

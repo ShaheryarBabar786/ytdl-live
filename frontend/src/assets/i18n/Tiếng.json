@@ -84,7 +84,11 @@
     },
     "navbar": {
       "howItWorks": "Làm thế nào nó hoạt động?",
-      "faqs": "Câu hỏi thường gặp"
+      "faqs": "Câu hỏi thường gặp",
+      "home": "Trang chủ",
+    "privacy": "Quyền riêng tư và chính sách",
+    "disclaimer": "Miễn trừ trách nhiệm",
+    "contact": "Liên hệ với chúng tôi"
     },
 
     "privicy-heading":"Chính sách bảo mật",
@@ -223,7 +227,27 @@
 "privicy-h21":"Liên hệ với chúng tôi",
 "privicy-p84":"Nếu bạn có bất kỳ câu hỏi nào về Chính sách Bảo mật này, bạn có thể liên hệ với chúng tôi:",
 "privicy-p85":"Bằng email:",
-"privicy-p86":"Bằng cách truy cập trang này trên trang web của chúng tôi: "
+"privicy-p86":"Bằng cách truy cập trang này trên trang web của chúng tôi: ",
+"disclaimer-h1": "Tuyên bố miễn trừ trách nhiệm cho YTFetch",
+    "disclaimer-p1": "Nếu bạn cần thêm thông tin hoặc có bất kỳ câu hỏi nào về tuyên bố miễn trừ trách nhiệm của trang web chúng tôi, vui lòng liên hệ với chúng tôi qua email tại",
+    "disclaimer-h2": "Tuyên bố miễn trừ trách nhiệm cho YTFetch",
+    "disclaimer-p2": "Tất cả thông tin trên trang web này - ",
+    "disclaimer-p3": " - được xuất bản với thiện chí và chỉ dành cho mục đích thông tin chung. YTFetch không đưa ra bất kỳ bảo đảm nào về tính đầy đủ, độ tin cậy và độ chính xác của thông tin này. Bất kỳ hành động nào bạn thực hiện dựa trên thông tin bạn tìm thấy trên trang web này (YTFetch), đều là rủi ro của riêng bạn. YTFetch sẽ không chịu trách nhiệm cho bất kỳ tổn thất và/hoặc thiệt hại nào liên quan đến việc sử dụng trang web của chúng tôi.",
+    "disclaimer-p4": " - được xuất bản với thiện chí và chỉ dành cho mục đích thông tin chung. YTFetch không đưa ra bất kỳ bảo đảm nào về tính đầy đủ, độ tin cậy và độ chính xác của thông tin này. Bất kỳ hành động nào bạn thực hiện dựa trên thông tin bạn tìm thấy trên trang web này (YTFetch), đều là rủi ro của riêng bạn. YTFetch sẽ không chịu trách nhiệm cho bất kỳ tổn thất và/hoặc thiệt hại nào liên quan đến việc sử dụng trang web của chúng tôi. Từ trang web của chúng tôi, bạn có thể truy cập các trang web khác bằng cách theo các liên kết đến các trang web bên ngoài đó. Mặc dù chúng tôi cố gắng chỉ cung cấp các liên kết chất lượng đến các trang web hữu ích và đạo đức, chúng tôi không kiểm soát nội dung và bản chất của các trang web đó. Các liên kết đến các trang web khác này không ngụ ý sự khuyến nghị cho tất cả nội dung tìm thấy trên các trang web đó. Chủ sở hữu trang web và nội dung có thể thay đổi mà không cần thông báo và có thể xảy ra trước khi chúng tôi có cơ hội xóa liên kết có thể đã bị 'hỏng'.",
+    "disclaimer-p5": " Xin hãy nhận thức rằng khi bạn rời khỏi trang web của chúng tôi, các trang web khác có thể có chính sách bảo mật và điều khoản khác nằm ngoài tầm kiểm soát của chúng tôi. Vui lòng đảm bảo kiểm tra Chính sách Bảo mật của các trang web đó cũng như 'Điều khoản Dịch vụ' của họ trước khi tham gia vào bất kỳ công việc kinh doanh hoặc tải lên bất kỳ thông tin nào.",
+    "disclaimer-h3": "Sự đồng ý",
+    "disclaimer-p6": "Bằng cách sử dụng trang web của chúng tôi, bạn đồng ý với tuyên bố miễn trừ trách nhiệm của chúng tôi và đồng ý với các điều khoản của nó.",
+    "disclaimer-p7": "Nếu chúng tôi cập nhật, sửa đổi hoặc thực hiện bất kỳ thay đổi nào đối với tài liệu này, những thay đổi đó sẽ được đăng tải nổi bật ở đây.",
+    "disclaimer-h4": "Cập nhật",
+
+
+    "contactus-name":"Tên",
+    "contactus-h1":"Liên hệ",
+    "contactus-email":"Email",
+    "contactus-message":"Tin nhắn",
+    "contactus-send":"Gửi tin nhắn"
+
+
     
 
   }

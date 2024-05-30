@@ -9,8 +9,7 @@ import { TranslateService } from "@ngx-translate/core";
 })
 export class PrivicyComponent implements OnInit {
   data: Date = new Date();
-  focus;
-  focus1;
+
   selectedLanguage: string = "en";
 
   constructor(private translateService: TranslateService) {
@@ -28,5 +27,12 @@ export class PrivicyComponent implements OnInit {
 
   changeLanguage() {
     this.translateService.use(this.selectedLanguage);
+  }
+
+  scrollToSection(sectionName: string) {
+    const sectionElement = document.querySelector(`#${sectionName}`);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: "smooth" });
+    }
   }
 }

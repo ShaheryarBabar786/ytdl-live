@@ -23,8 +23,14 @@
 
 
   }
+  .navbar-container .half-color{
+    color: #0df30d;
+  }
   
   .navbar-container.scrolled {
     padding-top: 8px;
     
+  }
+  .navbar-container.scrolled .half-color{
+    color: #fff;
   }

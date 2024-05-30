@@ -84,7 +84,11 @@
     },
     "navbar": {
       "howItWorks": "Jak to działa?",
-      "faqs": "FAQ"
+      "faqs": "FAQ",
+      "home": "Dom",
+    "privacy": "Prywatność i polityki",
+    "disclaimer": "Oświadczenie o ochronie danych",
+    "contact": "Skontaktuj się z nami"
     },
 
     "privicy-heading": "Polityka Prywatności",
@@ -221,7 +225,25 @@
     "privicy-h21": "Skontaktuj się z nami",
     "privicy-p84": "Jeśli masz jakiekolwiek pytania dotyczące tej Polityki Prywatności, możesz się z nami skontaktować:",
     "privicy-p85": "Poprzez e-mail:",
-    "privicy-p86": "Przez odwiedzenie tej strony na naszej stronie internetowej:"
+    "privicy-p86": "Przez odwiedzenie tej strony na naszej stronie internetowej:",
+
+    "disclaimer-h1": "Oświadczenie o ochronie prywatności dla YTFetch",
+    "disclaimer-p1": "Jeśli potrzebujesz dodatkowych informacji lub masz pytania dotyczące naszej polityki prywatności, skontaktuj się z nami drogą e-mailową pod adresem",
+    "disclaimer-h2": "Oświadczenia dotyczące prywatności dla YTFetch",
+    "disclaimer-p2": "Wszystkie informacje na tej stronie internetowej - ",
+    "disclaimer-p3": " - są publikowane w dobrej wierze i wyłącznie w celach ogólnoinformacyjnych. YTFetch nie udziela żadnych gwarancji co do kompletności, wiarygodności i dokładności tych informacji. Każde działanie podejmowane na podstawie informacji znalezionych na tej stronie internetowej (YTFetch) odbywa się wyłącznie na własne ryzyko. YTFetch nie ponosi odpowiedzialności za żadne straty i/lub szkody związane z korzystaniem z naszej strony internetowej.",
+    "disclaimer-p4": " - są publikowane w dobrej wierze i wyłącznie w celach ogólnoinformacyjnych. YTFetch nie udziela żadnych gwarancji co do kompletności, wiarygodności i dokładności tych informacji. Każde działanie podejmowane na podstawie informacji znalezionych na tej stronie internetowej (YTFetch) odbywa się wyłącznie na własne ryzyko. YTFetch nie ponosi odpowiedzialności za żadne straty i/lub szkody związane z korzystaniem z naszej strony internetowej. Z naszej strony internetowej możesz odwiedzać inne strony internetowe, klikając na linki prowadzące do takich zewnętrznych stron. Chociaż dokładamy starań, aby zapewnić tylko wysokiej jakości linki do przydatnych i etycznych stron internetowych, nie mamy kontroli nad treścią i charakterem tych stron. Linki do innych stron internetowych nie oznaczają rekomendacji dla całej zawartości znalezionej na tych stronach. Właściciele stron i ich treści mogą zmieniać się bez powiadomienia i mogą się pojawić przed możliwością usunięcia linka, który mógł stać się „zły”.",
+    "disclaimer-p5": " Pamiętaj również, że opuszczając naszą stronę internetową, inne strony mogą mieć inne polityki prywatności i warunki, które są poza naszą kontrolą. Upewnij się, że sprawdzisz Polityki Prywatności tych stron, a także ich „Warunki świadczenia usług”, przed podjęciem jakiejkolwiek działalności gospodarczej lub przesyłaniem jakichkolwiek informacji.",
+    "disclaimer-h3": "Zgoda",
+    "disclaimer-p6": "Korzystając z naszej strony internetowej, wyrażasz niniejszym zgodę na naszą politykę prywatności i akceptujesz jej warunki.",
+    "disclaimer-p7": "Jeśli zaktualizujemy, zmodyfikujemy lub dokonamy jakichkolwiek zmian w tym dokumencie, te zmiany zostaną wyraźnie opublikowane tutaj.",
+    "disclaimer-h4": "Aktualizacja",
+
+    "contactus-name":"Imię",
+    "contactus-h1":"Skontaktuj się z nami",
+    "contactus-email":"E-mail",
+    "contactus-message":"Wiadomość",
+    "contactus-send":"Wyślij wiadomość"
 
 
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, HostListener } from "@angular/core";
 import { Location } from "@angular/common";
 import { TranslateService } from "@ngx-translate/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-navbar",
@@ -15,7 +16,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     public location: Location,
     private element: ElementRef,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private router: Router // Add this line
   ) {
     this.sidebarVisible = false;
   }

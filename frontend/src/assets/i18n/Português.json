@@ -84,7 +84,11 @@
     },
     "navbar": {
       "howItWorks": "Como funciona?",
-      "faqs": "FAQs"
+      "faqs": "FAQs",
+      "home": "Início",
+    "privacy": "Privacidade e políticas",
+    "disclaimer": "Aviso Legal",
+    "contact": "Contate-Nos"
     },
 
     "privicy-heading": "Política de Privacidade",
@@ -225,7 +229,25 @@
   "privicy-h21":"Entre em contato conosco",
   "privicy-p84":"Se você tiver alguma dúvida sobre esta Política de Privacidade, pode entrar em contato conosco:",
   "privicy-p85":"Por e-mail:",
-  "privicy-p86":"Visitando esta página em nosso site:"
+  "privicy-p86":"Visitando esta página em nosso site:",
+
+  "disclaimer-h1": "Aviso Legal para YTFetch",
+    "disclaimer-p1": "Se precisar de mais informações ou tiver alguma dúvida sobre o aviso legal do nosso site, sinta-se à vontade para nos contatar por e-mail em",
+    "disclaimer-h2": "Avisos Legais para YTFetch",
+    "disclaimer-p2": "Toda a informação neste website - ",
+    "disclaimer-p3": " - é publicada de boa fé e apenas para fins de informação geral. O YTFetch não faz garantias sobre a completude, confiabilidade e precisão desta informação. Qualquer ação que você tome com base nas informações encontradas neste site (YTFetch) é estritamente por sua própria conta e risco. O YTFetch não será responsável por quaisquer perdas e/ou danos relacionados ao uso do nosso site.",
+    "disclaimer-p4": " - é publicada de boa fé e apenas para fins de informação geral. O YTFetch não faz garantias sobre a completude, confiabilidade e precisão desta informação. Qualquer ação que você tome com base nas informações encontradas neste site (YTFetch) é estritamente por sua própria conta e risco. O YTFetch não será responsável por quaisquer perdas e/ou danos relacionados ao uso do nosso site. Do nosso site, você pode visitar outros sites seguindo hiperlinks para esses sites externos. Embora nos esforcemos para fornecer apenas links de qualidade para sites úteis e éticos, não temos controle sobre o conteúdo e a natureza desses sites. Esses links para outros sites não implicam uma recomendação para todo o conteúdo encontrado nesses sites. Os proprietários do site e o conteúdo podem mudar sem aviso prévio e podem ocorrer antes que tenhamos a oportunidade de remover um link que possa ter se tornado 'ruim'.",
+    "disclaimer-p5": " Esteja também ciente de que ao sair do nosso site, outros sites podem ter políticas de privacidade e termos diferentes que estão fora do nosso controle. Certifique-se de verificar as Políticas de Privacidade desses sites, bem como seus 'Termos de Serviço', antes de se envolver em qualquer negócio ou enviar qualquer informação.",
+    "disclaimer-h3": "Consentimento",
+    "disclaimer-p6": "Ao usar nosso site, você concorda com nosso aviso legal e concorda com seus termos.",
+    "disclaimer-p7": "Se atualizarmos, alterarmos ou fizermos quaisquer alterações neste documento, essas alterações serão publicadas de forma proeminente aqui.",
+    "disclaimer-h4": "Atualização",
+
+    "contactus-name":"Nome",
+    "contactus-h1":"Fale Conosco",
+    "contactus-email":"E-mail",
+    "contactus-message":"Mensagem",
+    "contactus-send":"Enviar mensagem"
 
 
 

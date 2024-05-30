@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" id="sectionp1">
     <h1 class="seo">.</h1>
     <div class="container costum-css">
 
@@ -207,11 +207,19 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#section1"> YTFetch
+                        <a href="#section1"> {{ 'footer-developer' | translate }}
                         </a>
                     </li>
                     <li>
-                        <a href="#section2"> About us
+                        <a href="#section2"> {{ 'footer-aboutUs' | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section4"> {{ 'navbar.howItWorks' | translate }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section5"> {{ 'navbar.faqs' | translate }}
                         </a>
                     </li>
                     <li>
@@ -222,9 +230,11 @@
             </nav>
             <div class="copyright">
                 &copy;
-                2024, All Rights Reserved
+                {{ data | date : "yyyy" }}, {{ 'footer-content' | translate }}
             </div>
         </div>
-
+        <div class="fixed-arrow" (click)="scrollToSection('sectionp1')">
+            <i class="fas fa-chevron-up"></i>
+        </div>
     </footer>
 </div>

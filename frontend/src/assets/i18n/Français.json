@@ -84,7 +84,11 @@
     },
     "navbar": {
         "howItWorks": "Comment ça marche ?",
-        "faqs": "FAQ"
+        "faqs": "FAQ",
+        "home": "Accueil",
+    "privacy": "Confidentialité et politiques",
+    "disclaimer": "Clause de non-responsabilité",
+    "contact": "Contactez-nous"
     },
 
     "privicy-heading": "Politique de confidentialité",
@@ -221,7 +225,26 @@
   "privicy-h21": "Contactez-nous",
   "privicy-p84": "Si vous avez des questions concernant cette politique de confidentialité, vous pouvez nous contacter :",
   "privicy-p85": "Par e-mail :",
-  "privicy-p86": "En visitant cette page sur notre site Web : "
+  "privicy-p86": "En visitant cette page sur notre site Web : ",
+
+  "disclaimer-h1": "Avis de non-responsabilité pour YTFetch",
+    "disclaimer-p1": "Si vous avez besoin de plus d'informations ou si vous avez des questions concernant l'avis de non-responsabilité de notre site, n'hésitez pas à nous contacter par email à",
+    "disclaimer-h2": "Avis de non-responsabilité pour YTFetch",
+    "disclaimer-p2": "Toutes les informations sur ce site web - ",
+    "disclaimer-p3": " - sont publiées de bonne foi et uniquement à titre d'information générale. YTFetch ne garantit pas l'exhaustivité, la fiabilité et l'exactitude de ces informations. Toute action que vous entreprenez en vous basant sur les informations trouvées sur ce site web (YTFetch) est strictement à vos propres risques. YTFetch ne sera pas responsable des pertes et/ou des dommages en relation avec l'utilisation de notre site web.",
+    "disclaimer-p4": " - sont publiées de bonne foi et uniquement à titre d'information générale. YTFetch ne garantit pas l'exhaustivité, la fiabilité et l'exactitude de ces informations. Toute action que vous entreprenez en vous basant sur les informations trouvées sur ce site web (YTFetch) est strictement à vos propres risques. YTFetch ne sera pas responsable des pertes et/ou des dommages en relation avec l'utilisation de notre site web. Depuis notre site web, vous pouvez visiter d'autres sites web en suivant des hyperliens vers ces sites externes. Bien que nous nous efforcions de ne fournir que des liens de qualité vers des sites web utiles et éthiques, nous n'avons aucun contrôle sur le contenu et la nature de ces sites. Ces liens vers d'autres sites web n'impliquent pas une recommandation pour tout le contenu trouvé sur ces sites. Les propriétaires du site et le contenu peuvent changer sans préavis et peuvent se produire avant que nous ayons la possibilité de supprimer un lien qui pourrait être devenu 'mauvais'.",
+    "disclaimer-p5": " Veuillez également noter qu'en quittant notre site web, d'autres sites peuvent avoir des politiques de confidentialité et des conditions différentes qui échappent à notre contrôle. Veuillez vérifier les politiques de confidentialité de ces sites ainsi que leurs 'Conditions de service' avant de vous engager dans une quelconque activité ou de télécharger des informations.",
+    "disclaimer-h3": "Consentement",
+    "disclaimer-p6": "En utilisant notre site web, vous consentez par la présente à notre avis de non-responsabilité et acceptez ses termes.",
+    "disclaimer-p7": "Si nous mettons à jour, modifions ou apportons des changements à ce document, ces changements seront publiés ici de manière bien visible.",
+    "disclaimer-h4": "Mise à jour",
+
+
+    "contactus-name":"Nom",
+    "contactus-h1":"Contactez-nous",
+    "contactus-email":"E-mail",
+    "contactus-message":"Message",
+    "contactus-send":"Envoyer le message"
 
 
 }

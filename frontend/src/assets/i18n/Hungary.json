@@ -84,7 +84,11 @@
     },
     "navbar": {
       "howItWorks": "Hogyan működik?",
-      "faqs": "GYIK"
+      "faqs": "GYIK",
+      "home": "Kezdőlap",
+    "privacy": "Adatvédelem és irányelvek",
+    "disclaimer": "Kizárás",
+    "contact": "Lépjen kapcsolatba velünk"
     },
 
     "privicy-heading": "Adatvédelmi irányelvek",
@@ -226,7 +230,27 @@
 "privicy-h21":"Kapcsolatfelvétel",
 "privicy-p84":"Ha bármilyen kérdése van ezzel az Adatvédelmi Irányelvvel kapcsolatban, kérjük, lépjen velünk kapcsolatba:",
 "privicy-p85":"E-mailben:",
-"privicy-p86":"Látogassa meg ezt az oldalt a weboldalunkon:"
+"privicy-p86":"Látogassa meg ezt az oldalt a weboldalunkon:",
+
+"disclaimer-h1": "Felelősségkizárás a YTFetch számára",
+    "disclaimer-p1": "Ha további információra van szüksége, vagy kérdései vannak a webhelyünk felelősségkizárásával kapcsolatban, kérjük, forduljon hozzánk e-mailben a következő címen:",
+    "disclaimer-h2": "Felelősségkizárások a YTFetch számára",
+    "disclaimer-p2": "Az összes információ ezen a webhelyen - ",
+    "disclaimer-p3": " - jóhiszeműen és kizárólag általános tájékoztatási célból kerül közzétételre. A YTFetch nem vállal garanciát az információk teljességére, megbízhatóságára és pontosságára vonatkozóan. Bármely intézkedés, amelyet a webhelyünkön található információk alapján tesz (YTFetch), kizárólag saját felelősségére történik. A YTFetch nem vállal felelősséget semmilyen veszteségért és/vagy kárért, amely a webhelyünk használatával kapcsolatban felmerülhet.",
+    "disclaimer-p4": " - jóhiszeműen és kizárólag általános tájékoztatási célból kerül közzétételre. A YTFetch nem vállal garanciát az információk teljességére, megbízhatóságára és pontosságára vonatkozóan. Bármely intézkedés, amelyet a webhelyünkön található információk alapján tesz (YTFetch), kizárólag saját felelősségére történik. A YTFetch nem vállal felelősséget semmilyen veszteségért és/vagy kárért, amely a webhelyünk használatával kapcsolatban felmerülhet. Webhelyünkről más webhelyekre is ellátogathat az ilyen külső oldalakra mutató hivatkozások követésével. Bár igyekszünk csak minőségi linkeket biztosítani hasznos és etikus webhelyekre, nincs ellenőrzésünk ezen webhelyek tartalma és jellege felett. Ezek a más webhelyekre mutató linkek nem jelentenek ajánlást minden olyan tartalomra, amely ezeken a webhelyeken található. A webhelyek tulajdonosai és tartalmaik értesítés nélkül változhatnak, és ez megtörténhet azelőtt, hogy lehetőségünk lenne eltávolítani egy linket, amely esetlegesen „rossz” lett.",
+    "disclaimer-p5": " Kérjük, vegye figyelembe, hogy amikor elhagyja webhelyünket, más webhelyek eltérő adatvédelmi politikákat és feltételeket alkalmazhatnak, amelyek kívül esnek ellenőrzésünkön. Kérjük, ellenőrizze ezen webhelyek adatvédelmi irányelveit és azok 'Szolgáltatási feltételeit', mielőtt bármilyen üzleti tevékenységet folytatna vagy bármilyen információt feltöltene.",
+    "disclaimer-h3": "Hozzájárulás",
+    "disclaimer-p6": "Webhelyünk használatával Ön elfogadja felelősségkizárásunkat és beleegyezik a feltételeibe.",
+    "disclaimer-p7": "Ha frissítjük, módosítjuk vagy bármilyen változtatást hajtunk végre ebben a dokumentumban, azokat a változtatásokat itt feltűnően közzétesszük.",
+    "disclaimer-h4": "Frissítés",
+
+    "contactus-name":"Név",
+    "contactus-h1":"Lépjen velünk kapcsolatba",
+    "contactus-email":"E-mail",
+    "contactus-message":"Üzenet",
+    "contactus-send":"Üzenet küldése"
+
+
 
 
 

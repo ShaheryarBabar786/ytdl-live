@@ -443,11 +443,19 @@
         <nav>
           <ul>
             <li>
-              <a href="#section1"> {{ 'footer-developer' | translate }}
+              <a (click)="scrollToSection('section1')"> {{ 'footer-developer' | translate }}
               </a>
             </li>
             <li>
-              <a href="#section2"> {{ 'footer-aboutUs' | translate }}
+              <a (click)="scrollToSection('section2')"> {{ 'footer-aboutUs' | translate }}
+              </a>
+            </li>
+            <li>
+              <a (click)="scrollToSection('section4')"> {{ 'navbar.howItWorks' | translate }}
+              </a>
+            </li>
+            <li>
+              <a (click)="scrollToSection('section5')"> {{ 'navbar.faqs' | translate }}
               </a>
             </li>
             <li>

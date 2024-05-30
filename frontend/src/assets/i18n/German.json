@@ -84,7 +84,11 @@
     },
     "navbar": {
       "howItWorks": "Wie funktioniert es?",
-      "faqs": "FAQ's"
+      "faqs": "FAQ's",
+      "home": "Zuhause",
+    "privacy": "Datenschutz und Richtlinien",
+    "disclaimer": "Haftungsausschluss",
+    "contact": "Kontaktiere uns"
     },
 
     "privicy-heading": "Datenschutzrichtlinie",
@@ -227,7 +231,26 @@
     "privicy-h21":"Kontaktieren Sie uns",
     "privicy-p84":"Wenn Sie Fragen zu dieser Datenschutzrichtlinie haben, können Sie uns kontaktieren:",
     "privicy-p85":"Per E-Mail:",
-    "privicy-p86":"Indem Sie diese Seite auf unserer Website besuchen: "
+    "privicy-p86":"Indem Sie diese Seite auf unserer Website besuchen: ",
+
+    "disclaimer-h1": "Haftungsausschluss für YTFetch",
+    "disclaimer-p1": "Wenn Sie weitere Informationen benötigen oder Fragen zu unserem Haftungsausschluss haben, kontaktieren Sie uns bitte per E-Mail unter",
+    "disclaimer-h2": "Haftungsausschlüsse für YTFetch",
+    "disclaimer-p2": "Alle Informationen auf dieser Website - ",
+    "disclaimer-p3": " - werden in gutem Glauben und nur zu allgemeinen Informationszwecken veröffentlicht. YTFetch übernimmt keine Gewähr für die Vollständigkeit, Zuverlässigkeit und Richtigkeit dieser Informationen. Jegliche Handlungen, die Sie aufgrund der Informationen auf dieser Website (YTFetch) unternehmen, erfolgen ausschließlich auf Ihr eigenes Risiko. YTFetch haftet nicht für Verluste und/oder Schäden im Zusammenhang mit der Nutzung unserer Website.",
+    "disclaimer-p4": " - werden in gutem Glauben und nur zu allgemeinen Informationszwecken veröffentlicht. YTFetch übernimmt keine Gewähr für die Vollständigkeit, Zuverlässigkeit und Richtigkeit dieser Informationen. Jegliche Handlungen, die Sie aufgrund der Informationen auf dieser Website (YTFetch) unternehmen, erfolgen ausschließlich auf Ihr eigenes Risiko. YTFetch haftet nicht für Verluste und/oder Schäden im Zusammenhang mit der Nutzung unserer Website. Von unserer Website aus können Sie andere Websites besuchen, indem Sie den Hyperlinks zu diesen externen Websites folgen. Obwohl wir uns bemühen, nur qualitativ hochwertige Links zu nützlichen und ethischen Websites bereitzustellen, haben wir keine Kontrolle über den Inhalt und die Natur dieser Websites. Diese Links zu anderen Websites implizieren keine Empfehlung für alle Inhalte, die auf diesen Websites zu finden sind. Die Eigentümer der Website und der Inhalt können sich ohne Vorankündigung ändern und können auftreten, bevor wir die Möglichkeit haben, einen Link zu entfernen, der möglicherweise 'schlecht' geworden ist.",
+    "disclaimer-p5": " Bitte beachten Sie auch, dass andere Websites, wenn Sie unsere Website verlassen, möglicherweise andere Datenschutzrichtlinien und Geschäftsbedingungen haben, die außerhalb unserer Kontrolle liegen. Bitte überprüfen Sie die Datenschutzrichtlinien dieser Websites sowie deren 'Nutzungsbedingungen', bevor Sie sich auf ein Geschäft einlassen oder Informationen hochladen.",
+    "disclaimer-h3": "Zustimmung",
+    "disclaimer-p6": "Durch die Nutzung unserer Website stimmen Sie hiermit unserem Haftungsausschluss zu und akzeptieren dessen Bedingungen.",
+    "disclaimer-p7": "Sollten wir dieses Dokument aktualisieren, ändern oder sonstige Änderungen vornehmen, werden diese Änderungen hier deutlich veröffentlicht.",
+    "disclaimer-h4": "Aktualisierung",
+
+
+    "contactus-name":"Name",
+    "contactus-h1":"Kontaktiere uns",
+    "contactus-email":"E-Mail",
+    "contactus-message":"Nachricht",
+    "contactus-send":"Nachricht senden"
 
 
   }

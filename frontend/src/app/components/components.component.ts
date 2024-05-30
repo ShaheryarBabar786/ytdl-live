@@ -104,6 +104,13 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     this.fullscreenImageSrc = "";
   }
 
+  // scrollToSection(sectionName: string) {
+  //   const sectionElement = document.querySelector(`#${sectionName}`);
+  //   if (sectionElement) {
+  //     sectionElement.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }
+
   scrollToSection(sectionName: string) {
     const sectionElement = document.querySelector(`#${sectionName}`);
     if (sectionElement) {

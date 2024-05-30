@@ -84,7 +84,11 @@
     },
     "navbar": {
         "howItWorks": "Cum funcționează?",
-        "faqs": "FAQ-uri"
+        "faqs": "FAQ-uri",
+        "home": "Acasă",
+    "privacy": "Confidențialitate și politici",
+    "disclaimer": "Declinare de responsabilitate",
+    "contact": "Contactați-ne"
     },
 
     "privicy-heading": "Politica de confidențialitate",
@@ -226,6 +230,24 @@
     "privicy-h21": "Contactați-ne",
     "privicy-p84": "Dacă aveți întrebări despre această Politică de confidențialitate, ne puteți contacta:",
     "privicy-p85": "Prin e-mail:",
-    "privicy-p86": "Vizitând această pagină pe site-ul nostru:"
+    "privicy-p86": "Vizitând această pagină pe site-ul nostru:",
+
+    "disclaimer-h1": "Disclaimer pentru YTFetch",
+    "disclaimer-p1": "Dacă aveți nevoie de mai multe informații sau aveți întrebări despre declarația noastră legală pe site-ul nostru, nu ezitați să ne contactați prin e-mail la",
+    "disclaimer-h2": "Declarații legale pentru YTFetch",
+    "disclaimer-p2": "Toate informațiile de pe acest site web - ",
+    "disclaimer-p3": " - sunt publicate în bună credință și doar în scopuri de informare generală. YTFetch nu oferă nicio garanție cu privire la completitudinea, fiabilitatea și exactitatea acestor informații. Orice acțiune pe care o întreprindeți pe baza informațiilor găsite pe acest site web (YTFetch) se face strict pe propriul dumneavoastră risc. YTFetch nu va fi responsabil pentru nicio pierdere și/sau daună legată de utilizarea site-ului nostru.",
+    "disclaimer-p4": " - sunt publicate în bună credință și doar în scopuri de informare generală. YTFetch nu oferă nicio garanție cu privire la completitudinea, fiabilitatea și exactitatea acestor informații. Orice acțiune pe care o întreprindeți pe baza informațiilor găsite pe acest site web (YTFetch) se face strict pe propriul dumneavoastră risc. YTFetch nu va fi responsabil pentru nicio pierdere și/sau daună legată de utilizarea site-ului nostru. De pe site-ul nostru web, puteți vizita alte site-uri web urmând linkuri către aceste site-uri externe. Cu toate că ne străduim să oferim doar linkuri de calitate către site-uri utile și etice, nu avem control asupra conținutului și naturii acestor site-uri. Aceste linkuri către alte site-uri web nu implică o recomandare pentru întregul conținut găsit pe aceste site-uri. Proprietarii site-urilor și conținutul acestora se pot schimba fără notificare și pot interveni înainte ca noi să avem ocazia să eliminăm un link care ar putea deveni 'rău'.",
+    "disclaimer-p5": " Vă rugăm să fiți conștient că, atunci când părăsiți site-ul nostru, alte site-uri pot avea politici de confidențialitate și termeni diferiți care sunt în afara controlului nostru. Asigurați-vă că verificați Politicile de Confidențialitate ale acestor site-uri, precum și 'Termenii de Serviciu' înainte de a vă angaja în orice afacere sau de a trimite orice informații.",
+    "disclaimer-h3": "Consentiment",
+    "disclaimer-p6": "Prin utilizarea site-ului nostru web, vă exprimați consimțământul la declarația noastră legală și sunteți de acord cu termenii acesteia.",
+    "disclaimer-p7": "Dacă vom actualiza, modifica sau face orice modificări la acest document, acele modificări vor fi publicate în mod vizibil aici.",
+    "disclaimer-h4": "Actualizare",
+
+    "contactus-name":"Nume",
+    "contactus-h1":"Contactați-ne",
+    "contactus-email":"E-mail",
+    "contactus-message":"Mesaj",
+    "contactus-send":"Trimiteți mesajul"
 
 }

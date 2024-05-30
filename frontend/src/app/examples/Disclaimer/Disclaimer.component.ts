@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-Disclaimer",
@@ -7,11 +8,24 @@ import { Component, OnInit } from "@angular/core";
 })
 export class DisclaimerComponent implements OnInit {
   data: Date = new Date();
-  focus;
-  focus1;
 
-  constructor() {}
+  selectedLanguage: string = "en";
+
+  constructor(private translateService: TranslateService) {
+    this.selectedLanguage = "en";
+  }
 
   ngOnInit() {}
   ngOnDestroy() {}
+
+  changeLanguage() {
+    this.translateService.use(this.selectedLanguage);
+  }
+
+  scrollToSection(sectionName: string) {
+    const sectionElement = document.querySelector(`#${sectionName}`);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: "smooth" });
+    }
+  }
 }

@@ -86,7 +86,11 @@
     },
     "navbar": {
       "howItWorks": "Kayata opo?",
-      "faqs": "FAQ's"
+      "faqs": "FAQ's",
+      "home": "Rumah",
+    "privacy": "Privasi lan kebijakan",
+    "disclaimer": "Disclaimer",
+    "contact": "Kanthi menehi kabar"
     },
 
     "privicy-heading": "Kebijakan Privasi",
@@ -225,6 +229,24 @@
   "privicy-h21": "Kontak Kita",
   "privicy-p84": "Yèn Sampeyan duwe pirang pertanyaan ngenani Kebijakan Privasi iki, Sampeyan bisa kontak kita:",
   "privicy-p85": "Ngenal Email:",
-  "privicy-p86": "Njenal kaca iki ing situs web kita:"
+  "privicy-p86": "Njenal kaca iki ing situs web kita:",
+
+  "disclaimer-h1": "Penafian kanggo YTFetch",
+    "disclaimer-p1": "Yen sampeyan butuh informasi luwih lengkap utawa duwe pitakon babagan penafian situs kita, monggo hubungi kita liwat email ing",
+    "disclaimer-h2": "Penafian kanggo YTFetch",
+    "disclaimer-p2": "Kabeh informasi ing situs web iki - ",
+    "disclaimer-p3": " - diterbitake kanthi niat apik lan mung kanggo tujuan informasi umum. YTFetch ora menehi jaminan babagan kelengkapan, keandalan, lan akurasi informasi iki. Tindakan apa wae sing sampeyan lakoni adhedhasar informasi sing sampeyan temokake ing situs web iki (YTFetch), iku resiko sampeyan dhewe. YTFetch ora bakal tanggung jawab kanggo kerugian lan/utawa karusakan sing ana gandhengane karo panggunaan situs web kita.",
+    "disclaimer-p4": " - diterbitake kanthi niat apik lan mung kanggo tujuan informasi umum. YTFetch ora menehi jaminan babagan kelengkapan, keandalan, lan akurasi informasi iki. Tindakan apa wae sing sampeyan lakoni adhedhasar informasi sing sampeyan temokake ing situs web iki (YTFetch), iku resiko sampeyan dhewe. YTFetch ora bakal tanggung jawab kanggo kerugian lan/utawa karusakan sing ana gandhengane karo panggunaan situs web kita. Saka situs web kita, sampeyan bisa ngunjungi situs web liyane kanthi ngetutake hyperlink menyang situs eksternal kasebut. Senadyan kita usaha kanggo mung nyedhiyakake pranala sing berkualitas menyang situs web sing migunani lan etis, kita ora duwe kontrol marang isi lan sifat situs-situs kasebut. Pranala menyang situs web liyane iki ora ateges rekomendasi kanggo kabeh isi sing ditemokake ing situs-situs kasebut. Pemilik situs lan isi bisa berubah tanpa kabar lan bisa kedadeyan sadurunge kita duwe kesempatan kanggo mbusak pranala sing mungkin wis dadi 'ala'.",
+    "disclaimer-p5": " Mangga uga disadari manawa nalika sampeyan ninggalake situs web kita, situs liyane bisa duwe kebijakan privasi lan syarat sing beda sing ana ing njaba kontrol kita. Mangga priksa Kebijakan Privasi situs-situs kasebut uga 'Syarat Layanan' sadurunge melu bisnis apa wae utawa ngunggah informasi apa wae.",
+    "disclaimer-h3": "Persetujuan",
+    "disclaimer-p6": "Kanthi nggunakake situs web kita, sampeyan kanthi iki setuju karo penafian kita lan setuju karo syarate.",
+    "disclaimer-p7": "Yen kita nganyari, ngowahi, utawa nggawe owahan apa wae ing dokumen iki, owahan kasebut bakal dipasang kanthi cetha ing kene.",
+    "disclaimer-h4": "Pembaruan",
+
+    "contactus-name":"Jeneng",
+    "contactus-h1":"Kanthi Kita",
+    "contactus-email":"Email",
+    "contactus-message":"Pesan",
+    "contactus-send":"Kirim pesan"
 
   }

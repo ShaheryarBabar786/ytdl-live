@@ -84,7 +84,11 @@
     },
     "navbar": {
       "howItWorks": "Jak to funguje?",
-      "faqs": "Časté dotazy"
+      "faqs": "Časté dotazy",
+      "home": "Domov",
+    "privacy": "Ochrana osobních údajů a pravidla",
+    "disclaimer": "Odmítnutí odpovědnosti",
+    "contact": "Kontaktujte nás"
     },
 
     "privicy-heading": "Zásady ochrany osobních údajů",
@@ -224,7 +228,26 @@
     "privicy-h21": "Kontaktujte nás",
     "privicy-p84": "Pokud máte jakékoli otázky týkající se této zásady ochrany osobních údajů, můžete nás kontaktovat:",
     "privicy-p85": "E-mailem:",
-    "privicy-p86": "Navštívením této stránky na našem webu: "
+    "privicy-p86": "Navštívením této stránky na našem webu: ",
+
+
+    "disclaimer-h1": "Prohlášení o vyloučení odpovědnosti pro YTFetch",
+    "disclaimer-p1": "Pokud potřebujete více informací nebo máte jakékoliv dotazy ohledně prohlášení o vyloučení odpovědnosti na našem webu, neváhejte nás kontaktovat e-mailem na",
+    "disclaimer-h2": "Prohlášení o vyloučení odpovědnosti pro YTFetch",
+    "disclaimer-p2": "Veškeré informace na tomto webu - ",
+    "disclaimer-p3": " - jsou zveřejňovány v dobré víře a pouze pro obecné informační účely. YTFetch neposkytuje žádné záruky ohledně úplnosti, spolehlivosti a přesnosti těchto informací. Jakékoliv kroky, které podniknete na základě informací, které najdete na tomto webu (YTFetch), jsou na vaše vlastní riziko. YTFetch nenese odpovědnost za jakékoli ztráty a/nebo škody spojené s používáním našeho webu.",
+    "disclaimer-p4": " - jsou zveřejňovány v dobré víře a pouze pro obecné informační účely. YTFetch neposkytuje žádné záruky ohledně úplnosti, spolehlivosti a přesnosti těchto informací. Jakékoliv kroky, které podniknete na základě informací, které najdete na tomto webu (YTFetch), jsou na vaše vlastní riziko. YTFetch nenese odpovědnost za jakékoli ztráty a/nebo škody spojené s používáním našeho webu. Z našeho webu můžete navštívit jiné webové stránky prostřednictvím hypertextových odkazů na takové externí stránky. I když se snažíme poskytovat pouze kvalitní odkazy na užitečné a etické webové stránky, nemáme kontrolu nad obsahem a povahou těchto stránek. Tyto odkazy na jiné webové stránky neznamenají doporučení pro veškerý obsah nalezený na těchto stránkách. Majitelé stránek a obsah se mohou změnit bez upozornění a mohou nastat dříve, než budeme mít příležitost odstranit odkaz, který by mohl být 'nefunkční'.",
+    "disclaimer-p5": " Uvědomte si také, že když opustíte náš web, jiné stránky mohou mít odlišné zásady ochrany osobních údajů a podmínky, které jsou mimo naši kontrolu. Nezapomeňte zkontrolovat zásady ochrany osobních údajů těchto stránek a také jejich 'Podmínky služby' před tím, než se zapojíte do jakéhokoli podnikání nebo nahrávání jakýchkoli informací.",
+    "disclaimer-h3": "Souhlas",
+    "disclaimer-p6": "Používáním našeho webu souhlasíte s naším prohlášením o vyloučení odpovědnosti a souhlasíte s jeho podmínkami.",
+    "disclaimer-p7": "Pokud aktualizujeme, změníme nebo provedeme jakékoli změny v tomto dokumentu, budou tyto změny zřetelně zveřejněny zde.",
+    "disclaimer-h4": "Aktualizace",
+
+    "contactus-name":"Jméno",
+    "contactus-h1":"Kontaktujte nás",
+    "contactus-email":"E-mail",
+    "contactus-message":"Zpráva",
+    "contactus-send":"Odeslat zprávu"
 
 
   }

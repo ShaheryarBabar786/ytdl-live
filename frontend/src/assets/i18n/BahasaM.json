@@ -84,7 +84,11 @@
     },
     "navbar": {
       "howItWorks": "Bagaimana ia berfungsi?",
-      "faqs": "FAQ's"
+      "faqs": "FAQ's",
+      "home": "Laman utama",
+    "privacy": "Privasi dan polisi",
+    "disclaimer": "Penafian",
+    "contact": "Hubungi kami"
     },
     "privicy-heading": "Dasar Privasi",
     "privicy-updated-date": "Kemaskini Terakhir: 21 Mei 2024",
@@ -225,7 +229,24 @@
 "privicy-h21":"Hubungi Kami",
 "privicy-p84":"Jika anda mempunyai sebarang pertanyaan tentang Polisi Privasi ini, Anda boleh menghubungi kami:",
 "privicy-p85":"Melalui e-mel:",
-"privicy-p86":"Dengan melawat laman ini di laman web kami: "
+"privicy-p86":"Dengan melawat laman ini di laman web kami: ",
+"disclaimer-h1": "Penafian untuk YTFetch",
+    "disclaimer-p1": "Jika anda memerlukan maklumat lanjut atau mempunyai sebarang soalan mengenai penafian laman web kami, sila hubungi kami melalui email di",
+    "disclaimer-h2": "Penafian untuk YTFetch",
+    "disclaimer-p2": "Semua maklumat di laman web ini - ",
+    "disclaimer-p3": " - diterbitkan dengan niat baik dan hanya untuk tujuan maklumat umum. YTFetch tidak memberikan sebarang jaminan tentang kelengkapan, kebolehpercayaan, dan ketepatan maklumat ini. Sebarang tindakan yang anda ambil berdasarkan maklumat yang anda temui di laman web ini (YTFetch) adalah atas risiko anda sendiri. YTFetch tidak akan bertanggungjawab ke atas sebarang kerugian dan/atau kerosakan yang berkaitan dengan penggunaan laman web kami.",
+    "disclaimer-p4": " - diterbitkan dengan niat baik dan hanya untuk tujuan maklumat umum. YTFetch tidak memberikan sebarang jaminan tentang kelengkapan, kebolehpercayaan, dan ketepatan maklumat ini. Sebarang tindakan yang anda ambil berdasarkan maklumat yang anda temui di laman web ini (YTFetch) adalah atas risiko anda sendiri. YTFetch tidak akan bertanggungjawab ke atas sebarang kerugian dan/atau kerosakan yang berkaitan dengan penggunaan laman web kami. Dari laman web kami, anda boleh mengunjungi laman web lain dengan mengikuti pautan ke laman luaran tersebut. Walaupun kami berusaha untuk hanya menyediakan pautan berkualiti ke laman web yang berguna dan beretika, kami tidak mempunyai kawalan ke atas kandungan dan sifat laman-laman tersebut. Pautan ke laman web lain ini tidak menyiratkan cadangan untuk semua kandungan yang terdapat di laman-laman tersebut. Pemilik laman dan kandungan mungkin berubah tanpa notis dan boleh berlaku sebelum kami mempunyai peluang untuk menghapus pautan yang mungkin telah menjadi 'buruk'.",
+    "disclaimer-p5": " Sila sedar bahawa apabila anda meninggalkan laman web kami, laman-laman lain mungkin mempunyai dasar privasi dan terma yang berbeza yang berada di luar kawalan kami. Pastikan untuk menyemak Dasar Privasi laman-laman tersebut serta 'Terma Perkhidmatan' mereka sebelum terlibat dalam sebarang urusan atau memuat naik sebarang maklumat.",
+    "disclaimer-h3": "Persetujuan",
+    "disclaimer-p6": "Dengan menggunakan laman web kami, anda dengan ini bersetuju dengan penafian kami dan bersetuju dengan terma-terma nya.",
+    "disclaimer-p7": "Jika kami mengemas kini, meminda atau membuat sebarang perubahan kepada dokumen ini, perubahan tersebut akan dipaparkan dengan jelas di sini.",
+    "disclaimer-h4": "Kemaskini",
+
+    "contactus-name":"Nama",
+    "contactus-h1":"Hubungi Kami",
+    "contactus-email":"E-mel",
+    "contactus-message":"Mesej",
+    "contactus-send":"Hantar mesej"
 
 
 

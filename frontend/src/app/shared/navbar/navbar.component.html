@@ -2,8 +2,8 @@
   style="z-index: 1000;">
   <div class="container navbar-container">
     <div class="navbar-translate">
-      <a [routerLink]="['/index']" class="navbar-logo-brand" placement="bottom" (click)="scrollToSection('section1')">
-        YTFetch
+      <a routerLink="/" class="navbar-logo-brand" placement="bottom" (click)="scrollToSection('section1')">
+        <span class="half-color">YT</span>Fetch
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"
@@ -15,14 +15,28 @@
     </div>
     <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
       <ul class="navbar-nav ml-auto">
+
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" (click)="scrollToSection('section4')" data-placement="bottom">
-            {{ 'navbar.howItWorks' | translate }}
+          <a class="nav-link" routerLink="/" data-placement="bottom">
+            {{ 'navbar.home' | translate }}
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/privicy-policies" data-placement="bottom">
+            {{ 'navbar.privacy' | translate }}
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" (click)="scrollToSection('section5')" data-placement="bottom">
-            {{ 'navbar.faqs' | translate }}
+          <a class="nav-link" routerLink="/disclaimer" data-placement="bottom">
+            {{ 'navbar.disclaimer' | translate }}
+          </a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact-us" data-placement="bottom">
+            {{ 'navbar.contact' | translate }}
           </a>
         </li>
 
