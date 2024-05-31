@@ -29,7 +29,7 @@
                   (input)="linkDetail()" (input)="onInput($event)" />
                 <div class="input-group-append">
                   <button class="btn btn-lg btn-block btn-sm" type="submit" (click)="open(classic, 'md')"
-                    style="border-radius: 0 20px 20px 0; height: 48px; margin: 0; background-color: #0181B0;"
+                    style="border-radius: 0 20px 20px 0; height: 48px; margin: 0; background-color: #29b76b;"
                     [disabled]="loading || !thumbnailUrl || !videoTitle">
                     {{ 'modal-downloadbutton' | translate }}
                   </button>
@@ -40,11 +40,9 @@
             <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
           </div>
         </div>
-        <div class="row justify-content-center" style="padding-bottom: 20px;">
+        <div class="row justify-content-center">
           <div class="col-md-8 text-center">
-            <div class="loader" *ngIf="loading">
-              <div class="justify-content-center jimu-primary-loading"></div>
-            </div>
+            <div class="loader " *ngIf="loading"></div>
             <div *ngIf="!loading && thumbnailUrl">
               <img [src]="thumbnailUrl" alt="Thumbnail" class="img-fluid mb-3 rounded" style="width: 250px;">
               <h6>{{ videoTitle }}</h6>
@@ -54,7 +52,7 @@
         <ng-template #classic let-c="close" let-d="dismiss">
           <div class="modal-header">
             <h5 class="modal-title text-center" style="font-weight: bold;">{{ 'modal-heading' | translate }}</h5>
-            <button type="button" style="color: #0181B0;" class="close" (click)="d('Cross click')">
+            <button type="button" style="color: #29b76b;" class="close" (click)="d('Cross click')">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -85,7 +83,7 @@
                 <div *ngIf="selectedFormat === 'mp4' && showResolutionSelect">
                   <label for="resolutionSelect">{{ 'modal-selectresolution' | translate }}:</label>
                   <select [(ngModel)]="selectedResolution" (change)="resolutionChange($event.target.value)"
-                    class="form-control" [disabled]="downloading">
+                    class="form-control custom-border-select" [disabled]="downloading">
                     <option *ngFor="let resolution of resolutionOptions" [value]="resolution.itag">
                       {{ resolution.resolution }}
                     </option>
@@ -176,7 +174,7 @@
         </div>
         <div class="row mt-4 align-items-start">
           <div class="col-md-4 col-sm-12 d-flex flex-column align-items-center">
-            <img src="../../assets/img/fotor-ai-20240506134357.webp" alt="Could not load due to slow internet"
+            <img src="../../assets/img/girl-listening-music-looking-away.webp" alt="Could not load due to slow internet"
               width="300" class="mb-5" style="border-radius: 25px;">
           </div>
           <div class="col-md-8 col-sm-12">
@@ -221,9 +219,9 @@
               <h6 class="text-center mb-3">{{ 'section4-s-heading1' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
-                  <img src="../../assets/img/Step_1.webp" alt="Could not load due to slow internet"
-                    class="img-fluid rounded lazyload" data-src="../../assets/img/Step_1.webp"
-                    (click)="openImageFullScreen('../../assets/img/Step_1.webp')">
+                  <img src="../../assets/img/step(1)n.webp" alt="Could not load due to slow internet"
+                    class="img-fluid rounded lazyload" data-src="../../assets/img/step(1)n.webp"
+                    (click)="openImageFullScreen('../../assets/img/step(1)n.webp')">
                 </div>
                 <div *ngIf="isImageFullScreen" class="fullscreen-image">
                   <span class="close-btn" (click)="closeImageFullScreen()">×</span>
@@ -240,9 +238,9 @@
               <h6 class="text-center mb-3">{{ 'section4-s-heading2' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
-                  <img src="../../assets/img/Step_2.webp" alt="Could not load due to slow internet"
-                    class="img-fluid rounded lazyload" data-src="../../assets/img/Step_2.webp"
-                    (click)="openImageFullScreen('../../assets/img/Step_2.webp')">
+                  <img src="../../assets/img/step(2)n.webp" alt="Could not load due to slow internet"
+                    class="img-fluid rounded lazyload" data-src="../../assets/img/step(2)n.webp"
+                    (click)="openImageFullScreen('../../assets/img/step(2)n.webp')">
                 </div>
                 <div class="col-md-7 col-sm-7 mt-3 mt-sm-0">
                   <p class="mb-0">{{ 'section4-s-p2' | translate }}</p>
@@ -255,9 +253,9 @@
               <h6 class="text-center mb-3">{{ 'section4-s-heading3' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
-                  <img src="../../assets/img/Step_3.webp" alt="Could not load due to slow internet"
-                    class="img-fluid rounded lazyload" data-src="../../assets/img/Step_3.webp"
-                    (click)="openImageFullScreen('../../assets/img/Step_3.webp')">
+                  <img src="../../assets/img/step(3)n.webp" alt="Could not load due to slow internet"
+                    class="img-fluid rounded lazyload" data-src="../../assets/img/step(3)n.webp"
+                    (click)="openImageFullScreen('../../assets/img/step(3)n.webp')">
                 </div>
                 <div class="col-md-7 col-sm-7 mt-3 mt-sm-0">
                   <p class="mb-0">{{ 'section4-s-p3' | translate }}</p>
@@ -270,9 +268,9 @@
               <h6 class="text-center mb-3">{{ 'section4-s-heading4' | translate }}</h6>
               <div class="row align-items-center">
                 <div class="col-md-5 col-sm-5">
-                  <img src="../../assets/img/Step_4.webp" alt="Could not load due to slow internet"
-                    class="img-fluid rounded lazyload" data-src="../../assets/img/Step_4.webp"
-                    (click)="openImageFullScreen('../../assets/img/Step_4.webp')">
+                  <img src="../../assets/img/step(4)n.webp" alt="Could not load due to slow internet"
+                    class="img-fluid rounded lazyload" data-src="../../assets/img/step(4)n.webp"
+                    (click)="openImageFullScreen('../../assets/img/step(4)n.webp')">
                 </div>
                 <div class="col-md-7 col-sm-7 mt-3 mt-sm-0">
                   <p class="mb-0">{{ 'section4-s-p4' | translate }}</p>

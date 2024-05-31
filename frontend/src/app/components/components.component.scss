@@ -55,72 +55,72 @@
 
   
   .custom-btn {
-    background-color: #0181B0;
-    border-color: #0181B0;
+    background-color: #29b76b;
+    border-color: #29b76b;
   }
 
   .custom-btn:hover,
   .custom-btn:focus {
-    background-color: #015E8A;
-    border-color: #015E8A;
+    background-color: #29b76b;
+    border-color: #29b76b;
   }
   
   .custom-btn:active,
   .custom-btn.active {
-    background-color: #014263;
-    border-color: #014263;
+    background-color: #29b76b;
+    border-color: #29b76b;
   }
 
   .custom-border-select {
-    border-color: #0181B0 !important;
+    border-color: #29b76b !important;
   }
 
   // loader 
-  .loader {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-  }
+  // .loader {
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   z-index: 1000;
+  // }
 
-  .jimu-primary-loading:before,
-  .jimu-primary-loading:after {
-    position: absolute;
-    top: 0;
-    content: '';
-  }
+  // .jimu-primary-loading:before,
+  // .jimu-primary-loading:after {
+  //   position: absolute;
+  //   top: 0;
+  //   content: '';
+  // }
 
-  .jimu-primary-loading:before {
-    left: -19.992px;
-  }
+  // .jimu-primary-loading:before {
+  //   left: -19.992px;
+  // }
 
-  .jimu-primary-loading:after {
-    left: 19.992px;
-    -webkit-animation-delay: 0.32s !important;
-    animation-delay: 0.32s !important;
-  }
+  // .jimu-primary-loading:after {
+  //   left: 19.992px;
+  //   -webkit-animation-delay: 0.32s !important;
+  //   animation-delay: 0.32s !important;
+  // }
 
-  .jimu-primary-loading:before,
-  .jimu-primary-loading:after,
-  .jimu-primary-loading {
-    background: #076fe5;
-    -webkit-animation: loading-keys-app-loading 0.8s infinite ease-in-out;
-    animation: loading-keys-app-loading 0.8s infinite ease-in-out;
-    width: 13.6px;
-    height: 32px;
-  }
+  // .jimu-primary-loading:before,
+  // .jimu-primary-loading:after,
+  // .jimu-primary-loading {
+  //   background: #29b76b;
+  //   -webkit-animation: loading-keys-app-loading 0.8s infinite ease-in-out;
+  //   animation: loading-keys-app-loading 0.8s infinite ease-in-out;
+  //   width: 13.6px;
+  //   height: 32px;
+  // }
 
-  .jimu-primary-loading {
-    text-indent: -9999em;
-    margin: auto;
-    position: absolute;
-    right: calc(50% - 6.8px);
-    top: calc(50% - 16px);
-    -webkit-animation-delay: 0.16s !important;
-    animation-delay: 0.16s !important;
-  }
+  // .jimu-primary-loading {
+  //   text-indent: -9999em;
+  //   margin: auto;
+  //   position: absolute;
+  //   right: calc(50% - 6.8px);
+  //   top: calc(50% - 16px);
+  //   -webkit-animation-delay: 0.16s !important;
+  //   animation-delay: 0.16s !important;
+  // }
   .custom-loader {
     display: flex;
     flex-direction: column;
@@ -128,6 +128,38 @@
     justify-content: center;
     
   }
+
+  /* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border: 2px solid;
+  box-sizing: border-box;
+  border-radius: 50%;
+  display: grid;
+  animation: l11 1.5s infinite linear;
+  transform-origin: 50% 80%;
+  color: #29b76b !important;
+  background-color: #29b76b !important;
+  text-align: center;
+  margin: 0 auto;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  border: inherit;
+  border-radius: 50%;
+  animation: inherit;
+  animation-duration: 1s;
+  transform-origin: inherit;
+}
+.loader:after {
+  --s:-1;
+}
+@keyframes l11 {
+   100% {transform:rotate(calc(var(--s,1)*1turn))}
+}
   
   .spinner {
     border: 3px solid rgba(0, 0, 0, 0.1);
@@ -185,7 +217,7 @@
   .fixed-arrow i {
     font-size: 24px; 
     color: #fff; 
-    background-color: #0181b0; 
+    background-color: #29b76b; 
     padding: 10px;
     border-radius: 50%;
   }
@@ -260,6 +292,7 @@
     footer ul li a{
       padding: 6px;
     }
+    
   }
 
 

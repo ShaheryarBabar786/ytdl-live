@@ -4,7 +4,7 @@
 
 <div class="cstm-cont d-flex justify-content-center align-items-center">
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 790 563" fill="none">
+    <svg viewBox="0 0 790 563" fill="none">
         <g id="Image">
             <g id="g14">
                 <g id="g16">
@@ -447,40 +447,12 @@
 
 
 
-    <!-- <form #emailForm (submit)="sendEmail($event, emailForm)">
-        <h4 class="title text-center mb-4">{{ 'contactus-h1' | translate }}</h4>
 
-   
-        <div class="form-group position-relative">
-            <label for="formName" class="d-block">
-                <i class="icon" data-feather="user"></i>
-            </label>
-            <input type="text" id="user_name" name="user_name" class="form-control form-control-lg thick"
-                placeholder="{{ 'contactus-name' | translate }}">
-        </div>
 
-        
-        <div class="form-group position-relative">
-            <label for="formEmail" class="d-block">
-                <i class="icon" data-feather="mail"></i>
-            </label>
-            <input type="email" id="user_email" name="user_email" class="form-control form-control-lg thick"
-                placeholder="{{ 'contactus-email' | translate }}">
-        </div>
 
-        <div class="form-group message">
-            <textarea id="message" name="message" class="form-control form-control-lg" rows="7"
-                placeholder="{{ 'contactus-message' | translate }}"></textarea>
-        </div>
-
-        
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary" tabIndex="-1" value="Send">{{ 'contactus-send' | translate
-                }}</button>
-        </div>
-    </form> -->
 
     <form #emailForm="ngForm" (ngSubmit)="sendEmail($event, emailForm)" novalidate>
+        <h4 class="title text-center mb-4">{{ 'contactus-h1' | translate }}</h4>
         <!-- Name -->
         <div class="form-group position-relative">
             <label for="user_name" class="d-block">
