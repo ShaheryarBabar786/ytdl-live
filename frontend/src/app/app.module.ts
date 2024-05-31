@@ -18,6 +18,7 @@ import {
 
 import { HttpLoaderFactory } from "./translation-loader";
 import { ExamplesModule } from "./examples/examples.module";
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -39,7 +40,11 @@ import { ExamplesModule } from "./examples/examples.module";
       defaultLanguage: localStorage.getItem("selectedLanguage") || "English",
     }),
   ],
-  providers: [YtServiceService, TranslateService],
+  providers: [
+    YtServiceService,
+    TranslateService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent],
   exports: [TranslateModule],
 })

@@ -20,7 +20,7 @@ import { PrivicyComponent } from "./examples/privicy/privicy.component";
 const routes: Routes = [
   { path: "", redirectTo: "components", pathMatch: "full" },
   { path: "", component: ComponentsComponent },
-  { path: "privicy-policies", component: PrivicyComponent },
+  { path: "privacy", component: PrivicyComponent },
   { path: "disclaimer", component: DisclaimerComponent },
   { path: "contact-us", component: ContactComponent },
 ];
