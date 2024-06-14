@@ -13,17 +13,6 @@ import { environment } from "environments/environment";
 export class YtServiceService {
   url = environment.url;
   constructor(private http: HttpClient) {}
-  downloadAudio(videoURL: string): Observable<HttpEvent<Blob>> {
-    const params = new HttpParams().set("videoURL", videoURL);
-    const headers = new HttpHeaders().set("Content-Type", "application/json");
-    return this.http.get(this.url + "mp3/downloadAudio", {
-      params,
-      headers,
-      reportProgress: true,
-      responseType: "blob",
-      observe: "events",
-    });
-  }
 
   getByteForMP3(videoURL: string): Observable<any> {
     const params = new HttpParams().set("videoURL", videoURL);
@@ -34,6 +23,17 @@ export class YtServiceService {
     const body = { videoURL };
     const headers = new HttpHeaders().set("Content-Type", "application/json");
     return this.http.post(this.url + "download/downloadshortmp4", body, {
+      headers,
+      reportProgress: true,
+      responseType: "blob",
+      observe: "events",
+    });
+  }
+  downloadAudio(videoURL: string): Observable<HttpEvent<Blob>> {
+    const params = new HttpParams().set("videoURL", videoURL);
+    const headers = new HttpHeaders().set("Content-Type", "application/json");
+    return this.http.get(this.url + "mp3/downloadAudio", {
+      params,
       headers,
       reportProgress: true,
       responseType: "blob",

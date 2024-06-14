@@ -9,7 +9,7 @@ import { AppComponent } from "./app.component";
 import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { YtServiceService } from "./services/yt-service.service";
-import { CommonModule } from "@angular/common";
+import { CommonModule, PathLocationStrategy } from "@angular/common";
 import {
   TranslateLoader,
   TranslateModule,
@@ -43,7 +43,7 @@ import { HashLocationStrategy, LocationStrategy } from "@angular/common";
   providers: [
     YtServiceService,
     TranslateService,
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
   ],
   bootstrap: [AppComponent],
   exports: [TranslateModule],

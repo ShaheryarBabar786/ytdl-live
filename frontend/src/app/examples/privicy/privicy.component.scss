@@ -25,11 +25,17 @@ h1 ,h2,h3,h4,h5, h6{
     padding: 10px;
     border-radius: 50%;
   }
+  .h1-seo{
+    visibility: hidden;
+  }
 
   @media (max-width: 767px) {
  
     footer ul li a{
-      padding: 7px;
+      padding: 8px;
+    }
+    .h1-seo{
+      visibility: hidden;
     }
   }
 

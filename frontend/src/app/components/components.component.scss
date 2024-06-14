@@ -265,6 +265,11 @@
     background-color: #4caf50;
     width: 0%;
   }
+  .h1-seo {
+    visibility: hidden; 
+    
+  }
+ 
   @media (max-width: 767px) {
     .FAQS{
       padding: 0PX;
@@ -290,9 +295,12 @@
     }
 
     footer ul li a{
-      padding: 7px;
+      padding: 8px;
     }
-    
+
+    .h1-seo {
+      visibility: hidden; 
+    }
     
   }
 

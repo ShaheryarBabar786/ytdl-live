@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, HostListener } from "@angular/core";
 import { Location } from "@angular/common";
 import { TranslateService } from "@ngx-translate/core";
-import { Router } from "@angular/router";
+import { NavigationEnd, Router } from "@angular/router";
 
 @Component({
   selector: "app-navbar",
@@ -12,6 +12,8 @@ export class NavbarComponent implements OnInit {
   private toggleButton: any;
   private sidebarVisible: boolean;
   selectedLanguage: string;
+
+  showNavbar: boolean = true;
 
   constructor(
     public location: Location,
