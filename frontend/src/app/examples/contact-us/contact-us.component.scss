@@ -5,7 +5,7 @@ form {
 .wrapper{
   display: flex;
   flex-direction: column;
-  display: none;
+ 
   
 
 }
@@ -137,12 +137,17 @@ form {
   background-size: 100% 100%;
   transform: translateY(-0.15em);
 }
-
+.h1-seo{
+  opacity: 0;
+  display: hidden;
+  visibility: hidden;
+}
 
 @media (max-width: 768px) {
   .wrapper {
     flex-direction: column;
     display: block;
+    margin-top: 50px;
   }
 
   svg {
@@ -154,6 +159,7 @@ form {
   form {
     min-width: 100%;
     padding: 1rem;
+    margin-top: 20px;
     
     .title {
       font-size: 1.5rem;
@@ -179,6 +185,10 @@ form {
       left: 1rem;
       top: 1rem;
     }
+
+    .h1-seo{
+      visibility: block;
+    }
   }
 
   .btn.btn-primary {
@@ -196,6 +206,6 @@ form {
 @media (max-width: 767px) {
  
   footer ul li a{
-    padding: 7px;
+    padding: 8px;
   }
 }

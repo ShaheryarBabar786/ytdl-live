@@ -11,6 +11,7 @@ import { ContactComponent } from "./contact-us/contact-us.component";
 import { ExamplesComponent } from "./examples.component";
 import { PrivicyComponent } from "./privicy/privicy.component";
 import { TranslateModule } from "@ngx-translate/core";
+import { PagenotfoundComponent } from "./pagenotfound/pagenotfound.component";
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { TranslateModule } from "@ngx-translate/core";
     DisclaimerComponent,
     ExamplesComponent,
     ContactComponent,
+    PagenotfoundComponent,
   ],
 })
 export class ExamplesModule {}
